@@ -4,7 +4,7 @@
   "description": "API serving backend apis for web content",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
+    "dev": "nodemon -r esm app.js",
     "test": "jest",
     "start": "node -r esm app.js"
   },
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "esm": "^3.2.25",
     "express": "^4.18.2",
     "mongoose": "^6.8.0"
   }
