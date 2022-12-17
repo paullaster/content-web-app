@@ -3,12 +3,14 @@ import express from 'express';
 
 //Internal dependencies
 import Router from './routes/index';
+import cors from 'cors'
 //Creating app instance
 const app = express();
 
 //Application settings
 app.use ( express.json ());
 app.use ( express.urlencoded ( {extended: true} ));
+app.use ( cors ());
 
 //middleware
 app.use ( '/api', Router);
