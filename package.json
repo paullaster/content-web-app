@@ -1,0 +1,26 @@
+{
+  "name": "content-web-app-backend",
+  "version": "1.0.0",
+  "description": "API serving backend apis for web content",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "jest",
+    "start": "node -r esm app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paullaster/content-web-app-backend.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "ReactJs",
+    "ExpressJs"
+  ],
+  "author": "Paullaster Okoth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paullaster/content-web-app-backend/issues"
+  },
+  "homepage": "https://github.com/paullaster/content-web-app-backend#readme"
+}
