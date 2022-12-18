@@ -13,7 +13,11 @@ const BlogSchema = new Schema ( {
  },
  Author: {
     type: [AuthSchema]
- }
+ },
+ creationDate: {
+    type: Date,
+    default: new Date(),
+ },
 });
 
 const BlogModel = mongoose.model('Blog', BlogSchema)
