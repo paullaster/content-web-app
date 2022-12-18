@@ -6,7 +6,7 @@ dotenv.config ();
 const uri = process.env.DB_URI;
 
 //Connection
-const db = mongoose.connect (uri, {
+mongoose.connect (uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -17,17 +17,22 @@ const db = mongoose.connect (uri, {
     console.log ( 'error connecting to mongoDb: ' +err.message );
 });
 
-// const db = connection.connect();
+mongoose.connection.on ("connected", () => {
+    return  'Connection to mongodb  was successful!';
+ });
+ 
+ mongoose.connection.on ( 'error', (error) => {
+     return ( {
+         error: error.message
+     });
+ });
+ 
+ mongoose.connection.on ('disconnected', () => {
+     return 'Connection to mongodb was disconnected';
+ });
+ 
+ process.on ( 'SIGINT', async() => {
+     await mongoose.connection.close ();
+     process.exit ( 0 );
+ });
 
-// db.on ('connected', (con) => {
-//     console.log (' mongodb connection established!: '+ con.connection)
-// })
-// db.on ('error', (err) => {
-//     console.log (' error establishing connection: '+ err);
-// });
-
-// db.on ( 'disconnected', (con) => {
-//     console.log (' mongodb disconnected!: '+con.connection);
-// });
-
-export default db;
