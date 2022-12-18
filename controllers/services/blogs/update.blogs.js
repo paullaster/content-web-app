@@ -10,7 +10,10 @@ const updateBlogs = (req, res) => {
     .then ( (blog) => {
         res
         .status(200)
-        .json(blog);
+        .json({
+            code: 'success',
+            message: 'Updated blog successfully',
+        });
     })
     .catch ( (err) => {
         res
