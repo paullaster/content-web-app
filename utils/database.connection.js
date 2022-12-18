@@ -6,15 +6,15 @@ dotenv.config ();
 const uri = process.env.DB_URI;
 
 //Connection
-mongoose.connect (uri, {
+const db = mongoose.connect (uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-.then ( () => {
-    console.log ( 'Connection to mongoDb established ');
+.then ( (fullfilled) => {
+    console.log ( 'Connection to mongoDB established '+fullfilled);
 })
 .catch ( (err) => {
-    console.log ( 'error connecting to mongoDb: ' +err.message );
+    console.log ( 'error connecting to mongoDB: ' +err.message );
 });
 
 mongoose.connection.on ("connected", () => {
@@ -36,3 +36,4 @@ mongoose.connection.on ("connected", () => {
      process.exit ( 0 );
  });
 
+export default db;

@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 
 //Internal dependencies
 import Router from './routes/index';
+import dbConnection from './utils/database.connection';
 
 //Creating app instance
 const app = express();
