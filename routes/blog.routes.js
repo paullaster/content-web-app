@@ -1,5 +1,5 @@
 import express from 'express';
-const route = express.Router();
+const BlogRoutes = express.Router();
 
 
 //Internal dependencies
@@ -8,9 +8,9 @@ import fetchBlogs from '../controllers/services/blogs/fetch.blog';
 import updateBlogs from '../controllers/services/blogs/update.blogs';
 import deleteBlogs from '../controllers/services/blogs/delete.blogs';
 
-route('/create').post (createBlog);
-route('/get').get(fetchBlogs);
-route('/update').put (updateBlogs);
-route('/delete').delete (deleteBlogs);
+BlogRoutes.route('/new').post (createBlog);
+BlogRoutes.route('/get').get(fetchBlogs);
+BlogRoutes.route('/update').put (updateBlogs);
+BlogRoutes.route('/delete').delete (deleteBlogs);
 
-export default route;
+export default BlogRoutes;
