@@ -37,8 +37,16 @@ const login = (req, res) => {
                     });
                     return;
                 };
-                res.json(token);
-            })
+               
+                res
+                .status(200)
+                .json (
+                    {
+                        code: 'success',
+                        token: token,
+                    }
+                );
+            });
         })
         .catch((err) => {
             res
