@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {isEmail, isPhoneNumber} from 'validator';
+import {isEmail} from 'validator';
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema ( {
@@ -21,7 +21,7 @@ const UserSchema = new Schema ( {
         type: String,
         required: true,
         unique: true,
-        validate: [isPhoneNumber]
+        //validate: [isMobilePhone (any)]
     },
     password: {
         type: String,
@@ -33,6 +33,6 @@ const UserSchema = new Schema ( {
     },
 });
 
-const UserModel = mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("Users", UserSchema);
 
 export default UserModel;
