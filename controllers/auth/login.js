@@ -7,6 +7,6 @@ import User from '../../models/user.schema';
 
 const login = ( req, res) => {
     const { password, ...arg } = req.body;
-    res.json ({arg})
+    
 };
 export default login;

@@ -3,6 +3,6 @@ import login from './login';
 
 const Accounts = {
     new: register,
-    login: login
+    login: login,
 };
 export default Accounts;
