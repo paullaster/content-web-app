@@ -10,8 +10,18 @@ const login = (req, res) => {
     User.findOne({ email: email })
       .then(user => {
         bcrypt.compare (password, user.password)
-        .then((res) =>{
-            res.send(res);
+        .then((resp) =>{
+            if (!resp) {
+                res
+                .status(404)
+                .json (
+                    {
+                        code: 'success',
+                        error: 'Invalid password',
+                    }
+                );
+                return;
+            };
         })
         .catch((err) => {
             res
