@@ -1,4 +1,25 @@
+import BlogModel from "../../../models/blog.schema";
 const deleteBlogs = (req, res, next) => {
-    res.send('Blog deleted successfully')
+    const {blodId} = req.query;
+    BlogModel.deleteOne( {blodId})
+    .then ( (blog) => {
+        res
+        .status(200)
+        .json ( {
+            code: 'success',
+            blog: blog
+        });
+    }
+    )
+    .catch ( (err) => {
+        res
+        .status(500)
+        .json ( 
+            {
+                code: 'error',
+                error:err.message,
+            }
+        );
+    });
 };
 export default deleteBlogs
