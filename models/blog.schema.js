@@ -11,9 +11,9 @@ const BlogSchema = new Schema ( {
     type: String,
     required: true,
  },
- Author: {
-    type: [AuthSchema]
- },
+//  Author: {
+//     type: [AuthSchema]
+//  },
  creationDate: {
     type: Date,
     default: new Date(),
