@@ -1,7 +1,8 @@
 //dependencies
 import JWT from "jsonwebtoken";
 import bcrypt from "bcrypt";
-
+import * as dotenv from "dotenv";
+dotenv.config ();
 //Internal dependencies
 import User from "../../models/user.schema";
 
@@ -23,7 +24,21 @@ const login = (req, res) => {
                 return;
             };
             let payload = {_id: user._id}
-            JWT.sign (payload,)
+            JWT.sign (payload, process.env.TOKEN_SECRET, {
+                algorithm: 'HS512',
+                expiresIn: 5400,
+            }, (err, token) => {
+                if (err) {
+                    res
+                    .status(500)
+                    .json ( {
+                        code: 'error',
+                        error: 'Error creating token',
+                    });
+                    return;
+                };
+                
+            })
         })
         .catch((err) => {
             res
