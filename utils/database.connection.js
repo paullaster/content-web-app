@@ -6,14 +6,15 @@ dotenv.config ();
 const uri = process.env.DB_URI;
 
 //Connection
-const connection = mongoose.connect (uri, {
+const db = mongoose.connect (uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}, (err, db) => {
-    if (err) {
-        console.log (err);
-    }
-    console.log (db);
+})
+.then ( (fullfilled) => {
+    console.log ( 'Connection to mongoDb established ' + fullfilled.ConnectionStates);
+})
+.catch ( (err) => {
+    console.log ( 'error connecting to mongoDb: ' +err.message );
 });
 
 // const db = connection.connect();
