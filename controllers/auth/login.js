@@ -40,6 +40,9 @@ const login = (req, res) => {
                
                 res
                 .status(200)
+                .header ( {
+                    'Authorization': 'Bearer ' +token
+                })
                 .json (
                     {
                         code: 'success',
