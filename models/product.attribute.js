@@ -12,4 +12,7 @@ const Attribute = new Schema ( {
     quantity: {
         type: Number,
     }
-})
+});
+
+const AttributeModel = mongoose.Model ('Product attribute', Attribute);
+export default AttributeModel

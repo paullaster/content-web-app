@@ -25,4 +25,7 @@ const productSchema = new Schema ( {
         type: Float,
         required: true
     },
-})
+});
+
+const ProductModel = mongoose.model('Product', productSchema);
+export default Product;
