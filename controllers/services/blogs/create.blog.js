@@ -8,16 +8,15 @@ const createBlog = (req, res) => {
     newBlog.save ()
     .then ( (data) => {
         res
-        .setHeader ("Content-Type", "application/json")
         .status (200)
         .json(data);
     })
     .catch ( (err) => {
-        
+        res
+        .status (500)
+        .json( {
+            error: err.message,
+        } );
     });
-    res
-    .setHeader('Content-Type', 'application/json')
-    .send(newBlog);
-
 };
 export default createBlog;
