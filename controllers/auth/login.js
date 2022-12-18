@@ -37,7 +37,7 @@ const login = (req, res) => {
                     });
                     return;
                 };
-                
+                res.json(token);
             })
         })
         .catch((err) => {
