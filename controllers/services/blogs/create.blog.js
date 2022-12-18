@@ -9,12 +9,16 @@ const createBlog = (req, res) => {
     .then ( (data) => {
         res
         .status (200)
-        .json(data);
+        .json({
+            code: 'success',
+            data: data
+        });
     })
     .catch ( (err) => {
         res
         .status (500)
         .json( {
+            code:'error',
             error: err.message,
         } );
     });
