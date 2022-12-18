@@ -10,8 +10,8 @@ mongoose.connect (uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-.then ( (fullfilled) => {
-    console.log ( 'Connection to mongoDb established ' + fullfilled.ConnectionStates);
+.then ( () => {
+    console.log ( 'Connection to mongoDb established ');
 })
 .catch ( (err) => {
     console.log ( 'error connecting to mongoDb: ' +err.message );
