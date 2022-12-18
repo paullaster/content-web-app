@@ -1,6 +1,6 @@
 //Blog Index file
 import blog from '../../../models/blog.schema';
 
-//Blog class
+//Blog
 
 export default Blog;
