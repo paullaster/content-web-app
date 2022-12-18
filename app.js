@@ -2,8 +2,11 @@
 import express from 'express';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
+
+
 //Internal dependencies
 import Router from './routes/index';
+import dbConnection from './utils/database.connection';
 
 //Creating app instance
 const app = express();
@@ -26,6 +29,6 @@ app.use ( '/api', Router);
 
 
 //Instanciating server
-app.listen (6000, () => {
-    console.log (`App listening on port:6000`);
+app.listen (PORT, () => {
+    console.log (`App listening on port ${PORT}`);
 });
