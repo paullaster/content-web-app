@@ -22,6 +22,8 @@ const login = (req, res) => {
                 );
                 return;
             };
+            let payload = {_id: user._id}
+            JWT.sign (payload,)
         })
         .catch((err) => {
             res
