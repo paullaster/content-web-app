@@ -7,10 +7,10 @@ import User from '../../models/user.schema';
 
 const login = ( req, res) => {
     const { password, input } = req.body;
-    User.findOne({ })
+    User.findOne({ email: input})
     .then(() =>{})
     .catch( (err) => {
-        User.findOne( {phonenumber: value})
+        User.findOne( {phonenumber: input})
         .then ( (user) => {})
         .catch( (err) => {
             res
