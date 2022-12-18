@@ -9,13 +9,27 @@ const login = (req, res) => {
   const { password, email } = req.body;
     User.findOne({ email: email })
       .then(user => {
-        res.json(user);
+        bcrypt.compare (password, user.password)
+        .then((res) =>{
+            res.send(res);
+        })
+        .catch((err) => {
+            res
+            .status(500)
+            .json(
+                {
+                    code: 'error',
+                    error: err.message,
+                }
+            );
+        });
       })
       .catch(err => {
         res
         .status (404)
         .json ( {
-            code: 'error'
+            code: 'error',
+            error: err.message,
         })
       });
 };
