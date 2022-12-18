@@ -1,20 +1,6 @@
 //Blog Index file
-class Blog {
-    constructor (title, content, author){
-        this.title = title;
-        this.content = content;
-        this.author = author;
-    };
-    createBlog(title, content, author){
+import blog from '../../../models/blog.schema';
 
-    };
-    readBlog(title, content, author){
+//Blog class
 
-    };
-    updateBlog(title, content, author){
-
-    }
-    deleteBlog(title, content, author){
-        
-    };
-}
+export default Blog;
