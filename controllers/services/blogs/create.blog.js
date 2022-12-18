@@ -5,9 +5,19 @@ const createBlog = (req, res) => {
         Title: title,
         Content: body
     });
+    newBlog.save ()
+    .then ( (data) => {
+        res
+        .setHeader ("Content-Type", "application/json")
+        .status (200)
+        .json(data);
+    })
+    .catch ( (err) => {
+        
+    });
     res
     .setHeader('Content-Type', 'application/json')
-    .send();
+    .send(newBlog);
 
 };
 export default createBlog;
