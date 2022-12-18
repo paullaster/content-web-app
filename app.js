@@ -1,19 +1,30 @@
 //Importing dependencies
 import express from 'express';
-
+import cors from 'cors';
+import * as dotenv from 'dotenv';
 //Internal dependencies
 import Router from './routes/index';
-import cors from 'cors'
+
 //Creating app instance
 const app = express();
+
+//App secrets
+dotenv.config ();
 
 //Application settings
 app.use ( express.json ());
 app.use ( express.urlencoded ( {extended: true} ));
 app.use ( cors ());
 
+//Application variables:
+const PORT = process.env.APP_PORT || 6000
+
 //middleware
 app.use ( '/api', Router);
+
+
+
+
 //Instanciating server
 app.listen (6000, () => {
     console.log (`App listening on port:6000`);
