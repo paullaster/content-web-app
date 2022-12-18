@@ -10,5 +10,5 @@ const Blog = {
     update: updateBlogs,
     delete: deleteBlogs,
     fetch: fetchBlogs
-}
+};
 export default Blog;

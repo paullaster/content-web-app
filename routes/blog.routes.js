@@ -3,14 +3,11 @@ const BlogRoutes = express.Router();
 
 
 //Internal dependencies
-import createBlog from '../controllers/services/blogs/create.blog';
-import fetchBlogs from '../controllers/services/blogs/fetch.blog';
-import updateBlogs from '../controllers/services/blogs/update.blogs';
-import deleteBlogs from '../controllers/services/blogs/delete.blogs';
+import Blog from '../controllers/services/blogs/index';
 
-BlogRoutes.route('/new').post (createBlog);
-BlogRoutes.route('/get').get(fetchBlogs);
-BlogRoutes.route('/update').put (updateBlogs);
-BlogRoutes.route('/delete').delete (deleteBlogs);
+BlogRoutes.route('/new').post (Blog.new);
+BlogRoutes.route('/get').get(Blog.fetch);
+BlogRoutes.route('/update').put (Blog.update);
+BlogRoutes.route('/delete').delete (Blog.delete);
 
 export default BlogRoutes;
