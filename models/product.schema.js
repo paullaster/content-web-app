@@ -1,5 +1,8 @@
 import mongoose from 'mongoose';
 
+//Internal dependencies
+import Attribute from './product.attribute';
+
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema ( {
@@ -8,8 +11,8 @@ const productSchema = new Schema ( {
         required: true
     },
     image: {
-        type:'',
-        required: true
+        data: Buffer,
+        contentType: String,
     },
     description: {
         type:String,
