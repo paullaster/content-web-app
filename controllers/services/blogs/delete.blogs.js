@@ -7,7 +7,7 @@ const deleteBlogs = (req, res, next) => {
         .status(200)
         .json ( {
             code: 'success',
-            blog: blog
+            message: 'Blog deleted successfully',
         });
     }
     )
