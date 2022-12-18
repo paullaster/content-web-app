@@ -6,20 +6,27 @@ dotenv.config ();
 const uri = process.env.DB_URI;
 
 //Connection
-const db = mongoose.connect (uri, {
+const connection = mongoose.connect (uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+}, (err, db) => {
+    if (err) {
+        console.log (err);
+    }
+    console.log (db);
 });
 
-db.on ('connected', (con) => {
-    console.log (' mongodb connection established!: '+ con.connection)
-})
-db.on ('error', (err) => {
-    console.log (' error establishing connection: '+ err);
-});
+// const db = connection.connect();
 
-db.on ( 'disconnected', (con) => {
-    console.log (' mongodb disconnected!: '+con.connection);
-});
+// db.on ('connected', (con) => {
+//     console.log (' mongodb connection established!: '+ con.connection)
+// })
+// db.on ('error', (err) => {
+//     console.log (' error establishing connection: '+ err);
+// });
+
+// db.on ( 'disconnected', (con) => {
+//     console.log (' mongodb disconnected!: '+con.connection);
+// });
 
 export default db;
