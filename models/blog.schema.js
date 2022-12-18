@@ -1,17 +1,19 @@
 import mongoose from 'mongoose';
-
+import AuthSchema from './author.schema';
 const Schema = mongoose.Schema;
 const BlogSchema = new Schema ( {
  Title: {
-    type: STRING,
+    type: String,
     required: true,
     maxLength: 100,
  },
  Content: {
-    type: STRING,
+    type: String,
     required: true,
  },
  Author: {
-    type: [AuthorSchema]
+    type: [AuthSchema]
  }
 });
+
+export default BlogSchema;
