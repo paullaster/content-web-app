@@ -17,23 +17,4 @@ const db = mongoose.connect (uri, {
     console.log ( 'error connecting to mongoDB: ' +err.message );
 });
 
-mongoose.connection.on ("connected", () => {
-    return  'Connection to mongodb  was successful!';
- });
- 
- mongoose.connection.on ( 'error', (error) => {
-     return ( {
-         error: error.message
-     });
- });
- 
- mongoose.connection.on ('disconnected', () => {
-     return 'Connection to mongodb was disconnected';
- });
- 
- process.on ( 'SIGINT', async() => {
-     await mongoose.connection.close ();
-     process.exit ( 0 );
- });
-
 export default db;
