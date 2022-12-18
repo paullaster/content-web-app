@@ -9,3 +9,6 @@ import updateBlogs from '../controllers/services/blogs/update.blogs';
 import deleteBlogs from '../controllers/services/blogs/delete.blogs';
 
 route('/new').post (createBlog);
+route('/get').get(fetchBlogs);
+route('update').put (updateBlogs);
+route('/delete').delete (deleteBlogs);
