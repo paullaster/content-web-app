@@ -6,7 +6,22 @@ import bcrypt from 'bcrypt';
 import User from '../../models/user.schema';
 
 const login = ( req, res) => {
-    const { password, ...arg } = req.body;
-    
+    const { password, input } = req.body;
+    User.findOne({ })
+    .then(() =>{})
+    .catch( (err) => {
+        User.findOne( {phonenumber: value})
+        .then ( (user) => {})
+        .catch( (err) => {
+            res
+            .status(404)
+            .json (
+                {
+                    code: 'error',
+                    error: "phonenumber or email not found"
+                }
+            )
+        })
+    });
 };
 export default login;
