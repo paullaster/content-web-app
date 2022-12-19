@@ -13,7 +13,7 @@ const createProduct = (req, res) => {
     });
 
     //saving product to db
-    newProduct.save ()
+    newProduct.save ().populate ({path: 'Product attribute'})
     .then ( (resp) => {
         newAttribute.save ()
         .then ( (resp)=> {
