@@ -5,6 +5,7 @@ import fetchSingleProduct from './fetch.single.product';
 
 const Product = {
     new: createProduct,
-    all_products: fetchProducts
+    all_products: fetchProducts,
+    single_product: fetchSingleProduct
 };
 export default Product;
