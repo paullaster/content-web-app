@@ -1,5 +1,7 @@
 //FETCH ALL PRODUCTS
 import Product from '../../../models/product.schema';
+import AttributeModel from '../../../models/products.attribute.model';
+
 const updateProduct = (req, res) =>{
     const {_id} = req.params;
     const {title, description, image, price, variation:{color, size,quantity}} = req.body;
@@ -12,8 +14,21 @@ const updateProduct = (req, res) =>{
             ]
             )
         .then ( () => {
-            
-        })
+            AttributeModel.updateOne( 
+                {_id: product._id},
+                [
+                    { $set: {color:color, size:size, quantity:quantity}}
+                ]
+            )
+            .then ( () => {
+                res
+                .status(200)
+                .json({
+                    code: 'success',
+                    message: "Product updated successfully!",
+                });
+            });
+        });
     })
     .catch((err) =>{
         res
