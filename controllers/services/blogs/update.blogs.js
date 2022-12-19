@@ -1,6 +1,6 @@
 import BlogModel from "../../../models/blog.schema";
 const updateBlogs = (req, res) => {
-    const {blogId} = req.query;
+    const {blogId} = req.params;
     const {title, body} = req.body;
     BlogModel.updateOne({
         _id: blogId,
