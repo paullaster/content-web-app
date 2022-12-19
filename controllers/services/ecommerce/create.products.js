@@ -15,9 +15,16 @@ const createProduct = (req, res) => {
     //saving product to db
     newAttribute.save ()
     .then ( (reps)=> {
-        
+
     })
-    .catch ( (err) => {});
-    res.json ({newProduct, newAttribute});
+    .catch ( (err) => {
+        res
+        .status(500)
+        .json ( {
+            code: 'error',
+            error: err.message,
+        })
+    });
+    
 };
 export default createProduct;
