@@ -6,4 +6,6 @@ import Product from '../controllers/services/ecommerce/index';
 
 const ProductRoutes = express.Router();
 
+ProductRoutes.route( '/new').post (Product.new);
 
+export default ProductRoutes;
