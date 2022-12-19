@@ -23,7 +23,8 @@ const productSchema = new Schema ( {
         required: true
     },
     variation: {
-        type: mongoose.Types.ObjectId, ref: 'Product attribute'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product attribute'
     },
 });
 
