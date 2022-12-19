@@ -13,6 +13,4 @@ const Attribute = new Schema ( {
         type: Number,
     }
 });
-
-//const AttributeModel = mongoose.model ('Product attribute', Attribute);
 export default Attribute;
