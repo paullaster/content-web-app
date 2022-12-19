@@ -14,8 +14,8 @@ const createProduct = (req, res) => {
 
     //saving product to db
     newAttribute.save ()
-    .then ( (reps)=> {
-
+    .then ( (resp)=> {
+        res.json ({resp});
     })
     .catch ( (err) => {
         res
@@ -23,7 +23,7 @@ const createProduct = (req, res) => {
         .json ( {
             code: 'error',
             error: err.message,
-        })
+        });
     });
     
 };
