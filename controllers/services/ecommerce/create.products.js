@@ -15,7 +15,10 @@ const createProduct = (req, res) => {
     //saving product to db
     newAttribute.save ()
     .then ( (resp)=> {
-        res.json ({resp});
+        newProduct.save ()
+        .then ( (resp) => {
+            res.json(resp);
+        });
     })
     .catch ( (err) => {
         res
