@@ -13,11 +13,19 @@ const createProduct = (req, res) => {
     });
 
     //saving product to db
-    newAttribute.save ()
-    .then ( (resp)=> {
-        newProduct.save ()
-        .then ( (resp) => {
+    newProduct.save ()
+    .then ( (resp) => {
+        newAttribute.save ()
+        .then ( (resp)=> {
             res.json(resp);
+        })
+        .catch ( (err) => {
+            res
+            .status(500)
+            .json ( {
+                code: 'error',
+                error: err.message,
+            });
         });
     })
     .catch ( (err) => {

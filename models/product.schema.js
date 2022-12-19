@@ -18,12 +18,12 @@ const productSchema = new Schema ( {
         type:String,
         required: true
     },
-    variation: {
-        type: [Attribute]
-    },
     price: {
         type: Number,
         required: true
+    },
+    variation: {
+        type: [Attribute]
     },
 });
 
