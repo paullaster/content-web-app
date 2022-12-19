@@ -1,4 +1,5 @@
 //CREATING PRODUCT
+import { json } from 'express';
 import Product from '../../../models/product.schema';
 import Attribute from '../../../models/products.attribute.model';
 const createProduct = (req, res) => {
@@ -13,9 +14,40 @@ const createProduct = (req, res) => {
     });
 
     //saving product to db
-    newProduct.save ();
-    newAttribute.save ();
-    res.json ({message: 'Product saved'})
+    newProduct.save ()
+    .then ((data) => {
+        newAttribute.save ()
+    .then ((data) => {
+        res
+        .status(200)
+        .json(
+            {
+                code: 'success',
+                message: 'product saved successfully'
+            }
+        );
+    })
+    .catch ((err) =>{
+        res
+        .status(500)
+        .json(
+            {
+                code: 'error',
+                error: err.message
+            }
+        )
+    });
+    })
+    .catch ((err) =>{
+        res
+        .status(500)
+        .json(
+            {
+                code: 'error',
+                error: err.message
+            }
+        )
+    });
     
 };
 export default createProduct;
