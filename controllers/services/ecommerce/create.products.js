@@ -2,40 +2,20 @@
 import Product from '../../../models/product.schema';
 import Attribute from '../../../models/products.attribute.model';
 const createProduct = (req, res) => {
-    const { variation:[{color, size, quantity}], ...product} = req.body;
+    const { variation:{color, size, quantity}, ...product} = req.body;
     let newProduct = new Product ( {
         ...product,
     });
     let newAttribute = new Attribute ({
         color: color,
         size: size, 
-         quantity: quantity,
+        quantity: quantity,
     });
 
     //saving product to db
-    newProduct.save ()
-    .then ( (resp) => {
-        newAttribute.save ()
-        .then ( (resp)=> {
-            res.json(resp);
-        })
-        .catch ( (err) => {
-            res
-            .status(500)
-            .json ( {
-                code: 'error',
-                error: err.message,
-            });
-        });
-    })
-    .catch ( (err) => {
-        res
-        .status(500)
-        .json ( {
-            code: 'error',
-            error: err.message,
-        });
-    });
+    newProduct.save ();
+    newAttribute.save ();
+    res.json ({message: 'Product saved'})
     
 };
 export default createProduct;
