@@ -11,6 +11,13 @@ const createProduct = (req, res) => {
         size: size, 
          quantity: quantity,
     });
+
+    //saving product to db
+    newAttribute.save ()
+    .then ( (reps)=> {
+        
+    })
+    .catch ( (err) => {});
     res.json ({newProduct, newAttribute});
 };
 export default createProduct;
