@@ -1,6 +1,6 @@
 import BlogModel from "../../../models/blog.schema";
 const deleteBlogs = (req, res, next) => {
-    const {blodId} = req.query;
+    const {blodId} = req.params;
     BlogModel.find ( {blodId})
     .then ( (blog) => {
         BlogModel.deleteOne( {blodId})
