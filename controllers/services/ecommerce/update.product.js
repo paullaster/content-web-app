@@ -5,7 +5,10 @@ const updateProduct = (req, res) =>{
     const {title, description, image, price, variation} = req.body;
     Product.findOne({_id:_id})
     .then ((product) =>{
-        
+        Product.updateOne(
+            {_id:product._id},
+
+            )
     })
     .catch((err) =>{
         res
