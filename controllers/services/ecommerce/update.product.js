@@ -2,7 +2,18 @@
 import Product from '../../../models/product.schema';
 const updateProduct = (req, res) =>{
     const {_id} = req.params;
+    const {title, description, image, price, variation} = req.body;
     Product.findOne({_id:_id})
-    .then
+    .then ((product) =>{
+        
+    })
+    .catch((err) =>{
+        res
+        .status (500)
+        .json ({
+            code: 'error',
+            error: err.message,
+        })
+    });
 };
 export default  updateProduct;
