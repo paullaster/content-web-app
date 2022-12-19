@@ -2,15 +2,15 @@
 import Product from '../../../models/product.schema';
 import Attribute from '../../../models/products.attribute.model';
 const createProduct = (req, res) => {
-    const { variation, ...product} = req.body;
+    const { variation:[{color, size, quantity}], ...product} = req.body;
     let newProduct = new Product ( {
         ...product,
     });
-    for (let item of variation) {};
-    let newAttribute = new Attribute ( {
-        ...variation,
-    })
-    console.log([...variation])
+    let newAttribute = new Attribute ({
+        color: color,
+        size: size, 
+         quantity: quantity,
+    });
     res.json ({newProduct, newAttribute});
 };
 export default createProduct;
