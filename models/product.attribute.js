@@ -14,5 +14,5 @@ const Attribute = new Schema ( {
     }
 });
 
-const AttributeModel = mongoose.Model ('Product attribute', Attribute);
-export default AttributeModel
+//const AttributeModel = mongoose.model ('Product attribute', Attribute);
+export default Attribute;

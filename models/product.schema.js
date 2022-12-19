@@ -22,10 +22,10 @@ const productSchema = new Schema ( {
         type: [Attribute]
     },
     price: {
-        type: Float,
+        type: Number,
         required: true
     },
 });
 
 const ProductModel = mongoose.model('Product', productSchema);
-export default Product;
+export default ProductModel;
