@@ -3,7 +3,7 @@ import Product from '../../../models/product.schema';
 
 //Find all products
 const fetchProducts = (req, res) =>{
-    Product.find( {})
+    Product.find( {}).populate({path:" variation"})
     .then((products) =>{
         res
         .status(200)
