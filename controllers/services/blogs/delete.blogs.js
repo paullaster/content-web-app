@@ -11,7 +11,9 @@ const deleteBlogs = (req, res, next) => {
                 status: 'error',
                 rows
             });
+            return;
         };
+        res.status (200)
     });
 };
 export default deleteBlogs

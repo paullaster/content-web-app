@@ -16,10 +16,18 @@ const createBlog = (req, res) => {
             .status (500)
             .json ( {
                 status: 'error',
-                rows
+                error: err.message,
             });
             return;
         };
+        res
+        .status (200)
+        .json(
+            {
+                status: 'success',
+                massage: blogId + ' created successfully'
+            }
+        )
     });
 };
 export default createBlog;
