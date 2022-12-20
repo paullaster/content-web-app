@@ -1,4 +1,3 @@
-import mysql from "mysql2";
 import db from '../../../utils/database.connection';
 import blogId from "../../../utils/create.blogid";
 const createBlog = (req, res) => {
@@ -19,6 +18,7 @@ const createBlog = (req, res) => {
                 status: 'error',
                 rows
             });
+            return;
         };
     });
 };

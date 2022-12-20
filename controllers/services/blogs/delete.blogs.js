@@ -1,8 +1,17 @@
-import mysql from 'mysql2';
 import db from '../../../utils/database.connection';
 
 const deleteBlogs = (req, res, next) => {
-    const {blodId} = req.params;
-    
+    const {blogid} = req.params;
+    let query = `DELETE FROM blog WHERE blogid = '${blogid}'`;
+    db.query (query, (err, rows) => {
+        if (err) {
+            res
+            .status (500)
+            .json ( {
+                status: 'error',
+                rows
+            });
+        };
+    });
 };
 export default deleteBlogs
