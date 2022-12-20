@@ -13,7 +13,12 @@ const createBlog = (req, res) => {
     let query = 'INSERT INTO blog SET?';
     db.query(query, newBlog, (err, rows) => {
         if (err) {
-            
+            res
+            .status (500)
+            .json ( {
+                status: 'error',
+                rows
+            });
         };
     });
 };
