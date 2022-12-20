@@ -5,5 +5,7 @@ const blogId = () => {
         let randDigit = Math.floor( Math.random() * 10);
         randNumber = [...randNumber, randDigit];
     };
+    console.log(randNumber);
 };
-export default blogId;
+blogId ();
+//export default blogId;
