@@ -11,6 +11,10 @@ const createBlog = (req, res) => {
         date: Date.now(),
     });
     let query = 'INSERT INTO blog SET?';
-    db.query()
+    db.query(query, newBlog, (err, rows) => {
+        if (err) {
+            
+        };
+    });
 };
 export default createBlog;
