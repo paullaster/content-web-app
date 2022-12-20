@@ -9,11 +9,18 @@ const deleteBlogs = (req, res, next) => {
             .status (500)
             .json ( {
                 status: 'error',
-                rows
+                error: err.message,
             });
             return;
         };
-        res.status (200)
+        res
+        .status (200)
+        .json (
+            {
+                status: 'success',
+                message: 'Blog with id ' + blogid +' deleted'
+            }
+        )
     });
 };
 export default deleteBlogs

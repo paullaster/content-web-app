@@ -25,7 +25,7 @@ const createBlog = (req, res) => {
         .json(
             {
                 status: 'success',
-                massage: blogId + ' created successfully'
+                massage: blogId() + ' created successfully'
             }
         )
     });
