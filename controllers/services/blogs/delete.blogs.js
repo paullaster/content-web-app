@@ -20,7 +20,7 @@ const deleteBlogs = (req, res, next) => {
                 status: 'success',
                 message: 'Blog with id ' + blogid +' deleted'
             }
-        )
+        );
     });
 };
 export default deleteBlogs

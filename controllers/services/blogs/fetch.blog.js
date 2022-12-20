@@ -1,23 +1,8 @@
-import BlogModel from "../../../models/blog.schema";
+import db from "../../../utils/database.connection";
 const fetchBlogs = (req, res) => {
-    BlogModel.find( {})
-    .then ( (blogs) => {
-        res
-        .status(200)
-        .json(
-            {
-                code:'success',
-                blogs:blogs
-            }
-        );
-    })
-    .catch ( (err) => {
-        res
-        .status(500)
-        json ( {
-            code:'error',
-            error:err.message,
-        });
-    });
+    let query = 'SELECT * FROM blog';
+    db.query(query, (err, result) => {
+        
+    }); 
 };
 export default fetchBlogs;
