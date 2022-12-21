@@ -1,5 +1,5 @@
-const blogId = () => {
-    const statement = 'blog';
+const AttributeId = () => {
+    const statement = 'attr';
     let randNumber = [];
     for ( let i = 0; randNumber.length < 4; i++ ) {
         let randDigit = Math.floor( Math.random() * 10);
@@ -8,4 +8,4 @@ const blogId = () => {
     
     return statement + '' + randNumber.join('');
 };
-export default blogId;
+export default AttributeId;
