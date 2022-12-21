@@ -12,10 +12,10 @@ const register = (req, res) =>{
     const saltRounds = 16;
     bcrypt.hash (password, saltRounds)
     .then ( (hash) => {
-        let newUser = new User ( {
+        let newUser ={
             ...other,
             password: hash
-       });
+       };
        const query = 'INSERT INTO users SET?';
        db.query (query, newUser, (error, rows) =>{
         if (error) {
