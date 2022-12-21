@@ -15,18 +15,25 @@ const register = (req, res) =>{
         let newUser = new User ( {
             ...other,
             password: hash
-       })
-       newUser.save ()
-       .then ( (user) => {
+       });
+       const query = 'INSERT INTO users SET?';
+       db.query (query, newUser, (error, rows) =>{
+        if (error) {
+            res
+            .status(500)
+            .json ( {
+                status: 'error',
+                error: error.message,
+            });
+            return;
+        };
         res
-        .status(200)
-        .json(
-            {
-                code: 'success',
-                user: user
-            }
-        );
-       })
+        .status (200)
+        .json ( {
+            status: 'success',
+            message: 'User created successfully',
+        })
+       });
     })
     .catch ( (err) => {
         res
