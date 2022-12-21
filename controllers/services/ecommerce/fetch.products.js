@@ -15,7 +15,10 @@ const fetchProducts = (req, res) =>{
             });
             return;
         };
-        res.status(200).json({});
+        res.status(200).json({
+            status: 'success',
+            data: rows,
+        });
     });
 };
 export default  fetchProducts;
