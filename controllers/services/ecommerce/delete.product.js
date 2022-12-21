@@ -3,7 +3,7 @@ import db from "../../../utils/database.connection";
 const deleteProduct = (req, res) =>{
     const {productid} = req.params;
     
-    let query = `DELETE FROM blog WHERE blogid = '${blogid}'`;
+    let query = `DELETE FROM products WHERE productid = '${productid}'`;
     db.query (query, (err, rows) => {
         if (err) {
             res
