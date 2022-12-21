@@ -23,9 +23,9 @@ const updateProduct = (req, res) => {
       });
       return;
     }
-    let query = `UPDATE attributes SET title = '${title}', 
-    description = '${description}', image = '${image}',
-    price = '${price}' WHERE productid = '${productid}'`;
+    let query = `UPDATE attributes SET color = '${color}', 
+    size = '${size}', quantity = '${quantity}'
+    WHERE productid = '${productid}'`;
   });
   Product.findOne({ _id: _id })
     .then(product => {
