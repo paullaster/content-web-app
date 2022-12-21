@@ -4,14 +4,17 @@ import AttributeId from "../../../utils/create.attributeid";
 import productId from "../../../utils/create.productid";
 const createProduct = (req, res) => {
     const { variation:{color, size, quantity}, ...product} = req.body;
+    const productid = productId ();
     let newProduct = {
         ...product,
-        productid: productId (),
+        productid: productid,
     };
     let newAttribute = {
+        variation: AttributeId (),
         color: color,
         size: size, 
         quantity: quantity,
+        productid: productid
     };
 
     const query = `INSERT INTO products SET?`;
