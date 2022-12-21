@@ -1,8 +1,17 @@
 //FETCH ALL PRODUCTS
+import db from "../../../utils/database.connection";
 
 const updateProduct = (req, res) =>{
-    const {_id} = req.params;
+    const {productid} = req.params;
     const {title, description, image, price, variation:{color, size,quantity}} = req.body;
+
+    let query = `UPDATE products SET title = '${title}', 
+    description = '${description}', image = '${image}',
+    price = '${price}' WHERE productid = '${productid}'`;
+
+    db.query (query, (err, result) =>{
+        
+    });
     Product.findOne({_id:_id})
     .then ((product) =>{
         Product.updateOne(
