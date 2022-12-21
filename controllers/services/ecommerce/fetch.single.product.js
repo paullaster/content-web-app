@@ -17,7 +17,9 @@ const fetchSingleProduct = (req, res) => {
         });
         return;
     };
-    res.status(200).json({});
+    res.status(200).json({
+        status: 'success',
+    });
   });
 };
 export default fetchSingleProduct;
