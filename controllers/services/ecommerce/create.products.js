@@ -11,6 +11,24 @@ const createProduct = (req, res) => {
         quantity: quantity,
     };
 
+    const query = `INSERT INTO products SET?`;
+    db.query(query, newAttribute, (error, rows) => {
+        if (error) {
+            res
+            .status(500)
+            .json ( {
+                status: 'error',
+                error: error.message,
+            })
+            return;
+        };
+        res
+        .status(200)
+        .json( {
+            status: 'success',
+            message: 'Attributes added successfully '
+        })
+    });
     //saving product to db
     newProduct.save ()
     .then ((data) => {
