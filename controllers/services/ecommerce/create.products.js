@@ -1,7 +1,5 @@
 //CREATING PRODUCT
-import { json } from 'express';
-import Product from '../../../models/product.schema';
-import Attribute from '../../../models/products.attribute.model';
+import db from "../../../utils/database.connection";
 const createProduct = (req, res) => {
     const { variation:{color, size, quantity}, ...product} = req.body;
     let newProduct = new Product ( {
