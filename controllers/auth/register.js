@@ -24,6 +24,7 @@ const register = (req, res) =>{
             status: 'error',
             error: 'phonenumber is not a valid',
         });
+        return;
     };
     const saltRounds = 16;
     bcrypt.hash (password, saltRounds)
