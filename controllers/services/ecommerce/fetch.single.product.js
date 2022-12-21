@@ -1,5 +1,5 @@
 //FETCH ALL PRODUCTS
-import Product from '../../../models/product.schema';
+
 const fetchSingleProduct = (req, res) =>{
     const {_id} = req.params;
     console.log(_id)

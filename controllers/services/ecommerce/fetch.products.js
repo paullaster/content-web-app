@@ -1,5 +1,5 @@
 //FETCH ALL PRODUCTS
-import Product from '../../../models/product.schema';
+
 
 //Find all products
 const fetchProducts = (req, res) =>{

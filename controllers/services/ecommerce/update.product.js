@@ -1,6 +1,4 @@
 //FETCH ALL PRODUCTS
-import Product from '../../../models/product.schema';
-import AttributeModel from '../../../models/products.attribute.model';
 
 const updateProduct = (req, res) =>{
     const {_id} = req.params;
