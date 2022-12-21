@@ -17,7 +17,14 @@ const createProduct = (req, res) => {
         quantity: quantity,
         productid: productid
     };
-    
+    const queryProd = `INSERT INTO products SET?`;
+    db.query(queryProd, newProduct, (err, rows) => {
+        if (err) {
+            
+            return;
+        };
+    });
+
     const queryAttr = `INSERT INTO attributes SET?`;
     db.query(queryAttr, newAttribute, (error, rows) => {
         if (error) {
