@@ -10,6 +10,16 @@ const register = (req, res) =>{
         password,
         ...other
     } = req.body;
+
+    if(phonenumber.length < 10){
+        res.status(500).json( {
+            status: 'error',
+            error: 'phonenumber is too short',
+        });
+        return;
+    };
+
+    
     const saltRounds = 16;
     bcrypt.hash (password, saltRounds)
     .then ( (hash) => {
