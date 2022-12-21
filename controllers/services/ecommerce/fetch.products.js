@@ -9,7 +9,10 @@ const fetchProducts = (req, res) =>{
     attributes.size AS size, attributes.quantity AS quantity`;
     db.query(query, (err, rows) =>{
         if(err) {
-            
+            res.status(500).json ({
+                status: 'error',
+                error: err.message,
+            })
         }
     });
 };
