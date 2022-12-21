@@ -5,9 +5,9 @@ const updateBlogs = (req, res) => {
     
     let query = `UPDATE blog SET title = '${title}', 
     content = '${body}' WHERE blogid = '${blogid}'`;
-    db.query(query, (err, res) => {
+    db.query(query, (err, rows) => {
         if (err) {
-            res.status (500).json ( {
+            res.status(500).json ( {
                 status: 'error',
                 error: err.message,
             });
