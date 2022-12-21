@@ -2,12 +2,12 @@ import db from '../../../utils/database.connection';
 import blogId from "../../../utils/create.blogid";
 const createBlog = (req, res) => {
     const {title, body} = req.body;
-
+    const blogid = blogId();
     let newBlog = {
-        blogid: blogId(),
+        blogid,
         title: title,
         content: body,
-        date: Date.now(),
+        date: new Date(),
     };
     let query = 'INSERT INTO blog SET?';
     db.query(query, newBlog, (err, rows) => {
@@ -25,7 +25,7 @@ const createBlog = (req, res) => {
         .json(
             {
                 status: 'success',
-                massage: blogId() + ' created successfully'
+                massage: blogid + ' created successfully'
             }
         )
     });
