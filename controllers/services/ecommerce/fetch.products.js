@@ -1,24 +1,8 @@
 //FETCH ALL PRODUCTS
-
+import db from "../../../utils/database.connection";
 
 //Find all products
 const fetchProducts = (req, res) =>{
-    Product.find( {}).populate('variation')
-    .then((products) =>{
-        res
-        .status(200)
-        .json({
-            code: 'success',
-            products: products,
-        });
-    })
-    .catch((err) =>{
-        res
-        .status(500)
-        .json({
-            code: 'error',
-            error: err.message,
-        });
-    });
+
 };
 export default  fetchProducts;
