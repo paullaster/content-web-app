@@ -1,7 +1,7 @@
 //FETCH ALL PRODUCTS
-import Product from '../../../models/product.schema';
+import db from "../../../utils/database.connection";
 const deleteProduct = (req, res) =>{
-    const {_id} = req.params;
+    const {productid} = req.params;
     Product.findById({_id: _id})
     .then((product) =>{
         Product.deleteOne( {_id:product._id})
