@@ -18,12 +18,20 @@ const register = (req, res) =>{
         });
         return;
     };
+    if(password.length < 8){
+        res.status(500).json( {
+            status: 'error',
+            error: 'password is too short',
+        });
+        return;
+    };
     
     const saltRounds = 16;
     bcrypt.hash (password, saltRounds)
     .then ( (hash) => {
         let newUser ={
             ...other,
+            phonenumber,
             password: hash,
             date: new Date(),
        };
