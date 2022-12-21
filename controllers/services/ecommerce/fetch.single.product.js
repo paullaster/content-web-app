@@ -13,10 +13,11 @@ const fetchSingleProduct = (req, res) => {
     if (err) {
         res.status(500).json({
             status: 'error',
-            data: rows,
+            error: err.message
         });
         return;
     };
+
   });
 };
 export default fetchSingleProduct;
