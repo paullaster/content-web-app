@@ -10,7 +10,11 @@ const fetchSingleProduct = (req, res) => {
     attributes.size AS size, attributes.quantity AS quantity WHERE productid = '${productid}'
     `;
   db.query(query, (err, rows) => {
-    if (err) {};
+    if (err) {
+        res.status(500).json({
+            
+        });
+    };
   });
 };
 export default fetchSingleProduct;
