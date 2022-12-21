@@ -2,14 +2,14 @@
 import db from "../../../utils/database.connection";
 const createProduct = (req, res) => {
     const { variation:{color, size, quantity}, ...product} = req.body;
-    let newProduct = new Product ( {
+    let newProduct ={
         ...product,
-    });
-    let newAttribute = new Attribute ({
+    };
+    let newAttribute ={
         color: color,
         size: size, 
         quantity: quantity,
-    });
+    };
 
     //saving product to db
     newProduct.save ()
