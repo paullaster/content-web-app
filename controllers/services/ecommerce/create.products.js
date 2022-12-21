@@ -27,7 +27,9 @@ const createProduct = (req, res) => {
         .json( {
             status: 'success',
             message: 'Attributes added successfully '
-        })
+        });
+
+        
     });
     //saving product to db
     newProduct.save ()
