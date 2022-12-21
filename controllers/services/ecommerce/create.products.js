@@ -4,6 +4,7 @@ import AttributeId from "../../../utils/create.attributeid";
 import productId from "../../../utils/create.productid";
 const createProduct = (req, res) => {
     const { variation:{color, size, quantity}, ...product} = req.body;
+    
     const productid = productId ();
     let newProduct = {
         ...product,
