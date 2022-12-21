@@ -14,7 +14,8 @@ const register = (req, res) =>{
     .then ( (hash) => {
         let newUser ={
             ...other,
-            password: hash
+            password: hash,
+            date: Date.now(),
        };
        const query = 'INSERT INTO users SET?';
        db.query (query, newUser, (error, rows) =>{
