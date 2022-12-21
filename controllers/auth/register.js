@@ -6,6 +6,7 @@ import db from '../../utils/database.connection';
 
 const register = (req, res) =>{
     const {
+        phonenumber,
         password,
         ...other
     } = req.body;
@@ -15,7 +16,7 @@ const register = (req, res) =>{
         let newUser ={
             ...other,
             password: hash,
-            date: Date.now(),
+            date: new Date(),
        };
        const query = 'INSERT INTO users SET?';
        db.query (query, newUser, (error, rows) =>{
