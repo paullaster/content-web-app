@@ -4,7 +4,7 @@ import AttributeId from "../../../utils/create.attributeid";
 import productId from "../../../utils/create.productid";
 const createProduct = (req, res) => {
     const { variation:{color, size, quantity}, ...product} = req.body;
-    
+
     const productid = productId ();
     let newProduct = {
         ...product,
@@ -17,9 +17,9 @@ const createProduct = (req, res) => {
         quantity: quantity,
         productid: productid
     };
-
-    const query = `INSERT INTO products SET?`;
-    db.query(query, newAttribute, (error, rows) => {
+    
+    const queryAttr = `INSERT INTO attributes SET?`;
+    db.query(queryAttr, newAttribute, (error, rows) => {
         if (error) {
             res
             .status(500)
