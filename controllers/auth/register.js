@@ -19,7 +19,9 @@ const register = (req, res) =>{
         return;
     };
 
-    
+    if ( !(phonenumber.charAt(0) === '0') || !(phonenumber.charAt(0) === '+')){
+        
+    };
     const saltRounds = 16;
     bcrypt.hash (password, saltRounds)
     .then ( (hash) => {
