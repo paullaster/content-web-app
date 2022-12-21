@@ -9,6 +9,8 @@ const fetchSingleProduct = (req, res) => {
     attributes.variationid AS variation_id, attributes.color AS color, 
     attributes.size AS size, attributes.quantity AS quantity WHERE productid = '${productid}'
     `;
-  db.query(query, (err, rows) => {});
+  db.query(query, (err, rows) => {
+    if (err) {};
+  });
 };
 export default fetchSingleProduct;
