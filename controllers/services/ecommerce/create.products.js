@@ -1,11 +1,14 @@
 //CREATING PRODUCT
 import db from "../../../utils/database.connection";
+import AttributeId from "../../../utils/create.attributeid";
+import productId from "../../../utils/create.productid";
 const createProduct = (req, res) => {
     const { variation:{color, size, quantity}, ...product} = req.body;
-    let newProduct ={
+    let newProduct = {
         ...product,
+        productid: productId (),
     };
-    let newAttribute ={
+    let newAttribute = {
         color: color,
         size: size, 
         quantity: quantity,
@@ -29,7 +32,7 @@ const createProduct = (req, res) => {
             message: 'Attributes added successfully '
         });
 
-        
+
     });
     //saving product to db
     newProduct.save ()
