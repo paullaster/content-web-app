@@ -15,6 +15,7 @@ const fetchSingleProduct = (req, res) => {
             status: 'error',
             data: rows,
         });
+        return;
     };
   });
 };
