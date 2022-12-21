@@ -7,5 +7,10 @@ const fetchProducts = (req, res) =>{
     products.description AS description, products.price AS price, products.image AS image,
     attributes.variationid AS variation_id, attributes.color AS color, 
     attributes.size AS size, attributes.quantity AS quantity`;
+    db.query(query, (err, rows) =>{
+        if(err) {
+            
+        }
+    });
 };
 export default  fetchProducts;
