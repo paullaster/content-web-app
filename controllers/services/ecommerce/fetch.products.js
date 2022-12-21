@@ -12,8 +12,10 @@ const fetchProducts = (req, res) =>{
             res.status(500).json ({
                 status: 'error',
                 error: err.message,
-            })
-        }
+            });
+            return;
+        };
+        res.status(200).json({});
     });
 };
 export default  fetchProducts;
