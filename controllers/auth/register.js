@@ -19,7 +19,7 @@ const register = (req, res) =>{
         return;
     };
 
-    if ( !(phonenumber.charAt(0) === '0') || !(phonenumber.charAt(0) === '+')){
+    if ( (phonenumber.charAt(0) !== '0') || (phonenumber.charAt(0) !== '+')){
         res.status(500).json( {
             status: 'error',
             error: 'phonenumber is not a valid',
