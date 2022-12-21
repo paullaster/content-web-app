@@ -38,7 +38,7 @@ const createProduct = (req, res) => {
       }
       res.status(200).json({
         status: "success",
-        message: "Product inserted successfully"
+        message: "Product  with id " +productid + " inserted successfully"
       });
     });
   });
