@@ -2,7 +2,8 @@
 import bcrypt from 'bcrypt';
 
 // internal dependencies
-import User from '../../models/user.schema';
+import db from '../../utils/database.connection';
+
 const register = (req, res) =>{
     const {
         password,
