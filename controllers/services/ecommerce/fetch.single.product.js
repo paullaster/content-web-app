@@ -12,7 +12,8 @@ const fetchSingleProduct = (req, res) => {
   db.query(query, (err, rows) => {
     if (err) {
         res.status(500).json({
-            
+            status: 'error',
+            data: rows,
         });
     };
   });
