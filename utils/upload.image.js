@@ -12,7 +12,7 @@ const multerStorage = multer.diskStorage( {
 });
 
 //Filterin file type:
-const filterStorage = (req, file, cb) => {
+const filterExtention = (req, file, cb) => {
     if (file.mimetype.split('/')[1] === 'jpeg' ||
         file.mimetype.split('/')[1] === 'jpg'  ||
         file.mimetype.split('/')[1] === 'png'  ||
@@ -23,4 +23,10 @@ const filterStorage = (req, file, cb) => {
     }
     cb( new Error ( "File type not supported"), false);
 };
+
+// Intiatin multer
+const upload = multer ( {
+    storage: multerStorage,
+    fileFilter: filterStorage
+})
 export default upload;
