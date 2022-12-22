@@ -25,5 +25,8 @@ const generateToken = ( req, res, next) => {
     .then ( (response) =>{
         return response.json();
     })
+    .then ( (dataObject) => {
+        let accessToken = dataObject.access_token;
+    })
 };
 export default generateToken;
