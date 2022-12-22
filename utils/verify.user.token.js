@@ -24,6 +24,9 @@ const verifyToken = (req, res, next) => {
         });
         return;
     };
+    //setting req.user for the next middleware
+    req.user =verified;
+    next ();
    });
 };
 export default verifyToken;
