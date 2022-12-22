@@ -1,4 +1,4 @@
-//import fetch from 'node-fetch';
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 import * as dotenv from 'dotenv';
 dotenv.config ();
 
@@ -10,8 +10,8 @@ const consumerSecret = process.env.MPESA_CONSUMER_SECRET;
 const generateToken = ( req, res, next) => {
     const apiUrl = `https://sandbox.safaricom.co.ke/oauth/v1/generate?
     grant_type=client_credentials`;
-    const token = Buffer.from(`${consumerKey}:${consumerSecret}`).toString('base64');
-    const auth = `Bearer ${token}`;
+    const token = new Buffer.from(consumerKey + ':' + consumerSecret).toString('base64');
+    const auth = 'Bearer ' +token;
 
     const headers = {
         Authorization: auth,
@@ -26,9 +26,9 @@ const generateToken = ( req, res, next) => {
         return response.json();
     })
     .then ( (dataObject) => {
-        let accessToken = dataObject.access_token;
-        req.accessToken = accessToken;
-        res.json({accessToken});
+        //let accessToken = dataObject.access_token;
+        //req.accessToken = accessToken;
+        res.json(dataObject);
         //next();
     })
     .catch ( (err) => {

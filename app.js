@@ -25,9 +25,8 @@ const PORT = process.env.APP_PORT || 6000
 //middleware
 app.use ( '/api', Router);
 
-import generatePassword from './utils/generate.mpesa.password';
 import generateToken from './utils/generate.mpesa.user.token';
-app.get ('/test', generatePassword, generateToken)
+app.get ('/test', generateToken)
 
 //Instanciating server
 app.listen (PORT, () => {
