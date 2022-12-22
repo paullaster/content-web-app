@@ -1,4 +1,6 @@
 import JWT from 'jsonwebtoken';
+import * as dotenv from 'dotenv';
+dotenv.config ();
 
 const verifyToken = (req, res) => {
     const bearerToken = req.header('Authorization');
