@@ -5,10 +5,12 @@ const fetchSingleProduct = (req, res) => {
 
   let query = `
     SELECT products.productid AS id , products.title AS title, 
-    products.description AS description, products.price AS price, products.image AS image,
+    products.description AS description, products.price AS price, images.path AS image,
     attributes.variationid AS variation_id, attributes.color AS color, 
-    attributes.size AS size, attributes.quantity AS quantity FROM products
+    attributes.size AS size, attributes.quantity AS quantity 
+    FROM products
     JOIN attributes ON attributes.productid = products.productid
+    JOIN images ON images.product = products.productid
     WHERE productid = '${productid}'
     `;
   db.query(query, (err, rows) => {
