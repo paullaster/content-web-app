@@ -17,7 +17,4 @@ const newPassword = () => {
     return base64EncodedPasswordString;
 };
 
-const generatePassword = ( req, res) =>{
-    res.json( { password: newPassword ()})
-};
-export default generatePassword;
+export default newPassword;

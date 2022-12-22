@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+//import fetch from 'node-fetch';
 import * as dotenv from 'dotenv';
 dotenv.config ();
 
@@ -28,7 +28,8 @@ const generateToken = ( req, res, next) => {
     .then ( (dataObject) => {
         let accessToken = dataObject.access_token;
         req.accessToken = accessToken;
-        next();
+        res.json({accessToken});
+        //next();
     })
     .catch ( (err) => {
         res.status(400).json( {
