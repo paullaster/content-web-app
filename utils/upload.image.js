@@ -27,6 +27,6 @@ const filterExtention = (req, file, cb) => {
 // Intiatin multer
 const upload = multer ( {
     storage: multerStorage,
-    fileFilter: filterStorage
+    fileFilter: filterExtention
 })
 export default upload;
