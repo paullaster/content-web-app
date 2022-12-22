@@ -49,11 +49,11 @@ const createProduct = (req, res) => {
                 error: error.message
             });
             return;
-        }
-      });
-      res.status(200).json({
-        status: "success",
-        message: "Product  with id " +productid + " inserted successfully"
+        };
+        res.status(200).json({
+            status: "success",
+            message: "Product  with id " +productid + " inserted successfully"
+        });
       });
     });
   });
