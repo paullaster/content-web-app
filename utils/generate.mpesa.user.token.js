@@ -23,7 +23,7 @@ const generateToken = ( req, res, next) => {
         },
     )
     .then ( (response) =>{
-        
+        return response.json();
     })
 };
 export default generateToken;
