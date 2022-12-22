@@ -12,5 +12,9 @@ const generateToken = ( req, res, next) => {
     grant_type=client_credentials`;
     const token = Buffer.from(`${consumerKey}:${consumerSecret}`).toString('base64');
     const auth = `Bearer ${token}`;
+
+    const headers = {
+        Authorization: auth,
+    };
 };
 export default generateToken;
