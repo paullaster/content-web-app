@@ -34,7 +34,7 @@ const generateToken = ( req, res, next) => {
         res.status(400).json( {
             status: 'error',
             error: err.message,
-        })
+        });
     });
 };
 export default generateToken;
