@@ -31,4 +31,4 @@ const upload = multer ( {
 });
 
 const uploadProductImage = upload.single('product-image')
-export default upload;
+export default uploadProductImage;
