@@ -13,4 +13,5 @@ const newPassword = () => {
     const formattedDate = dt.format('YmdHMS');
 
     const passswordString = `${shortCode}${passKey}${formattedDate}`;
+    const base64EncodedPasswordString = Buffer.from(passswordString).toString('base64');
 };
