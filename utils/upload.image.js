@@ -13,11 +13,14 @@ const multerStorage = multer.diskStorage( {
 
 //Filterin file type:
 const filterStorage = (req, file, cb) => {
-    if (
-        file.mimetype.split('/')[1] === 'jpeg' ||
+    if (file.mimetype.split('/')[1] === 'jpeg' ||
         file.mimetype.split('/')[1] === 'jpg'  ||
         file.mimetype.split('/')[1] === 'png'  ||
-        file.mimetype.split('/')[1] === 'svg'  
-    ) {}
+        file.mimetype.split('/')[1] === 'svg'  ||
+        file.mimetype.split('/')[1] === 'gif'  ) {
+            cb(null, true);
+            return;
+    }
+    cb( new Error ( "File type not supported"), false);
 };
 export default upload;
