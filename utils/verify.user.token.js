@@ -2,7 +2,7 @@ import JWT from 'jsonwebtoken';
 
 const verifyToken = (req, res) => {
     const bearerToken = req.headers('Authorization');
-    if (bearerToken === ''){
+    if (!bearerToken){
         res.status(400).json( {
             status: 'error',
             error: 'Authorization required',
