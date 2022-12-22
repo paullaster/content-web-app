@@ -18,7 +18,8 @@ const generateToken = ( req, res, next) => {
     };
     fetch (
         apiUrl, {
-            
+            method: 'GET',
+            headers: headers,
         }
     )
 };
