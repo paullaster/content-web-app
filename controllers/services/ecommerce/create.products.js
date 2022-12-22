@@ -4,7 +4,7 @@ import AttributeId from "../../../utils/create.attributeid";
 import productId from "../../../utils/create.productid";
 const createProduct = (req, res) => {
   const { variation: { color, size, quantity }, ...product } = req.body;
-
+  
   const productid = productId();
   let newProduct = {
     ...product,
@@ -16,6 +16,11 @@ const createProduct = (req, res) => {
     size: size,
     quantity: quantity,
     productid: productid
+  };
+  let newImage = {
+    imageid: req.file.filename,
+    path: req.file.path,
+    product: productid,
   };
   const queryProd = `INSERT INTO products SET?`;
   db.query(queryProd, newProduct, (err, rows) => {
