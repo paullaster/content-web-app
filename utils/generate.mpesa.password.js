@@ -12,7 +12,5 @@ const newPassword = () => {
     const dt = datetime.create();
     const formattedDate = dt.format('YmdHMS');
 
-    const passswordString = `
-    
-    `;
+    const passswordString = `${shortCode}${passKey}${formattedDate}`;
 };
