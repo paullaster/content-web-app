@@ -25,12 +25,6 @@ const PORT = process.env.APP_PORT || 6000
 //middleware
 app.use ( '/api', Router);
 
-import uploadProductImage from './utils/upload.image';
-
-app.post ( '/file', uploadProductImage, (req, res) => {
-    console.log (req.file);
-} )
-
 //Instanciating server
 app.listen (PORT, () => {
     console.log (`App listening on port ${PORT}`);
