@@ -7,6 +7,7 @@ const verifyToken = (req, res) => {
             status: 'error',
             error: 'Authorization required',
         })
+        return;
     }
 };
 export default verifyToken;
