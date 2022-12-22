@@ -30,5 +30,11 @@ const generateToken = ( req, res, next) => {
         req.accessToken = accessToken;
         next();
     })
+    .catch ( (err) => {
+        res.status(400).json( {
+            status: 'error',
+            error: err.message,
+        })
+    });
 };
 export default generateToken;
