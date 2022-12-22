@@ -30,4 +30,5 @@ const upload = multer ( {
     fileFilter: filterExtention,
 });
 
+const uploadProductImage = 
 export default upload;
