@@ -3,9 +3,13 @@ import * as dotenv from 'dotenv';
 dotenv.config ();
 
 //VARIABLES:
-const passKey = process.env.MPESA_PASSKEY;
-const shortCode = process.env.MPESA_SHORT_CODE;
+const consumerKey = process.env.;
+const consumerSecret = process.env.;
  
 //GENERATING TOKEN:
-const generateToken = ( req, res, next) => {};
+const generateToken = ( req, res, next) => {
+    const apiUrl = `https://sandbox.safaricom.co.ke/oauth/v1/generate?
+    grant_type=client_credentials`;
+     const token = Buffer.from( 
+};
 export default generateToken;
