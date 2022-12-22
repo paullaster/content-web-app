@@ -28,7 +28,7 @@ const login = (req, res) => {
                 .status(404)
                 .json (
                     {
-                        code: 'success',
+                        status: 'success',
                         error: 'Invalid password',
                     }
                 );
