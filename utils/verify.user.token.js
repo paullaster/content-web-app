@@ -15,6 +15,15 @@ const verifyToken = (req, res, next) => {
     const token = bearerToken.split(' ')[1];
    JWT.verify( token, process.env.TOKEN_SECRET, {
     algorithms: 'HS512'
-   })
+   }, (error, verified) => {
+    if (error) {
+        res
+        .status (403)
+        .json ({
+            error: error.message,
+        });
+        return;
+    };
+   });
 };
 export default verifyToken;
