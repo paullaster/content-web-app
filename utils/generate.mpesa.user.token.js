@@ -3,8 +3,8 @@ import * as dotenv from 'dotenv';
 dotenv.config ();
 
 //VARIABLES:
-const consumerKey = process.env.;
-const consumerSecret = process.env.;
+const consumerKey = process.env.MPESA_CONSUMER_KEY;
+const consumerSecret = process.env.MPESA_CONSUMER_SECRET;
  
 //GENERATING TOKEN:
 const generateToken = ( req, res, next) => {
