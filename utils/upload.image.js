@@ -12,10 +12,12 @@ const multerStorage = multer.diskStorage( {
 });
 
 //Filterin file type:
-let jpeg = file.mimetype.split('/')[1] === 'jpeg';
-let jpg = file.mimetype.split('/')[1] === 'jpg';
-let png = file.mimetype.split('/')[1] === 'png'
 const filterStorage = (req, file, cb) => {
-    if () {}
+    if (
+        file.mimetype.split('/')[1] === 'jpeg' ||
+        file.mimetype.split('/')[1] === 'jpg'  ||
+        file.mimetype.split('/')[1] === 'png'  ||
+        file.mimetype.split('/')[1] === 'svg'  
+    ) {}
 };
 export default upload;
