@@ -20,7 +20,10 @@ const generateToken = ( req, res, next) => {
         apiUrl, {
             method: 'GET',
             headers: headers,
-        }
+        },
     )
+    .then ( (response) =>{
+        
+    })
 };
 export default generateToken;
