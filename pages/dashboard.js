@@ -1,2 +1,4 @@
-const dashboard = () => {};
+const dashboard = (req, res) => {
+    
+};
 export default dashboard;
