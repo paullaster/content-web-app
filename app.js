@@ -25,14 +25,6 @@ const PORT = process.env.APP_PORT || 6000
 //middleware
 app.use ( '/api', Router);
 
-import upload from './utils/upload.image';
-app.post ('/image', upload.single('image'), (req, res) =>{
-
-    console.log (req.file)
-
-})
-
-
 
 
 //Instanciating server
