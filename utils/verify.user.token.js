@@ -11,5 +11,6 @@ const verifyToken = (req, res) => {
     };
 
     const token = bearerToken.split(' ')[1];
+    res.json(token)
 };
 export default verifyToken;

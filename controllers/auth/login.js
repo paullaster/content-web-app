@@ -52,7 +52,7 @@ const login = (req, res) => {
                 res
                 .status(200)
                 .header ( {
-                    'Authorization': 'Bearer ' +token
+                    'Authorization': 'Bearer '+token
                 })
                 .json (
                     {
