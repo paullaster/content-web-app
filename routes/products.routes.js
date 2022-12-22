@@ -3,7 +3,7 @@ import express from 'express';
 
 //Internal dependencies
 import Product from '../controllers/services/ecommerce/index';
-
+import utils from './util.routes';
 const ProductRoutes = express.Router();
 
 ProductRoutes.route( '/new').post (Product.new);
