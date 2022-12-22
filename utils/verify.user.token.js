@@ -2,7 +2,7 @@ import JWT from 'jsonwebtoken';
 import * as dotenv from 'dotenv';
 dotenv.config ();
 
-const verifyToken = (req, res) => {
+const verifyToken = (req, res, next) => {
     const bearerToken = req.header('Authorization');
     if (!bearerToken){
         res.status(400).json( {
@@ -13,6 +13,8 @@ const verifyToken = (req, res) => {
     };
 
     const token = bearerToken.split(' ')[1];
-    res.json(token)
+   JWT.verify( token, process.env.TOKEN_SECRET, {
+    algorithms: 'HS512'
+   })
 };
 export default verifyToken;
