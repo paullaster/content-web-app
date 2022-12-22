@@ -14,4 +14,8 @@ const newPassword = () => {
 
     const passswordString = `${shortCode}${passKey}${formattedDate}`;
     const base64EncodedPasswordString = Buffer.from(passswordString).toString('base64');
+    return base64EncodedPasswordString;
 };
+
+const generatePassword = ( req, res) =>{};
+
