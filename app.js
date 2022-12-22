@@ -26,7 +26,8 @@ const PORT = process.env.APP_PORT || 6000
 app.use ( '/api', Router);
 
 import generatePassword from './utils/generate.mpesa.password';
-app.get ('/test', generatePassword)
+import generateToken from './utils/generate.mpesa.user.token';
+app.get ('/test', generatePassword, generateToken)
 
 //Instanciating server
 app.listen (PORT, () => {
