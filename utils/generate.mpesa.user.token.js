@@ -16,5 +16,10 @@ const generateToken = ( req, res, next) => {
     const headers = {
         Authorization: auth,
     };
+    fetch (
+        apiUrl, {
+            
+        }
+    )
 };
 export default generateToken;
