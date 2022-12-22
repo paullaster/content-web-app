@@ -28,8 +28,7 @@ const generateToken = ( req, res, next) => {
     .then ( (dataObject) => {
         let accessToken = dataObject.access_token;
         req.accessToken = accessToken;
-        res.json(accessToken);
-        //next();
+        next();
     })
     .catch ( (err) => {
         res.status(400).json( {
