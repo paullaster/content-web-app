@@ -40,7 +40,17 @@ const createProduct = (req, res) => {
           error: error.message
         });
         return;
-      }
+      };
+      const sql = `INSERT INTO images SET?`;
+      db.query(sql, newImage, (err, rows) => {
+        if (err) {
+            res.status(500).json({
+                status: "error",
+                error: error.message
+            });
+            return;
+        }
+      });
       res.status(200).json({
         status: "success",
         message: "Product  with id " +productid + " inserted successfully"
