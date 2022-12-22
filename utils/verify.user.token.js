@@ -8,7 +8,7 @@ const verifyToken = (req, res, next) => {
         res.status(400).json( {
             status: 'error',
             error: 'Authorization required',
-        })
+        });
         return;
     };
 
