@@ -26,6 +26,6 @@ const paymentApiCallBack = ( req, res) => {
             });
             return;
         };
-     })
+     });
 };
 export default paymentApiCallBack;
