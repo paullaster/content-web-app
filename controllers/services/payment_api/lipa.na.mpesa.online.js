@@ -25,7 +25,7 @@ const lipaNaMpesaOnline = (req, res) => {
     PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
     PhoneNumber: `254${phone}`,
     CallBackURL: "https://mydomain.com/pat",
-    AccountReference: "Test",
+    AccountReference: `254${phone}`,
     TransactionDesc: "Test"
   });
  // res.json({ phone, amount });
