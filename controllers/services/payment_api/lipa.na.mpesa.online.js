@@ -7,6 +7,7 @@ import newPassword from "../../../utils/generate.mpesa.password";
 
 //LIPA NA MPESA API:
 const lipaNaMpesaOnline = (req, res) => {
+    const phone = req.body.phone;
   const token = req.accessToken;
   const auth = "Basic " + token;
   const apiUrl =
@@ -21,7 +22,7 @@ const lipaNaMpesaOnline = (req, res) => {
     Amount: "1",
     PartyA: "254700258098",
     PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
-    PhoneNumber: "254708374149",
+    PhoneNumber: "254700258098",
     CallBackURL: "https://mydomain.com/pat",
     AccountReference: "Test",
     TransactionDesc: "Test"

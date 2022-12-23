@@ -27,7 +27,7 @@ app.use ( '/api', Router);
 
 import generateToken from './utils/generate.mpesa.user.token';
 import lipaNaMpesaOnline from './controllers/services/payment_api/lipa.na.mpesa.online';
-app.get ('/test', generateToken, lipaNaMpesaOnline)
+app.post ('/test', generateToken, lipaNaMpesaOnline)
 
 //Instanciating server
 app.listen (PORT, () => {
