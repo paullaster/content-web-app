@@ -20,7 +20,10 @@ const paymentApiCallBack = ( req, res) => {
      const sql = 'INSERT INTO payments SET?';
      db.query(sql, newTransaction, (err, rows) => {
         if (err) {
-            res.status(500).json({});
+            res.status(500).json({
+                status: 'error',
+                error: err.message,
+            });
         };
      })
 };
