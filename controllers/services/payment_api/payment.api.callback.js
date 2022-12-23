@@ -11,7 +11,7 @@ const paymentApiCallBack = ( req, res) => {
         return;
     };
      const newTransaction = {
-
+        paymentid: paymentId(),
      }
 };
 export default paymentApiCallBack;
