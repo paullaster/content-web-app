@@ -8,5 +8,5 @@ const PaymentAPIRouter = express.Router();
 dotenv.config ();
 
 PaymentAPIRouter.route('/stkpush').post(utils.verifyToken, utils.generateToken, PaymentAPI.stkPush);
-PaymentAPIRouter.route()
+PaymentAPIRouter.route(`/${process.env.MPESA_CALL_BACK_API_NAME}`)
 export default PaymentAPIRouter;
