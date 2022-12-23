@@ -25,7 +25,7 @@ const lipaNaMpesaOnline = (req, res) => {
     PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
     PhoneNumber: `254${phone}`,
     CallBackURL: 
-    "https://0341-105-163-156-86.in.ngrok.io/api/payment/",
+    `https://0341-105-163-156-86.in.ngrok.io/api/payment/${process.env.MPESA_CALL_BACK_API_NAME}`,
     AccountReference: `254${phone}`,
     TransactionDesc: "Payment for product purchase"
   },
