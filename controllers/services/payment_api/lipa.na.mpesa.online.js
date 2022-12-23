@@ -33,7 +33,13 @@ const lipaNaMpesaOnline = (req, res) => {
         Authorization: auth,
     },
   })
-
+  .then ( (response) => {
+    res.status(200).json ( {
+        status: "success",
+        data: response,
+    });
+  })
+  .
  // res.json({ phone, amount });
 };
 export default lipaNaMpesaOnline;
