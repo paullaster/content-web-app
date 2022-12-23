@@ -14,7 +14,7 @@ const paymentApiCallBack = ( req, res) => {
         paymentid: paymentId(),
         amount: callBackMetaData.Item[0].Value,
         mpesa_trans_id: callBackMetaData.Item[1].Value,
-        mpesa_trans_date
+        mpesa_trans_date: callBackMetaData.Item[2].Value
      }
 };
 export default paymentApiCallBack;
