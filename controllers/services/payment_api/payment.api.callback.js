@@ -18,6 +18,10 @@ const paymentApiCallBack = ( req, res) => {
         phonenumber: callBackMetaData.Item[4].Value
      };
      const sql = 'INSERT INTO payments SET?';
-     db.query(sql, newTransaction, (err, rows) => {})
+     db.query(sql, newTransaction, (err, rows) => {
+        if (err) {
+            res.status(500).json({});
+        };
+     })
 };
 export default paymentApiCallBack;
