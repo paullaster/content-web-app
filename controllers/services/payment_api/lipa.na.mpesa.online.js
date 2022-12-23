@@ -9,16 +9,14 @@ import newPassword from "../../../utils/generate.mpesa.password";
 const lipaNaMpesaOnline = (req, res) => {
   const token = req.accessToken;
   const auth = "Basic " + token;
-  const timestamp = timeStamp();
   const apiUrl =
     "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
-  const password = newPassword();
 
   //SEND REQUEST TO API:
   fetch(apiUrl, {
     BusinessShortCode: process.env.MPESA_BUSINESS_SHORT_CODE,
-    Password:
-    Timestamp: "20160216165627",
+    Password: newPassword(),
+    Timestamp: timeStamp(),
     TransactionType: "CustomerPayBillOnline",
     Amount: "1",
     PartyA: "254708374149",
