@@ -20,7 +20,7 @@ const lipaNaMpesaOnline = (req, res) => {
     Password: newPassword(),
     Timestamp: timeStamp(),
     TransactionType: "CustomerBuyGoodsOnline",
-    Amount: "1",
+    Amount: amount,
     PartyA: "254700258098",
     PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
     PhoneNumber: "254700258098",
@@ -28,6 +28,6 @@ const lipaNaMpesaOnline = (req, res) => {
     AccountReference: "Test",
     TransactionDesc: "Test"
   });
-  res.json({ phone, amount });
+ // res.json({ phone, amount });
 };
 export default lipaNaMpesaOnline;
