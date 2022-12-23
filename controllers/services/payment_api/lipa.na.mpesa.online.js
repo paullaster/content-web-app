@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+dotenv.config ();
 
 import timeStamp from "../../../utils/timestamp";
 const lipaNaMpesaOnline = ( req, res) => {
