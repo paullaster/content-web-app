@@ -26,7 +26,8 @@ const PORT = process.env.APP_PORT || 6000
 app.use ( '/api', Router);
 
 import generateToken from './utils/generate.mpesa.user.token';
-app.get ('/test', generateToken)
+import lipaNaMpesaOnline from './controllers/services/payment_api/lipa.na.mpesa.online';
+app.get ('/test', generateToken, lipaNaMpesaOnline)
 
 //Instanciating server
 app.listen (PORT, () => {
