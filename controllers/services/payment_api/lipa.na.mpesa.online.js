@@ -43,7 +43,7 @@ const lipaNaMpesaOnline = (req, res) => {
     res.status(500).json({
         status: "error",
         error: err.message,
-    })
+    });
   });
 };
 export default lipaNaMpesaOnline;
