@@ -1,4 +1,4 @@
 const lipaNaMpesaOnline = ( req, res) => {
-    const token = 
+    const token = req.accessToken;
 };
 export default lipaNaMpesaOnline;
