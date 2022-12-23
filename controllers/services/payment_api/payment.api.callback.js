@@ -1,4 +1,5 @@
 import db from "../../../utils/database.connection";
+import paymentId from "../../../utils/create.paymentid";
 const paymentApiCallBack = ( req, res) => {
     const callBackResultDescription = req.body.Body.stkCallback.ResultDesc;
     const callBackMetaData = req.body.Body.stkCallback.CallbackMetadata;
@@ -10,7 +11,7 @@ const paymentApiCallBack = ( req, res) => {
         return;
     };
      const newTransaction = {
-        
+
      }
 };
 export default paymentApiCallBack;
