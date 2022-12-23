@@ -9,5 +9,5 @@ dotenv.config ();
 
 PaymentAPIRouter.route('/stkpush').post(utils.verifyToken, utils.generateToken, PaymentAPI.stkPush);
 PaymentAPIRouter.route(`/${process.env.MPESA_CALL_BACK_API_NAME}`)
-.post()
+.post(utils.verifyToken, utils.generateToken, PaymentAPI.callback);
 export default PaymentAPIRouter;
