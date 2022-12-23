@@ -7,7 +7,6 @@ const timeStamp = () => {
     const minute = ("0" + (date.getMinutes())).slice(-2);
     const second = ("0" + (date.getSeconds())).slice(-2);
     const timestamp = (year + month + day + hour + minute + second)
-    console.log (timestamp);
+    return timestamp;
 };
-timeStamp ()
-//export default timeStamp;
+export default timeStamp;
