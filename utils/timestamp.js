@@ -1,6 +1,8 @@
 const timestamp = () => {
     const date = new Date ();
     const year = date.getFullYear();
-    console.log (year)
+    const month = date.getMonth() + 1;
+    console.log (year, month);
 };
-export default timestamp;
+timestamp ()
+//export default timestamp;
