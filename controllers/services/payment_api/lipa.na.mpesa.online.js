@@ -39,6 +39,11 @@ const lipaNaMpesaOnline = (req, res) => {
         data: response,
     });
   })
-  .catch ( (err) => {});
+  .catch ( (err) => {
+    res.status(500).json({
+        status: "error",
+        error: err.message,
+    })
+  });
 };
 export default lipaNaMpesaOnline;
