@@ -4,6 +4,7 @@ import express from 'express';
 import blogs from './blog.routes';
 import auth from './auth.routes';
 import products from  './products.routes';
+import PaymentAPI from '../controllers/services/payment_api';
 
 const router = express.Router();
 

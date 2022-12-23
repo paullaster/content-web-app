@@ -4,4 +4,5 @@ import utils from './util.routes';
 
 const PaymentAPIRouter = express.Router();
 
-PaymentAPIRouter.route('/stkpush').post(utils.verifyToken, utils.generateToken, PaymentAPI.stkPush)
+PaymentAPIRouter.route('/stkpush').post(utils.verifyToken, utils.generateToken, PaymentAPI.stkPush);
+export default PaymentAPIRouter;
