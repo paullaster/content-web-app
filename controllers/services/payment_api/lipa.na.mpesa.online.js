@@ -39,7 +39,6 @@ const lipaNaMpesaOnline = (req, res) => {
         data: response,
     });
   })
-  .
- // res.json({ phone, amount });
+  .catch ( (err) => {});
 };
 export default lipaNaMpesaOnline;
