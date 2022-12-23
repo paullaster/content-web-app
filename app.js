@@ -25,10 +25,6 @@ const PORT = process.env.APP_PORT || 6000
 //middleware
 app.use ( '/api', Router);
 
-import generateToken from './utils/generate.mpesa.user.token';
-import lipaNaMpesaOnline from './controllers/services/payment_api/lipa.na.mpesa.online';
-app.post ('/test', generateToken, lipaNaMpesaOnline)
-
 //Instanciating server
 app.listen (PORT, () => {
     console.log (`App listening on port ${PORT}`);
