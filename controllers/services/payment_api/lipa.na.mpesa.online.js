@@ -36,7 +36,7 @@ const lipaNaMpesaOnline = (req, res) => {
   .then ( (response) => {
     res.status(200).json ( {
         status: "success",
-        data: response,
+        data: response.data,
     });
   })
   .catch ( (err) => {
