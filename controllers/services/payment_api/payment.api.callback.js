@@ -28,7 +28,7 @@ const paymentApiCallBack = ( req, res) => {
         };
         res.status(200).json({
             status: 'success',
-            message: 'Payment was successfully added to payments database'
+            message: 'Payment was successfully added to database'
         });
      });
 };
