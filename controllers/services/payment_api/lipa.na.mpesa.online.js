@@ -10,7 +10,7 @@ const lipaNaMpesaOnline = (req, res) => {
     const phone = req.body.phone.substring(1);
     const amount = req.body.amount;
   const token = req.accessToken;
-  const auth = "Basic " + token;
+  const auth = "Bearer " + token;
   const apiUrl =
     "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
 
@@ -26,8 +26,14 @@ const lipaNaMpesaOnline = (req, res) => {
     PhoneNumber: `254${phone}`,
     CallBackURL: "https://mydomain.com/pat",
     AccountReference: `254${phone}`,
-    TransactionDesc: "Test"
-  });
+    TransactionDesc: "Payment for product purchase"
+  },
+  {
+    headers: {
+        Authorization: auth,
+    },
+  })
+
  // res.json({ phone, amount });
 };
 export default lipaNaMpesaOnline;
