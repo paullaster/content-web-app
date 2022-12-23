@@ -14,6 +14,10 @@ const lipaNaMpesaOnline = ( req, res) => {
     const businessShortCode = process.env.MPESA_BUSINESS_SHORT_CODE;
     const password = newPassword ();
     
+    //SEND REQUEST TO API:
+    fetch (apiUrl, {
+        
+    })
     res.json ({token, auth, timestamp, businessShortCode, password});
 };
 export default lipaNaMpesaOnline;
