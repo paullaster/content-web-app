@@ -12,6 +12,7 @@ const lipaNaMpesaOnline = ( req, res) => {
     const timestamp = timeStamp ();
     const apiUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
     const businessShortCode = process.env.MPESA_BUSINESS_SHORT_CODE;
+    const password = newPassword ();
 
     res.json ({token, auth, timestamp});
 };
