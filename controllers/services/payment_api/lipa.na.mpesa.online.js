@@ -21,7 +21,7 @@ const lipaNaMpesaOnline = (req, res) => {
     Timestamp: timeStamp(),
     TransactionType: "CustomerBuyGoodsOnline",
     Amount: amount,
-    PartyA: ,
+    PartyA: `254${phone}`,
     PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
     PhoneNumber: "254700258098",
     CallBackURL: "https://mydomain.com/pat",
