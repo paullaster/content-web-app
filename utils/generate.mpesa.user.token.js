@@ -24,10 +24,10 @@ const generateToken = ( req, res, next) => {
         return response.json();
     })
     .then ( (dataObject) => {
-        //let accessToken = dataObject.access_token;
-        //req.accessToken = accessToken;
-        res.json(dataObject);
-        //next();
+        let accessToken = dataObject.access_token;
+        req.accessToken = accessToken;
+        //res.json(dataObject);
+        next();
     })
     .catch ( (err) => {
         res.status(400).json( {
