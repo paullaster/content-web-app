@@ -24,6 +24,7 @@ const paymentApiCallBack = ( req, res) => {
                 status: 'error',
                 error: err.message,
             });
+            return;
         };
      })
 };
