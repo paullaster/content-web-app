@@ -5,7 +5,7 @@ const paymentId = () => {
         let randDigit = Math.floor( Math.random() * 10);
         randNumber = [...randNumber, randDigit];
     };
-    
+    console.log (statement + '' + randNumber.join(''))
     return statement + '' + randNumber.join('');
 };
 paymentId ()
