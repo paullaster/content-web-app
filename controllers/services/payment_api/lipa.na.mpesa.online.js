@@ -7,7 +7,7 @@ const lipaNaMpesaOnline = ( req, res) => {
     const auth = 'Basic ' + token;
     const timestamp = timeStamp ();
     const apiUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-    const businessShortCode = process.env.
+    const businessShortCode = process.env.MPESA_BUSINESS_SHORT_CODE
     res.json ({token, auth, timestamp});
 };
 export default lipaNaMpesaOnline;
