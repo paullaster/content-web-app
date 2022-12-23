@@ -3,7 +3,7 @@ dotenv.config ();
 
 //Internal dependencies:
 import timeStamp from "../../../utils/timestamp";
-import 
+import newPassword from '../../../utils/generate.mpesa.password';
 const lipaNaMpesaOnline = ( req, res) => {
     const token = req.accessToken;
     const auth = 'Basic ' + token;
