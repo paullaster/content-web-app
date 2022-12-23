@@ -15,19 +15,19 @@ const lipaNaMpesaOnline = (req, res) => {
     "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
 
   //SEND REQUEST TO API:
-//   fetch(apiUrl, {
-//     BusinessShortCode: process.env.MPESA_BUSINESS_SHORT_CODE,
-//     Password: newPassword(),
-//     Timestamp: timeStamp(),
-//     TransactionType: "CustomerBuyGoodsOnline",
-//     Amount: "1",
-//     PartyA: "254700258098",
-//     PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
-//     PhoneNumber: "254700258098",
-//     CallBackURL: "https://mydomain.com/pat",
-//     AccountReference: "Test",
-//     TransactionDesc: "Test"
-//   });
+  fetch(apiUrl, {
+    BusinessShortCode: process.env.MPESA_BUSINESS_SHORT_CODE,
+    Password: newPassword(),
+    Timestamp: timeStamp(),
+    TransactionType: "CustomerBuyGoodsOnline",
+    Amount: "1",
+    PartyA: "254700258098",
+    PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
+    PhoneNumber: "254700258098",
+    CallBackURL: "https://mydomain.com/pat",
+    AccountReference: "Test",
+    TransactionDesc: "Test"
+  });
   res.json({ phone, amount });
 };
 export default lipaNaMpesaOnline;
