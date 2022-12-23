@@ -16,6 +16,7 @@ const paymentApiCallBack = ( req, res) => {
         mpesa_trans_id: callBackMetaData.Item[1].Value,
         mpesa_trans_date: callBackMetaData.Item[3].Value,
         phonenumber: callBackMetaData.Item[4].Value
-     }
+     };
+     const sql = 'INSERT INTO payments SET?';
 };
 export default paymentApiCallBack;
