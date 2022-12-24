@@ -37,7 +37,7 @@ const updateProduct = (req, res) => {
       }
       const sql = `UPDATE images SET imageid = '${filename}' 
       path = '${path}', product = '${productid}' WHERE product = '${productid}'`;
-      db.query(sql, newImage, (err, rows) => {
+      db.query(sql, (err, rows) => {
         if (err) {
             res.status(500).json({
                 status: "error",
@@ -47,9 +47,8 @@ const updateProduct = (req, res) => {
         };
         res.status(200).json({
             status: "success",
-            message: "Product  with id " +productid + " inserted successfully"
+            message: "Product  with id " +productid + " updated successfully"
         });
-      });
       });
     });
   });
