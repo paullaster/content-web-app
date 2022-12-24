@@ -10,6 +10,8 @@ const updateProduct = (req, res) => {
     variation: { color, size, quantity }
   } = req.body;
 
+  const {filename, path} = req.file;
+  
   let query = `UPDATE products SET title = '${title}', 
     description = '${description}',
     price = '${price}' WHERE productid = '${productid}'`;
