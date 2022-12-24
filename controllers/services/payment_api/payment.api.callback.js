@@ -1,3 +1,4 @@
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 import db from "../../../utils/database.connection";
 import paymentId from "../../../utils/create.paymentid";
 const paymentApiCallBack = ( req, res) => {
