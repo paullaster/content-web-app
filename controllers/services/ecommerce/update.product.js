@@ -6,13 +6,12 @@ const updateProduct = (req, res) => {
   const {
     title,
     description,
-    image,
     price,
     variation: { color, size, quantity }
   } = req.body;
 
   let query = `UPDATE products SET title = '${title}', 
-    description = '${description}', image = '${image}',
+    description = '${description}',
     price = '${price}' WHERE productid = '${productid}'`;
 
   db.query(query, (err, result) => {
@@ -34,9 +33,20 @@ const updateProduct = (req, res) => {
         });
         return;
       }
-      res.status(200).json({
-        status: "success",
-        message: "Product updated successfully"
+      const sql = `INSERT INTO images SET?`;
+      db.query(sql, newImage, (err, rows) => {
+        if (err) {
+            res.status(500).json({
+                status: "error",
+                error: err.message
+            });
+            return;
+        };
+        res.status(200).json({
+            status: "success",
+            message: "Product  with id " +productid + " inserted successfully"
+        });
+      });
       });
     });
   });

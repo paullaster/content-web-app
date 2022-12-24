@@ -46,7 +46,7 @@ const createProduct = (req, res) => {
         if (err) {
             res.status(500).json({
                 status: "error",
-                error: error.message
+                error: err.message
             });
             return;
         };
