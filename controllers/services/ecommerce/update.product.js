@@ -11,7 +11,7 @@ const updateProduct = (req, res) => {
   } = req.body;
 
   const {filename, path} = req.file;
-  
+
   let query = `UPDATE products SET title = '${title}', 
     description = '${description}',
     price = '${price}' WHERE productid = '${productid}'`;
@@ -35,7 +35,8 @@ const updateProduct = (req, res) => {
         });
         return;
       }
-      const sql = `INSERT INTO images SET?`;
+      const sql = `UPDATE images SET imageid = '${filename}' 
+      path = '${path}', product = '${productid}' WHERE product = '${productid}'`;
       db.query(sql, newImage, (err, rows) => {
         if (err) {
             res.status(500).json({
