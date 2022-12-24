@@ -1,3 +1,4 @@
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 import * as dotenv from "dotenv";
 dotenv.config();
 
