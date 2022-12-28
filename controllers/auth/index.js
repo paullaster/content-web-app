@@ -1,8 +1,8 @@
-import register from './register';
-import login from './login';
+const register = require( './register');
+const login = require( './login');
 
 const Accounts = {
     new: register,
     login: login,
 };
-export default Accounts;
+module.exports = Accounts;
