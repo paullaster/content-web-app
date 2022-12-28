@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require ('express');
 
 //Internal dependencies:
 const blogs = require ('./blog.routes');
