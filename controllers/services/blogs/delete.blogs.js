@@ -1,4 +1,4 @@
-import db from '../../../utils/database.connection';
+const  db = require ('../../../utils/database.connection');
 
 const deleteBlogs = (req, res, next) => {
     const {blogid} = req.params;
@@ -23,4 +23,4 @@ const deleteBlogs = (req, res, next) => {
         );
     });
 };
-export default deleteBlogs
+module.exports= deleteBlogs
