@@ -1,4 +1,4 @@
-import db from "../../../utils/database.connection";
+const db = require ("../../../utils/database.connection");
 const updateBlogs = (req, res) => {
     const {blogid} = req.params;
     const {title, body} = req.body;
