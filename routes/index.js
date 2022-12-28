@@ -1,10 +1,10 @@
 import express from 'express';
 
 //Internal dependencies:
-import blogs from './blog.routes';
-import auth from './auth.routes';
-import products from  './products.routes';
-import PaymentAPIRouter from './payment.apis.routes';
+const blogs = require ('./blog.routes');
+const auth = require ('./auth.routes');
+const products = require ( './products.routes');
+const PaymentAPIRouter = require ('./payment.apis.routes');
 
 const router = express.Router();
 
