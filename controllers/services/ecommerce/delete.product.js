@@ -1,5 +1,5 @@
 //FETCH ALL PRODUCTS
-import db from "../../../utils/database.connection";
+const db = require ("../../../utils/database.connection");
 const deleteProduct = (req, res) => {
   const { productid } = req.params;
 
@@ -18,4 +18,4 @@ const deleteProduct = (req, res) => {
     });
   });
 };
-export default deleteProduct;
+module.exports = deleteProduct;
