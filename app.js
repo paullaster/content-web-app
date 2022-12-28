@@ -5,7 +5,7 @@ const dotenv = require ('dotenv');
 
 
 //Internal dependencies
-const Router = require ('./routes)/index');
+const Router = require ('./routes/index');
 
 //Creating app instance
 const app = express();

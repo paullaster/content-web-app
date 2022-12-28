@@ -4,9 +4,9 @@
   "description": "API serving backend apis for web content",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon -r esm app.js",
+    "dev": "nodemon app.js",
     "test": "jest",
-    "start": "node -r esm app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
