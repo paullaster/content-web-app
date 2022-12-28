@@ -7,4 +7,4 @@ const paymentId = () => {
     };
     return statement + '' + randNumber.join('');
 };
-export default paymentId;
+module.exports = paymentId;
