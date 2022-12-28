@@ -1,5 +1,5 @@
 //FETCH ALL PRODUCTS
-import db from "../../../utils/database.connection";
+const db = require ("../../../utils/database.connection");
 
 //Find all products
 const fetchProducts = (req, res) =>{
@@ -24,4 +24,4 @@ const fetchProducts = (req, res) =>{
         });
     });
 };
-export default  fetchProducts;
+module.exports =  fetchProducts;
