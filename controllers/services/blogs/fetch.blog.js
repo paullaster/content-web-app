@@ -1,4 +1,4 @@
-import db from "../../../utils/database.connection";
+const db = require ("../../../utils/database.connection");
 const fetchBlogs = (req, res) => {
     let query = 'SELECT * FROM blog';
     db.query(query, (err, rows) => {
@@ -22,4 +22,4 @@ const fetchBlogs = (req, res) => {
         );
     }); 
 };
-export default fetchBlogs;
+module.exports = fetchBlogs;
