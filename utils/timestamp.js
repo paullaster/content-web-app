@@ -9,4 +9,4 @@ const timeStamp = () => {
     const timestamp = (year + month + day + hour + minute + second)
     return timestamp;
 };
-export default timeStamp;
+module.exports = timeStamp;
