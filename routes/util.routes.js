@@ -1,9 +1,9 @@
-import uploadProductImage from "../utils/upload.image";
-import verifyToken from "../utils/verify.user.token";
-import generateToken from "../utils/generate.mpesa.user.token";
+const uploadProductImage = require ("../utils/upload.image");
+const verifyToken = require ("../utils/verify.user.token");
+const generateToken = require ("../utils/generate.mpesa.user.token");
 const utils = {
     uploadProductImage,
     verifyToken,
     generateToken, 
 };
-export default utils;
+module.exports = utils;
