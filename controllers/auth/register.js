@@ -1,8 +1,8 @@
 //dependencies
-import bcrypt from 'bcrypt';
+const bcrypt = require ('bcrypt');
 
 // internal dependencies
-import db from '../../utils/database.connection';
+const db = require ('../../utils/database.connection');
 
 const register = (req, res) =>{
     const {
