@@ -1,8 +1,8 @@
 //Blog Index file
 import createBlog from "./create.blog";
 import updateBlogs from "./update.blogs";
-import deleteBlogs from "./delete.blogs";
-import fetchBlogs from "./fetch.blog";
+const deleteBlogs= require ( "./delete.blogs");
+const fetchBlogs = require ("./fetch.blog");
 
 //Blog
 const Blog = {
