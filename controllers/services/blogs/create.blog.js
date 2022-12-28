@@ -1,5 +1,5 @@
-import db from '../../../utils/database.connection';
-import blogId from "../../../utils/create.blogid";
+const  db = require ( '../../../utils/database.connection');
+const  blogId = require ( "../../../utils/create.blogid");
 const createBlog = (req, res) => {
     const {title, body} = req.body;
     const blogid = blogId();
@@ -30,4 +30,4 @@ const createBlog = (req, res) => {
         )
     });
 };
-export default createBlog;
+module.exports = createBlog;
