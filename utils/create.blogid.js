@@ -8,4 +8,4 @@ const blogId = () => {
     
     return statement + '' + randNumber.join('');
 };
-export default blogId;
+module.exports = blogId;
