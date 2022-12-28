@@ -23,7 +23,7 @@ const updateBlogs = (req, res) => {
         );
     });
 };
-export default updateBlogs;
+module.exports = updateBlogs;
 
 
 
