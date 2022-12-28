@@ -1,6 +1,6 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-import db from "../../../utils/database.connection";
-import paymentId from "../../../utils/create.paymentid";
+const db = require ("../../../utils/database.connection");
+const paymentId = require ("../../../utils/create.paymentid");
 const paymentApiCallBack = ( req, res) => {
     const callBackResultDescription = req.body.Body.stkCallback.ResultDesc;
     const callBackMetaData = req.body.Body.stkCallback.CallbackMetadata;
@@ -33,4 +33,4 @@ const paymentApiCallBack = ( req, res) => {
         });
      });
 };
-export default paymentApiCallBack;
+module.exports = paymentApiCallBack;
