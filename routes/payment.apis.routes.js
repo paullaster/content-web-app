@@ -1,8 +1,8 @@
-import * as dotenv from 'dotenv';
+const dotenv = require ('dotenv');
 
-import express from 'express';
-import PaymentAPI from "../controllers/services/payment_api";
-import utils from './util.routes';
+const express = require ('express');
+const PaymentAPI = require ("../controllers/services/payment_api");
+const utils = require ('./util.routes');
 
 const PaymentAPIRouter = express.Router();
 dotenv.config ();
@@ -10,4 +10,4 @@ dotenv.config ();
 PaymentAPIRouter.route('/stkpush').post(utils.verifyToken, utils.generateToken, PaymentAPI.stkPush);
 PaymentAPIRouter.route(`/${process.env.MPESA_CALL_BACK_API_NAME}`)
 .post(utils.verifyToken, utils.generateToken, PaymentAPI.callback);
-export default PaymentAPIRouter;
+module.exports = PaymentAPIRouter;
