@@ -48,4 +48,4 @@ const lipaNaMpesaOnline = (req, res) => {
     });
   });
 };
-export default lipaNaMpesaOnline;
+module.exports = lipaNaMpesaOnline;
