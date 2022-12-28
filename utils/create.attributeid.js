@@ -8,4 +8,4 @@ const AttributeId = () => {
     
     return statement + '' + randNumber.join('');
 };
-export default AttributeId;
+module.exports = AttributeId;
