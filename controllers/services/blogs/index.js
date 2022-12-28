@@ -11,4 +11,4 @@ const Blog = {
     delete: deleteBlogs,
     fetch: fetchBlogs
 };
-export default Blog;
+module.exports = Blog;
