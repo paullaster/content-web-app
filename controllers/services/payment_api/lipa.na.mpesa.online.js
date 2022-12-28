@@ -1,10 +1,10 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-import * as dotenv from "dotenv";
+const dotenv = require ( "dotenv");
 dotenv.config();
 
 //Internal dependencies:
-import timeStamp from "../../../utils/timestamp";
-import newPassword from "../../../utils/generate.mpesa.password";
+const timeStamp = require ("../../../utils/timestamp");
+const newPassword = require ("../../../utils/generate.mpesa.password");
 
 //LIPA NA MPESA API:
 const lipaNaMpesaOnline = (req, res) => {
