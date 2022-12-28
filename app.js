@@ -1,12 +1,11 @@
 //Importing dependencies
-import express from 'express';
-import cors from 'cors';
-import * as dotenv from 'dotenv';
+const express = require ('express');
+const cors = require ('cors');
+const dotenv = require ('dotenv');
 
 
 //Internal dependencies
-import Router from './routes/index';
-import dbConnection from './utils/database.connection';
+const Router = require ('./routes)/index');
 
 //Creating app instance
 const app = express();
