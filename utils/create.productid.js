@@ -8,4 +8,4 @@ const productId = () => {
     
     return statement + '' + randNumber.join('');
 };
-export default productId;
+module.exports = productId;
