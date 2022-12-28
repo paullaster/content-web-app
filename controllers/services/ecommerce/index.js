@@ -1,9 +1,9 @@
 //Internal dependencies
-import createProduct from  './create.products';
-import fetchProducts from './fetch.products';
-import fetchSingleProduct from './fetch.single.product';
-import deleteProduct from './delete.product';
-import updateProduct from './update.product';
+const createProduct = require ( './create.products');
+const fetchProducts = require ('./fetch.products');
+const fetchSingleProduct = require ('./fetch.single.product');
+const deleteProduct = require ('./delete.product');
+const updateProduct = require ('./update.product');
 
 const Product = {
     new: createProduct,
@@ -12,4 +12,4 @@ const Product = {
     delete: deleteProduct,
     update: updateProduct
 };
-export default Product;
+module.exports = Product;
