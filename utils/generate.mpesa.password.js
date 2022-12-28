@@ -1,6 +1,6 @@
 //DEPENDENCIES:
-import datetime from 'node-datetime';
-import * as dotenv from 'dotenv';
+const datetime = require ('node-datetime');
+const dotenv = require ('dotenv');
 
 //Intantiating environment variables
 dotenv.config ();
@@ -17,4 +17,4 @@ const newPassword = () => {
     return base64EncodedPasswordString;
 };
 
-export default newPassword;
+module.exports = newPassword;
