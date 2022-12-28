@@ -1,11 +1,10 @@
 //dependencies
-import JWT from "jsonwebtoken";
-import bcrypt from "bcrypt";
-import * as dotenv from "dotenv";
-dotenv.config ();
+const JWT = require( "jsonwebtoken");
+const bcrypt = require( "bcrypt");
+require( "dotenv").config();
 
 //Internal dependencies
-import db from "../../utils/database.connection";
+const db = require ( "../../utils/database.connection");
 
 const login = (req, res) => {
   const { password, email } = req.body;
@@ -74,4 +73,4 @@ const login = (req, res) => {
         });
     });
 };
-export default login;
+module.exports = login;
