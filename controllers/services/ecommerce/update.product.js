@@ -1,5 +1,5 @@
 //FETCH ALL PRODUCTS
-import db from "../../../utils/database.connection";
+const db = require ("../../../utils/database.connection");
 
 const updateProduct = (req, res) => {
   const { productid } = req.params;
@@ -53,4 +53,4 @@ const updateProduct = (req, res) => {
     });
   });
 };
-export default updateProduct;
+module.exports = updateProduct;
