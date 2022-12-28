@@ -1,4 +1,4 @@
-import multer from "multer";
+const multer = require ("multer");
 
 //Destination
 const multerStorage = multer.diskStorage( {
@@ -31,4 +31,4 @@ const upload = multer ( {
 });
 
 const uploadProductImage = upload.single('product-image')
-export default uploadProductImage;
+module.exports = uploadProductImage;
