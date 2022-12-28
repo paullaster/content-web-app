@@ -1,5 +1,5 @@
-import JWT from 'jsonwebtoken';
-import * as dotenv from 'dotenv';
+const JWT = require ('jsonwebtoken');
+const dotenv = require ('dotenv');
 dotenv.config ();
 
 const verifyToken = (req, res, next) => {
@@ -29,4 +29,4 @@ const verifyToken = (req, res, next) => {
     next ();
    });
 };
-export default verifyToken;
+module.exports = verifyToken;
