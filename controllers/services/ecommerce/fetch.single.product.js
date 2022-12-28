@@ -1,5 +1,5 @@
 //FETCH ALL PRODUCTS
-import db from "../../../utils/database.connection";
+const db = require ("../../../utils/database.connection");
 const fetchSingleProduct = (req, res) => {
   const { productid } = req.params;
 
@@ -27,4 +27,4 @@ const fetchSingleProduct = (req, res) => {
     });
   });
 };
-export default fetchSingleProduct;
+module.exports = fetchSingleProduct;
