@@ -1,7 +1,7 @@
 //CREATING PRODUCT
-import db from "../../../utils/database.connection";
-import AttributeId from "../../../utils/create.attributeid";
-import productId from "../../../utils/create.productid";
+const db = require ("../../../utils/database.connection");
+const AttributeId = require ("../../../utils/create.attributeid");
+const productId = require ("../../../utils/create.productid");
 const createProduct = (req, res) => {
   const { variation: { color, size, quantity }, ...product } = req.body;
   
@@ -58,4 +58,4 @@ const createProduct = (req, res) => {
     });
   });
 };
-export default createProduct;
+module.exports = createProduct;
