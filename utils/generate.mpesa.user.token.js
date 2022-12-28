@@ -1,5 +1,5 @@
 //const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-import * as dotenv from 'dotenv';
+const dotenv = require ('dotenv');
 dotenv.config ();
 
 //VARIABLES:
@@ -36,4 +36,4 @@ const generateToken = ( req, res, next) => {
         });
     });
 };
-export default generateToken;
+module.exports = generateToken;
