@@ -13,7 +13,7 @@ const login = (req, res) => {
             status: 'error',
             error: 'Both password and email are required',
         });
-
+        return;
     };
     const query = `SELECT email, password FROM users WHERE email='${email}'`;
     db.query (query, (err, rows) => {
