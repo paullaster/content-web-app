@@ -9,7 +9,11 @@ const db = require ( "../../utils/database.connection");
 const login = (req, res) => {
   const { password, email } = req.body;
     if ( !email || !password ) {
-        
+        res.status(400).json({
+            status: 'error',
+            error: 'Both password and email are required',
+        });
+
     };
     const query = `SELECT email, password FROM users WHERE email='${email}'`;
     db.query (query, (err, rows) => {
