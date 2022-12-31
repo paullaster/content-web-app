@@ -7,7 +7,9 @@ const updateProduct = (req, res) => {
     title,
     description,
     price,
-    variation: { color, size, quantity }
+    color, 
+    size, 
+    quantity 
   } = req.body;
 
   const {filename, path} = req.file;
