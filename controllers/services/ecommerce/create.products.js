@@ -3,7 +3,7 @@ const db = require ("../../../utils/database.connection");
 const AttributeId = require ("../../../utils/create.attributeid");
 const productId = require ("../../../utils/create.productid");
 const createProduct = (req, res) => {
-  const { variation: { color, size, quantity }, ...product } = req.body;
+  const { color, size, quantity, ...product } = req.body;
   
   const productid = productId();
   let newProduct = {
@@ -11,7 +11,7 @@ const createProduct = (req, res) => {
     productid: productid
   };
   let newAttribute = {
-    variation: AttributeId(),
+    variationid: AttributeId(),
     color: color,
     size: size,
     quantity: quantity,
