@@ -4,6 +4,7 @@ const verifyToken = require ("../utils/verify.user.token");
 const generateToken = require ("../utils/generate.mpesa.user.token");
 const utils = {
     uploadProductImage,
+    uploadBlogImage,
     verifyToken,
     generateToken, 
 };
