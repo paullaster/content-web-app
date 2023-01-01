@@ -3,7 +3,7 @@ const multer = require ("multer");
 //Destination
 const multerStorage = multer.diskStorage( {
     destination: (req, file, cb) => {
-        cb (null, 'public/images/products');
+        cb (null, 'public/images/blogs');
     },
     filename: (req, file, cb) => {
         const extention = file.mimetype.split('/')[1];
@@ -30,5 +30,5 @@ const upload = multer ( {
     fileFilter: filterExtention,
 });
 
-const uploadProductImage = upload.single('product_image')
+const uploadProductImage = upload.single('blog_image')
 module.exports = uploadProductImage;

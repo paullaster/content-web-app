@@ -7,6 +7,7 @@ const createBlog = (req, res) => {
         blogid,
         title: title,
         content: body,
+        image: req.file.path,
         date: new Date(),
     };
     let query = 'INSERT INTO blog SET?';
