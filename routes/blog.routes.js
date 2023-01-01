@@ -4,6 +4,7 @@ const BlogRoutes = express.Router();
 
 //Internal dependencies
 const Blog = require ('../controllers/services/blogs/index');
+const Utils = require( './util.routes')
 
 BlogRoutes.route('/new').post (Blog.new);
 BlogRoutes.route('/get').get(Blog.fetch);
