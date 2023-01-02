@@ -2,7 +2,7 @@
 const db = require ("../../../utils/database.connection");
 const fetchSingleProduct = (req, res) => {
   const { productid } = req.params;
-
+ console.log(productid);
   let query = `
     SELECT products.productid AS id , products.title AS title, 
     products.description AS description, products.price AS price, images.path AS image,
