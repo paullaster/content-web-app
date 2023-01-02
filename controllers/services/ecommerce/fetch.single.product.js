@@ -11,7 +11,7 @@ const fetchSingleProduct = (req, res) => {
     FROM products
     JOIN attributes ON attributes.productid = products.productid
     JOIN images ON images.product = products.productid
-    WHERE productid = '${productid}'
+    WHERE products.productid = '${productid}'
     `;
   db.query(query, (err, rows) => {
     if (err) {
