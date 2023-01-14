@@ -57,6 +57,9 @@ const createProduct = (req, res) => {
         });
       });
     });
+  })
+  .catch ( (err) => {
+    
   });
 };
 module.exports = createProduct;
