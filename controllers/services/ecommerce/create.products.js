@@ -71,6 +71,7 @@ const createProduct = (req, res) => {
                 product: productid
               };
             });
+            
           });
           const sql = `INSERT INTO images SET?`;
           db
