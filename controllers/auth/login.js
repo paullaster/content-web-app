@@ -26,7 +26,7 @@ const login = (req, res) => {
         });
         return;
       };
-      res.json({password, hash:rows[0].password});
+      res.json({password, hash:'rows[0].password}');
     //   bcrypt
     //     .compare(password, rows[0].password)
     //     .then(resp => {
