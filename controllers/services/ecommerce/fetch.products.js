@@ -21,7 +21,7 @@ const fetchProducts = (req, res) =>{
         // };
         res.status(200).json({
             status: 'success',
-            data: rows,
+            data: rows[0],
         });
     })
     .catch ( (err) => {
