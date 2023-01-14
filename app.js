@@ -30,7 +30,9 @@ const uploadProductImage = require ( './utils/upload.image');
 const multer = require('multer');
 app.post ('/test', (req, res) => {
     uploadProductImage( req, res, (error) => {
-        if (error instanceof multer.MulterError) {}
+        if (error instanceof multer.MulterError) {
+            res.json(error.message);
+        }
     } );
     console.log (req.files.length);
     res.json('image');
