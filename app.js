@@ -43,7 +43,9 @@ app.post ('/test', (req, res) => {
             });
             return;
         };
-        console.log (req.files);
+        req.files.map ( (file) => {
+            
+        })
         res.json('image');
     } );
 });
