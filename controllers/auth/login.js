@@ -62,7 +62,7 @@ const login = (req, res) => {
                 .json({
                   status: "success",
                   token: token,
-                  data: ,
+                  data: userData,
                 });
             }
           );
