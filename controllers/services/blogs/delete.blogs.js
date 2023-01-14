@@ -23,6 +23,8 @@ const deleteBlogs = (req, res, next) => {
             }
         );
     })
-    .catch ( (err));
+    .catch ( (err) =>{
+        
+    });
 };
 module.exports= deleteBlogs
