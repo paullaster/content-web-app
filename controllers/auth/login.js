@@ -72,6 +72,11 @@ const login = (req, res) => {
           });
         });
     })
-    .catch(err => {});
+    .catch(err => {
+        res.status(400).json({
+            status: "error",
+            error: "Account not found"
+          });
+    });
 };
 module.exports = login;
