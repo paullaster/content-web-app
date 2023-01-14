@@ -26,6 +26,7 @@ const createProduct = (req, res) => {
   db
     .query(queryProd, newProduct)
     .then(rows => {
+      if ()
       const queryAttr = `INSERT INTO attributes SET?`;
       db
         .query(queryAttr, newAttribute)
