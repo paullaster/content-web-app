@@ -13,7 +13,8 @@ const fetchSingleProduct = (req, res) => {
     JOIN images ON images.product = products.productid
     WHERE products.productid = '${productid}'
     `;
-  db.query(query).then((err, rows) => {
+  db.query(query)
+  .then((err, rows) => {
     if (err) {
         res.status(500).json({
             status: 'error',
@@ -25,6 +26,9 @@ const fetchSingleProduct = (req, res) => {
         status: 'success',
         data: rows,
     });
+  })
+  .catch ( () => {
+    
   });
 };
 module.exports = fetchSingleProduct;
