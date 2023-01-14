@@ -90,5 +90,6 @@ const updateProduct = (req, res) => {
         error: err.message
       });
     });
+  } );
 };
 module.exports = updateProduct;
