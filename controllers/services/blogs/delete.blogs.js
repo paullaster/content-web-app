@@ -22,6 +22,7 @@ const deleteBlogs = (req, res, next) => {
                 message: 'Blog with id ' + blogid +' deleted'
             }
         );
-    });
+    })
+    .catch ( (err));
 };
 module.exports= deleteBlogs
