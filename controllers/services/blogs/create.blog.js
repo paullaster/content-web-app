@@ -24,7 +24,6 @@ const createBlog = (req, res) => {
           status: "error",
           error: err.message
         });
-        return;
   });
 };
 module.exports = createBlog;
