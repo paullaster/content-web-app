@@ -50,16 +50,13 @@ const updateProduct = (req, res) => {
               });
               return;
             }
-            const imageUpdate = req.files.map( (file) =>{
-                return[
-                  file.filename,
-                  file.path
-                ];
+            const imageUpdate = req.files.map(file => {
+              return [file.filename, file.path];
             });
             const sql = `UPDATE images SET imageid =? 
       path =? WHERE product = '${productid}'`;
             db
-              .query(sql,[imageUpdate])
+              .query(sql, [imageUpdate])
               .then(rows => {
                 if (rows[0].changedRows < 1) {
                   res.status(400).json({
@@ -72,7 +69,7 @@ const updateProduct = (req, res) => {
                   status: "success",
                   message:
                     "Product  with id " + productid + " updated successfully",
-                    data: imageUpdate
+                  data: imageUpdate
                 });
               })
               .catch(err => {
