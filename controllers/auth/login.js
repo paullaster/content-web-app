@@ -19,7 +19,7 @@ const login = (req, res) => {
   db
     .query(query)
     .then((rows) => {
-      if (rows.length < 1) {
+      if (rows[0].length < 1) {
         res.status(400).json({
           status: "error",
           error: "Account not found"
