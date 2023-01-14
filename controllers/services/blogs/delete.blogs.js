@@ -12,7 +12,7 @@ const deleteBlogs = (req, res, next) => {
             {
                 status: 'success',
                 message: 'Blog with id ' + blogid +' deleted',
-                rows: rows.affectedRows,
+                rows: rows[0].affectedRows,
             }
         );
     })
