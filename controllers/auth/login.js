@@ -18,15 +18,6 @@ const login = (req, res) => {
     const query = `SELECT email, password FROM users WHERE email='${email}'`;
     db.query (query)
     .then((rows) => {
-        // if (rows.length < 1) {
-        //     res
-        //     .status (400)
-        //     .json ( {
-        //         status: 'error',
-        //         error: "Account not found",
-        //     })
-        //     return;
-        // };
         bcrypt.compare (password, rows[0].password)
         .then((resp) =>{
             if (!resp) {
@@ -79,6 +70,8 @@ const login = (req, res) => {
             );
         });
     })
-    .catch((err) => {});
+    .catch((err) => {
+
+    });
 };
 module.exports = login;
