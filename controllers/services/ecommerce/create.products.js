@@ -59,7 +59,7 @@ const createProduct = (req, res) => {
                 error: "there was an error processing the product"
               });
               return;
-            }
+            };
             const newImages = req.files.map(file => {
               return {
                 imageid: file.filename,
