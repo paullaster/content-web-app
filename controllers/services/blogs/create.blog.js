@@ -11,19 +11,19 @@ const createBlog = (req, res) => {
     date: new Date()
   };
   let query = "INSERT INTO blog SET?";
-  db.query(query, newBlog)
-  .then((rows) => {
-    res.status(200).json({
-      status: "success",
-      massage: blogid + " created successfully"
+  db
+    .query(query, newBlog)
+    .then(rows => {
+      res.status(200).json({
+        status: "success",
+        massage: blogid + " created successfully"
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        status: "error",
+        error: err.message
+      });
     });
-  })
-  .catch ((err) => {
-    
-        res.status(500).json({
-          status: "error",
-          error: err.message
-        });
-  });
 };
 module.exports = createBlog;
