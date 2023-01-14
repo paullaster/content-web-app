@@ -56,7 +56,10 @@ const updateProduct = (req, res) => {
         });
       })
       .catch ( (err) => {
-        
+        res.status(400).json({
+          status: "error",
+          error: err.message
+      });
       });
     })
     .catch ( (err) => {
