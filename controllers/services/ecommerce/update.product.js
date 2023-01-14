@@ -23,8 +23,6 @@ const updateProduct = (req, res) => {
     const { productid } = req.params;
     const { title, description, price, color, size, quantity } = req.body;
 
-    const { filename, path } = req.file;
-
     let query = `UPDATE products SET title = '${title}', 
     description = '${description}',
     price = '${price}' WHERE productid = '${productid}'`;
