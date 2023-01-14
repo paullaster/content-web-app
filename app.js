@@ -35,10 +35,10 @@ app.post ('/test', (req, res) => {
         }else if (error){
             res.json(error.message);
             return;
-        }
+        };
+        console.log (req.files.length);
+        res.json('image');
     } );
-    console.log (req.files.length);
-    res.json('image');
 });
 //Instanciating server
 app.listen (PORT, () => {
