@@ -41,7 +41,17 @@ const register = (req, res) => {
             message: "User created successfully"
           });
         })
-        .catch(error => {});
+        .catch(error => {
+            if (error) {
+            res
+            .status(500)
+            .json ( {
+                status: 'error',
+                error: error.message,
+            });
+            return;
+        };
+        });
     })
     .catch(err => {
       res.status(500).json({
