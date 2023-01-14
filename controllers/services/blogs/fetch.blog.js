@@ -10,11 +10,11 @@ const fetchBlogs = (req, res) => {
           error: "Blogs are currently unavailable!"
         });
         return;
-      };
+      }
       res.status(200).json({
         status: "success",
         message: "Blogs retrieved successfully ",
-        data: rows[0],
+        data: rows[0]
       });
     })
     .catch(err => {
