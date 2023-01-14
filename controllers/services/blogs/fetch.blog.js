@@ -4,7 +4,7 @@ const fetchBlogs = (req, res) => {
   db
     .query(query)
     .then(rows => {
-      if (err) {
+      if (rows[0]) {
         res.status(500).json({
           status: "error",
           error: "Blogs are currently unavailable!"
