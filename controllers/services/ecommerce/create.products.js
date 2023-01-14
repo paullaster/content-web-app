@@ -39,18 +39,18 @@ const createProduct = (req, res) => {
     };
 
     const queryProd = `INSERT INTO products SET?`;
-    db
-      .query(queryProd, newProduct)
-      .then(rows => {
-        if (rows[0].affectedRows < 1) {
-          res.status(500).json({
-            status: "error",
-            error: "there was an error processing the product"
-          });
-          return;
-        }
-        const queryAttr = `INSERT INTO attributes SET?`;
-        db.query(queryAttr, newAttribute).then(rows => {
+    db.query(queryProd, newProduct).then(rows => {
+      if (rows[0].affectedRows < 1) {
+        res.status(500).json({
+          status: "error",
+          error: "there was an error processing the product"
+        });
+        return;
+      }
+      const queryAttr = `INSERT INTO attributes SET?`;
+      db
+        .query(queryAttr, newAttribute)
+        .then(rows => {
           if (rows[0].affectedRows < 1) {
             res.status(500).json({
               status: "error",
@@ -65,46 +65,48 @@ const createProduct = (req, res) => {
               product: productid
             };
           });
-          newImages.map(image => {
-            const sql = `INSERT INTO images SET?`;
-            db
-              .query(sql, image)
-              .then(rows => {
-                if (rows[0].affectedRows < 1) {
+          newImages
+            .map(image => {
+              const sql = `INSERT INTO images SET?`;
+              db
+                .query(sql, image)
+                .then(rows => {
+                  if (rows[0].affectedRows < 1) {
+                    res.status(500).json({
+                      status: "error",
+                      error: "there was an error processing the product"
+                    });
+                    return;
+                  }
+                  res.status(200).json({
+                    status: "success",
+                    message:
+                      "Product  with id '" +
+                      productid +
+                      "' inserted successfully"
+                  });
+                })
+                .catch(err => {
                   res.status(500).json({
                     status: "error",
-                    error: "there was an error processing the product"
+                    error: err.message
                   });
-                  return;
-                }
-                res.status(200).json({
-                  status: "success",
-                  message:
-                    "Product  with id '" + productid + "' inserted successfully"
                 });
-              })
-              .catch(err => {
-                res.status(500).json({
-                  status: "error",
-                  error: err.message
-                });
+            })
+            .catch(error => {
+              res.status(500).json({
+                status: "error",
+                error: error.message
               });
-          })
-          .catch(error => {
-            res.status(500).json({
-              status: "error",
-              error: error.message
             });
+        })
+        .catch(err => {
+          res.status(500).json({
+            status: "error",
+            error: err.message
           });
-      })
-      .catch(err => {
-        res.status(500).json({
-          status: "error",
-          error: err.message
         });
-      });
-        });
-      })
-
+    });
+  });
 };
 module.exports = createProduct;
