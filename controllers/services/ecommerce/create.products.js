@@ -50,7 +50,7 @@ const createProduct = (req, res) => {
             });
             return;
           }
-
+          uploadProductImage ()
           const sql = `INSERT INTO images SET?`;
           db
             .query(sql, newImage)
