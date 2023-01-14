@@ -30,7 +30,7 @@ const updateProduct = (req, res) => {
     let query = `UPDATE attributes SET color = '${color}', 
     size = '${size}', quantity = '${quantity}'
     WHERE productid = '${productid}'`;
-    db.query(query, (err, rows) => {
+    db.query(query).then((err, rows) => {
       if (err) {
         res.status(404).json({
           status: "error",
