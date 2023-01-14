@@ -61,7 +61,8 @@ const updateProduct = (req, res) => {
                 if (rows[0].changedRows < 1) {
                   res.status(400).json({
                     status: "error",
-                    error: "There was an error updating the product"
+                    error: "There was an error updating the product",
+                    data: imageUpdate
                   });
                   return;
                 }
