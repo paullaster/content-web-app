@@ -32,7 +32,7 @@ const updateProduct = (req, res) => {
     WHERE productid = '${productid}'`;
     db.query(query)
     .then((rows) => {
-      if (err) {
+      if (rows[0].changedRows < 1) {
         res.status(404).json({
           status: "error",
           error: err.message
