@@ -55,6 +55,9 @@ const register = (req, res) =>{
             status: 'success',
             message: 'User created successfully',
         })
+       })
+       .catch ( (error, ) =>{
+
        });
     })
     .catch ( (err) => {
