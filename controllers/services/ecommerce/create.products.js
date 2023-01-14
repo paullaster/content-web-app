@@ -46,7 +46,6 @@ const createProduct = (req, res) => {
             });
             return;
           }
-          
             const newImages = req.files.map(file => {
               return {
                 imageid: req.file.filename,
