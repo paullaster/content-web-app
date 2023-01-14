@@ -12,7 +12,7 @@ const fetchProducts = (req, res) =>{
     JOIN images ON images.product = products.productid`;
     db.query(query)
     .then((rows) =>{
-        if(err) {
+        if(rows[0].length < 1) {
             res.status(400).json ({
                 status: 'error',
                 error: err.message,
