@@ -1,12 +1,12 @@
 //CREATING PRODUCT
 //DEPENDECIES
-const multer = require('multer');
+const multer = require("multer");
 
 //INTERNAL DEPENDENCIES:
 const db = require("../../../utils/database.connection");
 const AttributeId = require("../../../utils/create.attributeid");
 const productId = require("../../../utils/create.productid");
-const uploadProductImage = require ( './utils/upload.image');
+const uploadProductImage = require("./utils/upload.image");
 
 const createProduct = (req, res) => {
   const { color, size, quantity, ...product } = req.body;
@@ -50,20 +50,20 @@ const createProduct = (req, res) => {
             });
             return;
           }
-          uploadProductImage ( req, res, (error) => {
+          uploadProductImage(req, res, error => {
             if (error instanceof multer.MulterError) {
               res.status(400).json({
-                  status: "error",
-                  error: error.message,
+                status: "error",
+                error: error.message
               });
               return;
-          }else if (error){
+            } else if (error) {
               res.status(400).json({
-                  status: "error",
-                  error: error.message,
+                status: "error",
+                error: error.message
               });
               return;
-          };
+            }
           });
           const sql = `INSERT INTO images SET?`;
           db
@@ -79,7 +79,7 @@ const createProduct = (req, res) => {
               res.status(200).json({
                 status: "success",
                 message:
-                  "Product  with id '" + productid + "' inserted successfully",
+                  "Product  with id '" + productid + "' inserted successfully"
               });
             })
             .catch(err => {
