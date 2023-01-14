@@ -26,40 +26,40 @@ const createProduct = (req, res) => {
   db
     .query(queryProd, newProduct)
     .then(rows => {
-      if (rows[0].affectedRows < 1){
+      if (rows[0].affectedRows < 1) {
         res.status(500).json({
           status: "error",
           error: "there was an error processing the product"
         });
         return;
-      };
+      }
       const queryAttr = `INSERT INTO attributes SET?`;
       db
         .query(queryAttr, newAttribute)
         .then(rows => {
-          if (rows[0].affectedRows < 1){
+          if (rows[0].affectedRows < 1) {
             res.status(500).json({
               status: "error",
               error: "there was an error processing the product"
             });
             return;
-          };
+          }
           const sql = `INSERT INTO images SET?`;
           db
             .query(sql, newImage)
             .then(rows => {
-              if (rows[0].affectedRows < 1){
+              if (rows[0].affectedRows < 1) {
                 res.status(500).json({
                   status: "error",
                   error: "there was an error processing the product"
                 });
                 return;
-              };
+              }
               res.status(200).json({
                 status: "success",
                 message:
                   "Product  with id " + productid + " inserted successfully",
-                  rows: rows
+                rows: rows
               });
             })
             .catch(err => {
