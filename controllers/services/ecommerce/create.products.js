@@ -6,7 +6,7 @@ const multer = require("multer");
 const db = require("../../../utils/database.connection");
 const AttributeId = require("../../../utils/create.attributeid");
 const productId = require("../../../utils/create.productid");
-const uploadProductImage = require("./utils/upload.image");
+const uploadProductImage = require("../../../utils/upload.image");
 
 const createProduct = (req, res) => {
   const { color, size, quantity, ...product } = req.body;
