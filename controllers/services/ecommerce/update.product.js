@@ -6,7 +6,20 @@ const db = require("../../../utils/database.connection");
 const uploadProductImage = require ( './utils/upload.image');
 
 const updateProduct = (req, res) => {
-  
+  uploadProductImage( req, res, (error) => {
+            if (error instanceof multer.MulterError) {
+                res.status(400).json({
+                    status: "error",
+                    error: error.message,
+                });
+                return;
+            }else if (error){
+                res.status(400).json({
+                    status: "error",
+                    error: error.message,
+                });
+                return;
+            };
   const { productid } = req.params;
   const { title, description, price, color, size, quantity } = req.body;
 
