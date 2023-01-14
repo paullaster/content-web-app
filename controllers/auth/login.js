@@ -53,7 +53,7 @@ const login = (req, res) => {
                 });
                 return;
               }
-              const 
+              const {password, ...userData} = rows[0][0];
               res
                 .status(200)
                 .header({
@@ -62,7 +62,7 @@ const login = (req, res) => {
                 .json({
                   status: "success",
                   token: token,
-                  data: rows[0][0],
+                  data: ,
                 });
             }
           );
