@@ -44,6 +44,7 @@ const createProduct = (req, res) => {
             });
             return;
           }
+          
           const sql = `INSERT INTO images SET?`;
           db
             .query(sql, newImage)
