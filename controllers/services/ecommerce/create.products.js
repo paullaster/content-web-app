@@ -29,7 +29,7 @@ const createProduct = (req, res) => {
     db.query(queryAttr, newAttribute)
     .then((rows) => {
       const sql = `INSERT INTO images SET?`;
-      db.query(sql, newImage, (err, rows) => {
+      db.query(sql, newImage).then((err, rows) => {
         if (err) {
             res.status(500).json({
                 status: "error",
