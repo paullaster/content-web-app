@@ -12,7 +12,7 @@ const createBlog = (req, res) => {
   };
   let query = "INSERT INTO blog SET?";
   db.query(query, newBlog)
-  .then((err, rows) => {
+  .then((rows) => {
     if (err) {
       res.status(500).json({
         status: "error",
