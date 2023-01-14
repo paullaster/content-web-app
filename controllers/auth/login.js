@@ -39,6 +39,7 @@ const login = (req, res) => {
             return;
           }
           let payload = userData;
+          res.json(payload);
         //   JWT.sign(
         //     payload,
         //     process.env.TOKEN_SECRET,
