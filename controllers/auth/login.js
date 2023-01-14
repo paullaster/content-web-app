@@ -75,7 +75,7 @@ const login = (req, res) => {
     .catch(err => {
         res.status(400).json({
             status: "error",
-            error: "Account not found"
+            error: err.message,
           });
     });
 };
