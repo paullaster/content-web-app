@@ -89,20 +89,21 @@ const createProduct = (req, res) => {
                   error: err.message
                 });
               });
+          })
+          .catch(error => {
+            res.status(500).json({
+              status: "error",
+              error: error.message
+            });
           });
-        });
-      })
-      .catch(error => {
+      }).catch(err => {
         res.status(500).json({
           status: "error",
-          error: error.message
+          error: err.message
         });
       });
-  }).catch(err => {
-    res.status(500).json({
-      status: "error",
-      error: err.message
-    });
-  });
+        });
+      })
+
 };
 module.exports = createProduct;
