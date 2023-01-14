@@ -60,14 +60,16 @@ const createProduct = (req, res) => {
               });
               return;
             }
-            const newImage = req.files.map(file => {
+            const newImages = req.files.map(file => {
               return {
                 imageid: req.file.filename,
                 path: req.file.path,
                 product: productid
               };
             });
-
+            newImages.map ( (image) =>{
+              
+            });
           });
         })
         .catch(error => {
