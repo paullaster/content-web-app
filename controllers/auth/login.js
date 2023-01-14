@@ -19,7 +19,7 @@ const login = (req, res) => {
   db
     .query(query)
     .then(rows => {
-        res.json(rows);
+        res.json(rows[0]);
     //   if (rows.length < 1) {
     //     res.status(400).json({
     //       status: "error",
