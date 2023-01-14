@@ -30,5 +30,5 @@ const upload = multer ( {
     fileFilter: filterExtention,
 });
 
-const uploadProductImage = upload.single('product_image')
+const uploadProductImage = upload.array('product_image', 4)
 module.exports = uploadProductImage;
