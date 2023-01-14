@@ -23,7 +23,9 @@ const updateBlogs = (req, res) => {
             }
         );
     })
-    .catch( ());
+    .catch( (err) => {
+        
+    });
 };
 module.exports = updateBlogs;
 
