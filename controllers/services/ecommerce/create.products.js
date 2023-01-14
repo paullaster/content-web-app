@@ -49,6 +49,9 @@ const createProduct = (req, res) => {
             message: "Product  with id " +productid + " inserted successfully"
         });
       });
+    })
+    .catch ( (error) => {
+      
     });
   })
   .catch ( (err) => {
