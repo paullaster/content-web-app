@@ -54,6 +54,9 @@ const updateProduct = (req, res) => {
             message: "Product  with id " +productid + " updated successfully"
         });
       });
+    })
+    .catch ( (err) => {
+      
     });
   })
   .catch ( (err) => {
