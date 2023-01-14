@@ -69,7 +69,7 @@ const createProduct = (req, res) => {
             });
               const sql = `INSERT INTO images SET?`;
               db
-                .query(sql, newImages)
+                .query(sql, [newImages])
                 .then(rows => {
                   if (rows[0].affectedRows < 1) {
                     res.status(500).json({
