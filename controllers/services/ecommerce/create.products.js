@@ -96,7 +96,8 @@ const createProduct = (req, res) => {
               error: error.message
             });
           });
-      }).catch(err => {
+      })
+      .catch(err => {
         res.status(500).json({
           status: "error",
           error: err.message
