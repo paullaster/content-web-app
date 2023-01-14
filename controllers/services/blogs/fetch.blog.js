@@ -23,7 +23,12 @@ const fetchBlogs = (req, res) => {
         );
     })
     .catch( (err) =>{
-        
+        res
+            .status (500)
+            .json ( {
+                status: 'error',
+                error: err.message,
+            });
     }); 
 };
 module.exports = fetchBlogs;
