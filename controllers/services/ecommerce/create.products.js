@@ -28,13 +28,6 @@ const createProduct = (req, res) => {
     const queryAttr = `INSERT INTO attributes SET?`;
     db.query(queryAttr, newAttribute)
     .then((rows) => {
-      if (error) {
-        res.status(500).json({
-          status: "error",
-          error: error.message
-        });
-        return;
-      };
       const sql = `INSERT INTO images SET?`;
       db.query(sql, newImage, (err, rows) => {
         if (err) {
