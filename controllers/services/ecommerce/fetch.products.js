@@ -13,7 +13,7 @@ const fetchProducts = (req, res) =>{
     db.query(query)
     .then((rows) =>{
         if(err) {
-            res.status(500).json ({
+            res.status(400).json ({
                 status: 'error',
                 error: err.message,
             });
