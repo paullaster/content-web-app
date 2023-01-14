@@ -25,7 +25,7 @@ const login = (req, res) => {
           error: "Account not found"
         });
         return;
-      };
+      }
       bcrypt
         .compare(password, rows[0].password)
         .then(resp => {
@@ -73,10 +73,10 @@ const login = (req, res) => {
         });
     })
     .catch(err => {
-        res.status(400).json({
-            status: "error",
-            error: err.message,
-          });
+      res.status(400).json({
+        status: "error",
+        error: err.message
+      });
     });
 };
 module.exports = login;
