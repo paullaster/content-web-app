@@ -48,6 +48,13 @@ const createProduct = (req, res) => {
           db
             .query(sql, newImage)
             .then(rows => {
+              if (rows[0].affectedRows < 1){
+                res.status(500).json({
+                  status: "error",
+                  error: "there was an error processing the product"
+                });
+                return;
+              };
               res.status(200).json({
                 status: "success",
                 message:
