@@ -5,7 +5,7 @@ const deleteBlogs = (req, res, next) => {
     let query = `DELETE FROM blog WHERE blogid = '${blogid}'`;
     db.query (query)
     .then((rows) => {
-        if(ro)
+        if(rows[0].affectedRows < 1 )
         res
         .status (200)
         .json (
