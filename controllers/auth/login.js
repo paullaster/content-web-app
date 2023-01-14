@@ -47,7 +47,7 @@ const login = (req, res) => {
             (err, token) => {
               if (err) {
                 res.status(500).json({
-                  code: "error",
+                  status: "error",
                   error: "Error creating token"
                 });
                 return;
