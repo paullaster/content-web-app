@@ -15,7 +15,7 @@ const fetchSingleProduct = (req, res) => {
     `;
   db.query(query)
   .then((rows) => {
-    if () {
+    if (rows[0].length < 1) {
         res.status(500).json({
             status: 'error',
             error: "Product with id '" + productid + "' was not found",
