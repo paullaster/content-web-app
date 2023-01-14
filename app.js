@@ -33,7 +33,10 @@ app.post ('/test', (req, res) => {
         if (error instanceof multer.MulterError) {
             res.json(error.message);
         }else if (error){
-            res.json("You can only upload a maximal of four images at once");
+            res.status(400).json({
+                status: "error",
+                error: error.message,
+            });
             return;
         };
         console.log (req.files.length);
