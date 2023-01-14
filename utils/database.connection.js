@@ -13,7 +13,7 @@ const pool = mysql.createPool({
   queueLimit:0
 });
 
-
+const db = pool.promise();
 
 //TEST connection
 db.connect(err => {
