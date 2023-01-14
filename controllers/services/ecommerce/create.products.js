@@ -9,6 +9,20 @@ const productId = require("../../../utils/create.productid");
 const uploadProductImage = require("../../../utils/upload.image");
 
 const createProduct = (req, res) => {
+  uploadProductImage(req, res, error => {
+    if (error instanceof multer.MulterError) {
+      res.status(400).json({
+        status: "error",
+        error: error.message
+      });
+      return;
+    } else if (error) {
+      res.status(400).json({
+        status: "error",
+        error: error.message
+      });
+      return;
+    }
   const { color, size, quantity, ...product } = req.body;
 
   const productid = productId();
