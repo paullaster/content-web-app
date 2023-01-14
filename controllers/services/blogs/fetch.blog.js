@@ -14,7 +14,7 @@ const fetchBlogs = (req, res) => {
       res.status(200).json({
         status: "success",
         message: "Blogs retrieved successfully ",
-        data: rows
+        data: rows[0],
       });
     })
     .catch(err => {
