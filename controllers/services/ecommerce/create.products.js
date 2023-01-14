@@ -26,10 +26,6 @@ const createProduct = (req, res) => {
   db.query(queryProd, newProduct)
   .then((rows) => {
     if (err) {
-      res.status(500).json({
-        status: "error",
-        error: err.message
-      });
       return;
     }
 
@@ -59,7 +55,7 @@ const createProduct = (req, res) => {
     });
   })
   .catch ( (err) => {
-    
+
   });
 };
 module.exports = createProduct;
