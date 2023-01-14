@@ -27,9 +27,9 @@ const login = (req, res) => {
         });
         return;
       };
-      const {passwordHash, ...userData} = rows[0][0];
+      const {password, ...userData} = rows[0][0];
       bcrypt
-        .compare(password, rows[0][0].password)
+        .compare(password, password)
         .then(resp => {
           if (!resp) {
             res.status(404).json({
@@ -38,7 +38,7 @@ const login = (req, res) => {
             });
             return;
           }
-          let payload = { email: rows[0][0].email };
+          let payload = userData;
           JWT.sign(
             payload,
             process.env.TOKEN_SECRET,
