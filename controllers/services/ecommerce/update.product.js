@@ -3,7 +3,7 @@ const multer = require("multer");
 
 //INTERNAL DEPENDENCIES:
 const db = require("../../../utils/database.connection");
-const uploadProductImage = require("./utils/upload.image");
+const uploadProductImage = require("../../../utils/upload.image");
 
 const updateProduct = (req, res) => {
   uploadProductImage(req, res, error => {
