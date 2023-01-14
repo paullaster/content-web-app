@@ -4,13 +4,13 @@ const fetchBlogs = (req, res) => {
   db
     .query(query)
     .then(rows => {
-    //   if (rows[0].length) {
-    //     res.status(500).json({
-    //       status: "error",
-    //       error: "Blogs are currently unavailable!"
-    //     });
-    //     return;
-    //   }
+      if (rows[0].length) {
+        res.status(500).json({
+          status: "error",
+          error: "Blogs are currently unavailable!"
+        });
+        return;
+      };
       res.status(200).json({
         status: "success",
         message: "Blogs retrieved successfully ",
