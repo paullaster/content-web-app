@@ -67,8 +67,32 @@ const createProduct = (req, res) => {
                 product: productid
               };
             });
-            newImages.map ( (image) =>{
-              
+            newImages.map(image => {
+              const sql = `INSERT INTO images SET?`;
+              db
+                .query(sql, newImage)
+                .then(rows => {
+                  if (rows[0].affectedRows < 1) {
+                    res.status(500).json({
+                      status: "error",
+                      error: "there was an error processing the product"
+                    });
+                    return;
+                  }
+                  res.status(200).json({
+                    status: "success",
+                    message:
+                      "Product  with id '" +
+                      productid +
+                      "' inserted successfully"
+                  });
+                })
+                .catch(err => {
+                  res.status(500).json({
+                    status: "error",
+                    error: err.message
+                  });
+                });
             });
           });
         })
