@@ -64,7 +64,13 @@ const createProduct = (req, res) => {
               });
               return;
             };
-            
+            const fileDetails = req.files.map ( (file) => {
+              return {
+                  imageid: file.filename,
+                  path: file.path,
+                  product: 1,
+              }
+          })
           });
           const sql = `INSERT INTO images SET?`;
           db
