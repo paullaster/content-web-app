@@ -28,6 +28,7 @@ app.get ('/', (req, res) => {
 });
 const uploadProductImage = require ( './utils/upload.image');
 app.post ('/test', (req, res) => {
+    uploadProductImage, 
     console.log (req.files.length);
     res.json('image');
 });
