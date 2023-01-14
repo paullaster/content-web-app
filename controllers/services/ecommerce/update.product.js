@@ -51,7 +51,10 @@ const updateProduct = (req, res) => {
               return;
             }
             const imageUpdate = req.files.map( (file) =>{
-                return file.filename, file.path
+                return[
+                  file.filename,
+                  file.path
+                ];
             });
             const sql = `UPDATE images SET imageid =? 
       path =? WHERE product = '${productid}'`;
@@ -61,8 +64,7 @@ const updateProduct = (req, res) => {
                 if (rows[0].changedRows < 1) {
                   res.status(400).json({
                     status: "error",
-                    error: "There was an error updating the product",
-                    data: imageUpdate
+                    error: "There was an error updating the product"
                   });
                   return;
                 }
