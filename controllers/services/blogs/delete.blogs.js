@@ -9,7 +9,7 @@ const deleteBlogs = (req, res, next) => {
       if (rows[0].affectedRows < 1) {
         res.status(400).json({
           status: "error",
-          error: err.message
+          error: "Blog with id " +blogid + " does not exist!"
         });
         return;
       }
