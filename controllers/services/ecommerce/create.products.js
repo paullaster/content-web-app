@@ -32,7 +32,7 @@ const createProduct = (req, res) => {
           error: "there was an error processing the product"
         });
         return;
-      }
+      };
       const queryAttr = `INSERT INTO attributes SET?`;
       db
         .query(queryAttr, newAttribute)
