@@ -42,7 +42,7 @@ const updateProduct = (req, res) => {
       path = '${path}', product = '${productid}' WHERE product = '${productid}'`;
       db.query(sql, (err, rows) => {
         if (err) {
-            res.status(500).json({
+            res.status(400).json({
                 status: "error",
                 error: err.message
             });
@@ -56,7 +56,7 @@ const updateProduct = (req, res) => {
     });
   })
   .catch ( (err) => {
-    
+
   });
 };
 module.exports = updateProduct;
