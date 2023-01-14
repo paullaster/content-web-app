@@ -42,7 +42,7 @@ const updateProduct = (req, res) => {
       const sql = `UPDATE images SET imageid = '${filename}' 
       path = '${path}', product = '${productid}' WHERE product = '${productid}'`;
       db.query(sql)
-      .then((err, rows) => {
+      .then((rows) => {
         if (err) {
             res.status(400).json({
                 status: "error",
