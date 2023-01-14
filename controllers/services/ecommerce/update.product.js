@@ -19,11 +19,11 @@ const updateProduct = (req, res) => {
     price = '${price}' WHERE productid = '${productid}'`;
 
   db.query(query)
-  .then((result) => {
-    if (err) {
+  .then((rows) => {
+    if (rows[0].changedRows < 1) {
       res.status(404).json({
         status: "error",
-        error: err.message
+        error: "There was an error updating product",
       });
       return;
     }
