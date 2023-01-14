@@ -66,9 +66,9 @@ const createProduct = (req, res) => {
             }
             const fileDetails = req.files.map(file => {
               return {
-                imageid: file.filename,
-                path: file.path,
-                product: 1
+                imageid: req.file.filename,
+                path: req.file.path,
+                product: productid
               };
             });
           });
