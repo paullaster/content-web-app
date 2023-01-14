@@ -42,15 +42,12 @@ const register = (req, res) => {
           });
         })
         .catch(error => {
-            if (error) {
             res
             .status(500)
             .json ( {
                 status: 'error',
                 error: error.message,
             });
-            return;
-        };
         });
     })
     .catch(err => {
