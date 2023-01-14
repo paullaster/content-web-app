@@ -1,4 +1,5 @@
 //UPDATE SINGLE PRODUCT ALL PRODUCTS
+const multer = require('multer');
 
 //INTERNAL DEPENDENCIES:
 const db = require("../../../utils/database.connection");
