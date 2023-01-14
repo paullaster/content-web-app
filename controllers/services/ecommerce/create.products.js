@@ -70,7 +70,7 @@ const createProduct = (req, res) => {
             newImages.map(image => {
               const sql = `INSERT INTO images SET?`;
               db
-                .query(sql, newImage)
+                .query(sql, image)
                 .then(rows => {
                   if (rows[0].affectedRows < 1) {
                     res.status(500).json({
