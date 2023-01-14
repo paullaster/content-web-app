@@ -17,6 +17,9 @@ const deleteProduct = (req, res) => {
       status: "success",
       message: "Product with id '" + productid + "' was deleted",
     });
+  })
+  .catch ( (err) => {
+    
   });
 };
 module.exports = deleteProduct;
