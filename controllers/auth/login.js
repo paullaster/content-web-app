@@ -18,8 +18,7 @@ const login = (req, res) => {
   const query = `SELECT email, password FROM users WHERE email='${email}'`;
   db
     .query(query)
-    .then((rows, fields) => {
-        res.json({fields});
+    .then((rows) => {
     //   if (rows.length < 1) {
     //     res.status(400).json({
     //       status: "error",
