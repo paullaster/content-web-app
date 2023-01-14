@@ -1,10 +1,10 @@
 //CREATING PRODUCT
-const db = require ("../../../utils/database.connection");
-const AttributeId = require ("../../../utils/create.attributeid");
-const productId = require ("../../../utils/create.productid");
+const db = require("../../../utils/database.connection");
+const AttributeId = require("../../../utils/create.attributeid");
+const productId = require("../../../utils/create.productid");
 const createProduct = (req, res) => {
   const { color, size, quantity, ...product } = req.body;
-  
+
   const productid = productId();
   let newProduct = {
     ...product,
@@ -20,41 +20,45 @@ const createProduct = (req, res) => {
   let newImage = {
     imageid: req.file.filename,
     path: req.file.path,
-    product: productid,
+    product: productid
   };
   const queryProd = `INSERT INTO products SET?`;
-  db.query(queryProd, newProduct)
-  .then((rows) => {
-    const queryAttr = `INSERT INTO attributes SET?`;
-    db.query(queryAttr, newAttribute)
-    .then((rows) => {
-      const sql = `INSERT INTO images SET?`;
-      db.query(sql, newImage)
-      .then((rows) => {
-        res.status(200).json({
-            status: "success",
-            message: "Product  with id " +productid + " inserted successfully"
+  db
+    .query(queryProd, newProduct)
+    .then(rows => {
+      const queryAttr = `INSERT INTO attributes SET?`;
+      db
+        .query(queryAttr, newAttribute)
+        .then(rows => {
+          const sql = `INSERT INTO images SET?`;
+          db
+            .query(sql, newImage)
+            .then(rows => {
+              res.status(200).json({
+                status: "success",
+                message:
+                  "Product  with id " + productid + " inserted successfully"
+              });
+            })
+            .catch(err => {
+              res.status(500).json({
+                status: "error",
+                error: err.message
+              });
+            });
+        })
+        .catch(error => {
+          res.status(500).json({
+            status: "error",
+            error: error.message
+          });
         });
-      })
-      .catch ( (err) => {
-        res.status(500).json({
-          status: "error",
-          error: err.message
-      });
-      });
     })
-    .catch ( (error) => {
+    .catch(err => {
       res.status(500).json({
         status: "error",
-        error: error.message
+        error: err.message
       });
     });
-  })
-  .catch ( (err) => {
-    res.status(500).json({
-      status: "error",
-      error: err.message
-    });
-  });
 };
 module.exports = createProduct;
