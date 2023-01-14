@@ -26,6 +26,7 @@ app.use ( '/api', Router);
 app.get ('/', (req, res) => {
     res.json('Welcome to goebaide services');
 });
+app.post ('/test', (req, res) => {});
 //Instanciating server
 app.listen (PORT, () => {
     console.log (`App listening on port ${PORT}`);
