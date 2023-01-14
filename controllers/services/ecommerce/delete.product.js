@@ -9,7 +9,7 @@ const deleteProduct = (req, res) => {
     if (rows[0].affectedRows < 1) {
       res.status(500).json({
         status: "error",
-        error: "Product with id '" + productId + "' does not exist",
+        error: "Product with id '" + productid + "' does not exist",
       });
       return;
     }
