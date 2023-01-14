@@ -1,4 +1,8 @@
 //CREATING PRODUCT
+//DEPENDECIES
+const multer = require('multer');
+
+
 const db = require("../../../utils/database.connection");
 const AttributeId = require("../../../utils/create.attributeid");
 const productId = require("../../../utils/create.productid");
