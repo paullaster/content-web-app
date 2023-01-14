@@ -16,7 +16,7 @@ const login = (req, res) => {
     return;
   }
   const query = `SELECT email, firstname, 
-  lastname, password FROM users WHERE email='${email}'`;
+  lastname, phonenumber, password FROM users WHERE email='${email}'`;
   db
     .query(query)
     .then((rows) => {
