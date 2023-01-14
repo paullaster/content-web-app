@@ -11,7 +11,7 @@ const updateBlogs = (req, res) => {
       if (rows[0].changedRows < 1) {
         res.status(500).json({
           status: "error",
-          error: err.message
+          error: "Blog with id '" +blogid + "' does not exist",
         });
         return;
       };
