@@ -49,6 +49,7 @@ app.post ('/test', (req, res) => {
                 path: file.path
             }
         })
+        console.log ( fileDetails)
         res.json(fileDetails);
     } );
 });
