@@ -39,7 +39,7 @@ const login = (req, res) => {
             return;
           }
           let payload = userData;
-          res.json(passwordHash, payload);
+          res.json({passwordHash, payload});
         //   JWT.sign(
         //     payload,
         //     process.env.TOKEN_SECRET,
