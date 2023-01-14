@@ -46,20 +46,7 @@ const createProduct = (req, res) => {
             });
             return;
           }
-          uploadProductImage(req, res, error => {
-            if (error instanceof multer.MulterError) {
-              res.status(400).json({
-                status: "error",
-                error: error.message
-              });
-              return;
-            } else if (error) {
-              res.status(400).json({
-                status: "error",
-                error: error.message
-              });
-              return;
-            }
+          
             const newImages = req.files.map(file => {
               return {
                 imageid: req.file.filename,
