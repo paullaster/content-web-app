@@ -39,33 +39,33 @@ const login = (req, res) => {
             return;
           }
           let payload = userData;
-          JWT.sign(
-            payload,
-            process.env.TOKEN_SECRET,
-            {
-              algorithm: "HS512",
-              expiresIn: 5400
-            },
-            (err, token) => {
-              if (err) {
-                res.status(500).json({
-                  status: "error",
-                  error: "Error creating token"
-                });
-                return;
-              };
-              res
-                .status(200)
-                .header({
-                  Authorization: "Bearer " + token
-                })
-                .json({
-                  status: "success",
-                  token: token,
-                  data: userData,
-                });
-            }
-          );
+        //   JWT.sign(
+        //     payload,
+        //     process.env.TOKEN_SECRET,
+        //     {
+        //       algorithm: "HS512",
+        //       expiresIn: 5400
+        //     },
+        //     (err, token) => {
+        //       if (err) {
+        //         res.status(500).json({
+        //           status: "error",
+        //           error: "Error creating token"
+        //         });
+        //         return;
+        //       };
+        //       res
+        //         .status(200)
+        //         .header({
+        //           Authorization: "Bearer " + token
+        //         })
+        //         .json({
+        //           status: "success",
+        //           token: token,
+        //           data: userData,
+        //         });
+        //     }
+        //   );
         })
         .catch(err => {
           res.status(500).json({
