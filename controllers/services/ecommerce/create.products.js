@@ -67,10 +67,9 @@ const createProduct = (req, res) => {
                 product: productid
               };
             });
-            newImages.map(image => {
               const sql = `INSERT INTO images SET?`;
               db
-                .query(sql, image)
+                .query(sql, newImages)
                 .then(rows => {
                   if (rows[0].affectedRows < 1) {
                     res.status(500).json({
@@ -93,7 +92,6 @@ const createProduct = (req, res) => {
                     error: err.message
                   });
                 });
-            });
           })
           .catch(error => {
             res.status(500).json({
