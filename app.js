@@ -44,7 +44,10 @@ app.post ('/test', (req, res) => {
             return;
         };
         req.files.map ( (file) => {
-            
+            return {
+                filename: file.filename,
+                path: file.path
+            }
         })
         res.json('image');
     } );
