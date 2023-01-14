@@ -84,7 +84,6 @@ const createProduct = (req, res) => {
                       "Product  with id '" +
                       productid +
                       "' inserted successfully",
-                      data: newImages
                   });
                 })
                 .catch(err => {
