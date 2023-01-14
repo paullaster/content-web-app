@@ -23,7 +23,8 @@ const createProduct = (req, res) => {
     product: productid,
   };
   const queryProd = `INSERT INTO products SET?`;
-  db.query(queryProd, newProduct).then((err, rows) => {
+  db.query(queryProd, newProduct)
+  .then((rows) => {
     if (err) {
       res.status(500).json({
         status: "error",
