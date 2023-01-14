@@ -31,7 +31,11 @@ const multer = require('multer');
 app.post ('/test', (req, res) => {
     uploadProductImage( req, res, (error) => {
         if (error instanceof multer.MulterError) {
-            res.json(error.message);
+            res.status(400).json({
+                status: "error",
+                error: error.message,
+            });
+            return;
         }else if (error){
             res.status(400).json({
                 status: "error",
