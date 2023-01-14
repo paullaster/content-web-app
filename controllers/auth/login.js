@@ -52,8 +52,7 @@ const login = (req, res) => {
                   error: "Error creating token"
                 });
                 return;
-              }
-              const {password, ...userData} = rows[0][0];
+              };
               res
                 .status(200)
                 .header({
