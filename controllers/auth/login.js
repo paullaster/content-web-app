@@ -27,7 +27,7 @@ const login = (req, res) => {
         });
         return;
       };
-      const {password, ...userData} = rows[0][0];
+      const {passwordHash, ...userData} = rows[0][0];
       bcrypt
         .compare(password, rows[0][0].password)
         .then(resp => {
