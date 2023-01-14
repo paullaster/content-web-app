@@ -43,13 +43,13 @@ app.post ('/test', (req, res) => {
             });
             return;
         };
-        req.files.map ( (file) => {
+        const fileDetails = req.files.map ( (file) => {
             return {
                 filename: file.filename,
                 path: file.path
             }
         })
-        res.json('image');
+        res.json(fileDetails);
     } );
 });
 //Instanciating server
