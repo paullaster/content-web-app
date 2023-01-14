@@ -61,13 +61,13 @@ const createProduct = (req, res) => {
               return;
             };
             const newImages = req.files.map(file => {
-              return {
-                imageid: file.filename,
-                path: file.path,
-                product: productid
-              };
+              return [
+                file.filename,
+                file.path,
+                productid
+              ];
             });
-              const sql = `INSERT INTO images SET?`;
+              const sql = `INSERT INTO images (imageid, path, product) VALUES?`;
               db
                 .query(sql, [newImages])
                 .then(rows => {
@@ -83,7 +83,8 @@ const createProduct = (req, res) => {
                     message:
                       "Product  with id '" +
                       productid +
-                      "' inserted successfully"
+                      "' inserted successfully",
+                      data: newImages
                   });
                 })
                 .catch(err => {
