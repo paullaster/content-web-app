@@ -53,7 +53,6 @@ const login = (req, res) => {
                 });
                 return;
               }
-              const {password, ...userData} = rows[0][0];
               res
                 .status(200)
                 .header({
