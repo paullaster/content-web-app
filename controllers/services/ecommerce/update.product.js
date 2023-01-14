@@ -18,7 +18,8 @@ const updateProduct = (req, res) => {
     description = '${description}',
     price = '${price}' WHERE productid = '${productid}'`;
 
-  db.query(query).then((err, result) => {
+  db.query(query)
+  .then((result) => {
     if (err) {
       res.status(404).json({
         status: "error",
