@@ -72,7 +72,8 @@ const updateProduct = (req, res) => {
                 res.status(200).json({
                   status: "success",
                   message:
-                    "Product  with id " + productid + " updated successfully"
+                    "Product  with id " + productid + " updated successfully",
+                    data: imageUpdate
                 });
               })
               .catch(err => {
