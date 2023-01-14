@@ -16,7 +16,8 @@ const login = (req, res) => {
         return;
     };
     const query = `SELECT email, password FROM users WHERE email='${email}'`;
-    db.query (query, (err, rows,fields) => {
+    db.query (query)
+    .then((err, rows,fields) => {
         if (rows.length < 1) {
             res
             .status (400)
