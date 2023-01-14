@@ -60,7 +60,7 @@ const updateProduct = (req, res) => {
             const sql = `UPDATE images SET imageid =? 
       path =? , product =?' WHERE product =?`;
             db
-              .query(sql)
+              .query(sql,[imageUpdate])
               .then(rows => {
                 if (rows[0].changedRows < 1) {
                   res.status(400).json({
