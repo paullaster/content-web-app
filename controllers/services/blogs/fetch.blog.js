@@ -22,6 +22,8 @@ const fetchBlogs = (req, res) => {
             }
         );
     })
-    .catch( ()); 
+    .catch( (err) =>{
+        
+    }); 
 };
 module.exports = fetchBlogs;
