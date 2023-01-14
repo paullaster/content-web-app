@@ -27,8 +27,11 @@ app.get ('/', (req, res) => {
     res.json('Welcome to goebaide services');
 });
 const uploadProductImage = require ( './utils/upload.image');
+const multer = require('multer');
 app.post ('/test', (req, res) => {
-    uploadProductImage, 
+    uploadProductImage( req, res, (error) => {
+        if (error instanceof multer.MulterError) {}
+    } );
     console.log (req.files.length);
     res.json('image');
 });
