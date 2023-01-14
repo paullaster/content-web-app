@@ -45,9 +45,9 @@ app.post ('/test', (req, res) => {
         };
         const fileDetails = req.files.map ( (file) => {
             return {
-                filename: file.filename,
+                imageid: file.filename,
                 path: file.path,
-                
+                product: 1,
             }
         })
         console.log ( fileDetails)
