@@ -25,10 +25,6 @@ const createProduct = (req, res) => {
   const queryProd = `INSERT INTO products SET?`;
   db.query(queryProd, newProduct)
   .then((rows) => {
-    if (err) {
-      return;
-    }
-
     const queryAttr = `INSERT INTO attributes SET?`;
     db.query(queryAttr, newAttribute, (error, rows) => {
       if (error) {
