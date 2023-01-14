@@ -22,7 +22,8 @@ const updateBlogs = (req, res) => {
                 message: 'Blog with blog id ' + blogid + ' updated successfully',
             }
         );
-    });
+    })
+    .catch( ());
 };
 module.exports = updateBlogs;
 
