@@ -7,7 +7,7 @@ const updateBlogs = (req, res) => {
     content = '${body}' WHERE blogid = '${blogid}'`;
   db
     .query(query)
-    .then((err, rows) => {
+    .then((rows) => {
       if (err) {
         res.status(500).json({
           status: "error",
