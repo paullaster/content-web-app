@@ -59,7 +59,7 @@ const login = (req, res) => {
                   Authorization: "Bearer " + token
                 })
                 .json({
-                  code: "success",
+                  status: "success",
                   token: token
                 });
             }
