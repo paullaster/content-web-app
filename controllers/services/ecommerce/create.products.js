@@ -27,7 +27,7 @@ const createProduct = (req, res) => {
   .then((rows) => {
     const queryAttr = `INSERT INTO attributes SET?`;
     db.query(queryAttr, newAttribute)
-    .then((error, rows) => {
+    .then((rows) => {
       if (error) {
         res.status(500).json({
           status: "error",
