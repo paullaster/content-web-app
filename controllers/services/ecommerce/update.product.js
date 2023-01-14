@@ -50,8 +50,8 @@ const updateProduct = (req, res) => {
               });
               return;
             }
-            const sql = `UPDATE images SET imageid = '${filename}' 
-      path = '${path}', product = '${productid}' WHERE product = '${productid}'`;
+            const sql = `UPDATE images SET imageid =? 
+      path =? , product =?' WHERE product =?`;
             db
               .query(sql)
               .then(rows => {
