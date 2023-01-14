@@ -19,13 +19,14 @@ const login = (req, res) => {
   db
     .query(query)
     .then(rows => {
-      if (rows.length < 1) {
-        res.status(400).json({
-          status: "error",
-          error: "Account not found"
-        });
-        return;
-      };
+        res.json(rows);
+    //   if (rows.length < 1) {
+    //     res.status(400).json({
+    //       status: "error",
+    //       error: "Account not found"
+    //     });
+    //     return;
+    //   };
     //   bcrypt
     //     .compare(password, rows[0].password)
     //     .then(resp => {
@@ -73,7 +74,7 @@ const login = (req, res) => {
     //     });
     })
     .catch(err => {
-      res.status(400).json({
+      res.status(500).json({
         status: "error",
         error: err.message
       });
