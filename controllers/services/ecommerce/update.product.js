@@ -50,7 +50,9 @@ const updateProduct = (req, res) => {
               });
               return;
             }
-            const imageUpdate = 
+            const imageUpdate = req.files.map( (file) =>{
+
+            });
             const sql = `UPDATE images SET imageid =? 
       path =? , product =?' WHERE product =?`;
             db
