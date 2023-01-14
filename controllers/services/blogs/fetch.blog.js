@@ -1,7 +1,7 @@
 const db = require ("../../../utils/database.connection");
 const fetchBlogs = (req, res) => {
     let query = 'SELECT * FROM blog';
-    db.query(query, (err, rows) => {
+    db.query(query).then((err, rows) => {
         if (err) {
             res
             .status (500)
