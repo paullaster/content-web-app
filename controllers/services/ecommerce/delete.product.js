@@ -6,7 +6,7 @@ const deleteProduct = (req, res) => {
   let query = `DELETE FROM products WHERE productid = '${productid}'`;
   db.query(query)
   .then((rows) => {
-    if (err) {
+    if (rows[0].affectedRows < 1) {
       res.status(500).json({
         status: "error",
         error: err.message
