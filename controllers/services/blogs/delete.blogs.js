@@ -15,7 +15,15 @@ const deleteBlogs = (req, res, next) => {
         );
     })
     .catch ( (err) =>{
-
+        if (err) {
+            res
+            .status (500)
+            .json ( {
+                status: 'error',
+                error: err.message,
+            });
+            return;
+        };
     });
 };
 module.exports= deleteBlogs
