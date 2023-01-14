@@ -39,34 +39,35 @@ const createProduct = (req, res) => {
     };
 
     const queryProd = `INSERT INTO products SET?`;
-    db.query(queryProd, newProduct).then(rows => {
-      if (rows[0].affectedRows < 1) {
-        res.status(500).json({
-          status: "error",
-          error: "there was an error processing the product"
-        });
-        return;
-      }
-      const queryAttr = `INSERT INTO attributes SET?`;
-      db
-        .query(queryAttr, newAttribute)
-        .then(rows => {
-          if (rows[0].affectedRows < 1) {
-            res.status(500).json({
-              status: "error",
-              error: "there was an error processing the product"
-            });
-            return;
-          }
-          const newImages = req.files.map(file => {
-            return {
-              imageid: file.filename,
-              path: file.path,
-              product: productid
-            };
+    db
+      .query(queryProd, newProduct)
+      .then(rows => {
+        if (rows[0].affectedRows < 1) {
+          res.status(500).json({
+            status: "error",
+            error: "there was an error processing the product"
           });
-          newImages
-            .map(image => {
+          return;
+        }
+        const queryAttr = `INSERT INTO attributes SET?`;
+        db
+          .query(queryAttr, newAttribute)
+          .then(rows => {
+            if (rows[0].affectedRows < 1) {
+              res.status(500).json({
+                status: "error",
+                error: "there was an error processing the product"
+              });
+              return;
+            }
+            const newImages = req.files.map(file => {
+              return {
+                imageid: file.filename,
+                path: file.path,
+                product: productid
+              };
+            });
+            newImages.map(image => {
               const sql = `INSERT INTO images SET?`;
               db
                 .query(sql, image)
@@ -93,20 +94,20 @@ const createProduct = (req, res) => {
                   });
                 });
             });
-        })
-        .catch(error => {
-          res.status(500).json({
-            status: "error",
-            error: error.message
+          })
+          .catch(error => {
+            res.status(500).json({
+              status: "error",
+              error: error.message
+            });
           });
+      })
+      .catch(err => {
+        res.status(500).json({
+          status: "error",
+          error: err.message
         });
-    })
-    .catch(err => {
-      res.status(500).json({
-        status: "error",
-        error: err.message
       });
-    });
   });
 };
 module.exports = createProduct;
