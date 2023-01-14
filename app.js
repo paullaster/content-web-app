@@ -32,6 +32,8 @@ app.post ('/test', (req, res) => {
     uploadProductImage( req, res, (error) => {
         if (error instanceof multer.MulterError) {
             res.json(error.message);
+        }else if (error){
+            res.json(error.message);
         }
     } );
     console.log (req.files.length);
