@@ -24,6 +24,9 @@ const createBlog = (req, res) => {
       status: "success",
       massage: blogid + " created successfully"
     });
+  })
+  .catch ((err) => {
+    
   });
 };
 module.exports = createBlog;
