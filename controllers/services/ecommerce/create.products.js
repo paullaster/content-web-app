@@ -31,20 +31,16 @@ const createProduct = (req, res) => {
       const sql = `INSERT INTO images SET?`;
       db.query(sql, newImage)
       .then((rows) => {
-        if (err) {
-            res.status(500).json({
-                status: "error",
-                error: err.message
-            });
-            return;
-        };
         res.status(200).json({
             status: "success",
             message: "Product  with id " +productid + " inserted successfully"
         });
       })
       .catch ( (err) => {
-
+        res.status(500).json({
+          status: "error",
+          error: err.message
+      });
       });
     })
     .catch ( (error) => {
