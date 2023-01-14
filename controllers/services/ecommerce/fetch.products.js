@@ -11,7 +11,7 @@ const fetchProducts = (req, res) =>{
     JOIN attributes ON attributes.productid = products.productid
     JOIN images ON images.product = products.productid`;
     db.query(query)
-    .then((err, rows) =>{
+    .then((rows) =>{
         if(err) {
             res.status(500).json ({
                 status: 'error',
@@ -22,6 +22,12 @@ const fetchProducts = (req, res) =>{
         res.status(200).json({
             status: 'success',
             data: rows,
+        });
+    })
+    .catch ( (err) => {
+        res.status(500).json ({
+            status: 'error',
+            error: err.message,
         });
     });
 };
