@@ -28,7 +28,7 @@ app.get ('/', (req, res) => {
 });
 const uploadProductImage = require ( './utils/upload.image');
 app.post ('/test', uploadProductImage, (req, res) => {
-    console.log (req.file)
+    console.log (req.files)
     res.json('image');
 });
 //Instanciating server
