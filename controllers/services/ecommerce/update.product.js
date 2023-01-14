@@ -61,7 +61,8 @@ const updateProduct = (req, res) => {
                 if (rows[0].changedRows < 1) {
                   res.status(400).json({
                     status: "error",
-                    error: "There was an error updating the product"
+                    error: "There was an error updating the product",
+                    st: 2
                   });
                   return;
                 }
@@ -75,7 +76,8 @@ const updateProduct = (req, res) => {
               .catch(err => {
                 res.status(400).json({
                   status: "error",
-                  error: err.message
+                  error: err.message,
+                  st: 1
                 });
               });
           })
