@@ -63,7 +63,8 @@ const createProduct = (req, res) => {
                 error: error.message
               });
               return;
-            }
+            };
+            
           });
           const sql = `INSERT INTO images SET?`;
           db
