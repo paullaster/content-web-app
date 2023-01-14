@@ -33,7 +33,8 @@ const updateProduct = (req, res) => {
         if (rows[0].changedRows < 1) {
           res.status(404).json({
             status: "error",
-            error: "There was an error updating product"
+            error: "There was an error updating product",
+            st: 3
           });
           return;
         }
@@ -46,7 +47,8 @@ const updateProduct = (req, res) => {
             if (rows[0].changedRows < 1) {
               res.status(404).json({
                 status: "error",
-                error: "There was an error updating the product"
+                error: "There was an error updating the product",
+                st:4
               });
               return;
             }
