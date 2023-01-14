@@ -51,7 +51,19 @@ const createProduct = (req, res) => {
             return;
           }
           uploadProductImage ( req, res, (error) => {
-
+            if (error instanceof multer.MulterError) {
+              res.status(400).json({
+                  status: "error",
+                  error: error.message,
+              });
+              return;
+          }else if (error){
+              res.status(400).json({
+                  status: "error",
+                  error: error.message,
+              });
+              return;
+          };
           });
           const sql = `INSERT INTO images SET?`;
           db
