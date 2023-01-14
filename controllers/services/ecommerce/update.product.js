@@ -54,6 +54,9 @@ const updateProduct = (req, res) => {
         });
       });
     });
+  })
+  .catch ( (err) => {
+    
   });
 };
 module.exports = updateProduct;
