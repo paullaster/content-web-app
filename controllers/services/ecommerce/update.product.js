@@ -6,6 +6,7 @@ const db = require("../../../utils/database.connection");
 const uploadProductImage = require ( './utils/upload.image');
 
 const updateProduct = (req, res) => {
+  
   const { productid } = req.params;
   const { title, description, price, color, size, quantity } = req.body;
 
