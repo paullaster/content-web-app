@@ -1,4 +1,4 @@
-//FETCH ALL PRODUCTS
+//UPDATE SINGLE PRODUCT ALL PRODUCTS
 const db = require("../../../utils/database.connection");
 
 const updateProduct = (req, res) => {
