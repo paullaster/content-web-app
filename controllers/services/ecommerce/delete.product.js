@@ -14,7 +14,7 @@ const deleteProduct = (req, res) => {
     }
     res.status(200).json({
       status: "success",
-      message: "Product with id " + productid + " was deleted",
+      message: "Product with id '" + productid + "' was deleted",
     });
   });
 };
