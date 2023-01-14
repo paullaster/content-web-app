@@ -15,7 +15,7 @@ const fetchProducts = (req, res) =>{
         if(rows[0].length < 1) {
             res.status(400).json ({
                 status: 'error',
-                error: err.message,
+                error: "Products are not available",
             });
             return;
         };
