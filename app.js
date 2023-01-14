@@ -27,11 +27,7 @@ app.get ('/', (req, res) => {
     res.json('Welcome to goebaide services');
 });
 const uploadProductImage = require ( './utils/upload.image');
-app.post ('/test', uploadProductImage, (req, res) => {
-    if (req.files.length > 4){
-        res.json ("Too many files")
-        return;
-    }
+app.post ('/test', (req, res) => {
     console.log (req.files.length);
     res.json('image');
 });
