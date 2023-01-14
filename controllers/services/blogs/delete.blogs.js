@@ -12,6 +12,7 @@ const deleteBlogs = (req, res, next) => {
                 status: 'error',
                 error: err.message,
             });
+            return;
         };
         res
         .status (200)
