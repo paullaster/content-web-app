@@ -14,8 +14,8 @@ const fetchSingleProduct = (req, res) => {
     WHERE products.productid = '${productid}'
     `;
   db.query(query)
-  .then((err, rows) => {
-    if (err) {
+  .then((rows) => {
+    if () {
         res.status(500).json({
             status: 'error',
             error: "Product with id '" + productid + "' was not found",
@@ -27,7 +27,7 @@ const fetchSingleProduct = (req, res) => {
         data: rows,
     });
   })
-  .catch ( () => {
+  .catch ( (err) => {
     res.status(500).json({
       status: 'error',
       error: err.message
