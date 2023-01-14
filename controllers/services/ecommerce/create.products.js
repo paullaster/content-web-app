@@ -2,6 +2,7 @@
 const db = require("../../../utils/database.connection");
 const AttributeId = require("../../../utils/create.attributeid");
 const productId = require("../../../utils/create.productid");
+
 const createProduct = (req, res) => {
   const { color, size, quantity, ...product } = req.body;
 
@@ -44,7 +45,7 @@ const createProduct = (req, res) => {
             });
             return;
           }
-          
+
           const sql = `INSERT INTO images SET?`;
           db
             .query(sql, newImage)
