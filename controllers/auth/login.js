@@ -1,85 +1,77 @@
 //dependencies
-const JWT = require( "jsonwebtoken");
-const bcrypt = require( "bcrypt");
-require( "dotenv").config();
+const JWT = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+require("dotenv").config();
 
 //Internal dependencies
-const db = require ( "../../utils/database.connection");
+const db = require("../../utils/database.connection");
 
 const login = (req, res) => {
   const { password, email } = req.body;
-    if ( !email || !password ) {
+  if (!email || !password) {
+    res.status(400).json({
+      status: "error",
+      error: "Both password and email are required"
+    });
+    return;
+  }
+  const query = `SELECT email, password FROM users WHERE email='${email}'`;
+  db
+    .query(query)
+    .then(rows => {
+      if (rows.length < 1) {
         res.status(400).json({
-            status: 'error',
-            error: 'Both password and email are required',
+          status: "error",
+          error: "Account not found"
         });
         return;
-    };
-    const query = `SELECT email, password FROM users WHERE email='${email}'`;
-    db.query (query)
-    .then((rows) => {
-          if (rows.length < 1) {
-            res
-            .status (400)
-            .json ( {
-                status: 'error',
-                error: "Account not found",
-            })
-            return;
-        };
-        bcrypt.compare (password, rows[0].password)
-        .then((resp) =>{
-            if (!resp) {
-                res
-                .status(404)
-                .json (
-                    {
-                        status: 'error',
-                        error: 'Invalid password',
-                    }
-                );
-                return;
-            };
-            let payload = {email: rows[0].email}
-            JWT.sign (payload, process.env.TOKEN_SECRET, {
-                algorithm: 'HS512',
-                expiresIn: 5400,
-            }, (err, token) => {
-                if (err) {
-                    res
-                    .status(500)
-                    .json ( {
-                        code: 'error',
-                        error: 'Error creating token',
-                    });
-                    return;
-                };
-               
-                res
-                .status(200)
-                .header ( {
-                    'Authorization': 'Bearer '+token
-                })
-                .json (
-                    {
-                        code: 'success',
-                        token: token,
-                    }
-                );
+      }
+      bcrypt
+        .compare(password, rows[0].password)
+        .then(resp => {
+          if (!resp) {
+            res.status(404).json({
+              status: "error",
+              error: "Invalid password"
             });
+            return;
+          }
+          let payload = { email: rows[0].email };
+          JWT.sign(
+            payload,
+            process.env.TOKEN_SECRET,
+            {
+              algorithm: "HS512",
+              expiresIn: 5400
+            },
+            (err, token) => {
+              if (err) {
+                res.status(500).json({
+                  code: "error",
+                  error: "Error creating token"
+                });
+                return;
+              }
+
+              res
+                .status(200)
+                .header({
+                  Authorization: "Bearer " + token
+                })
+                .json({
+                  code: "success",
+                  token: token
+                });
+            }
+          );
         })
-        .catch((err) => {
-            res
-            .status(500)
-            .json(
-                {
-                    code: 'error',
-                    error: err.message,
-                }
-            );
+        .catch(err => {
+          res.status(500).json({
+            code: "error",
+            error: err.message
+          });
         });
     })
-    .catch((err) => {
-    });
+    .catch(err => {});
 };
 module.exports = login;
