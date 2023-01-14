@@ -37,7 +37,7 @@ const login = (req, res) => {
             });
             return;
           }
-          let payload = { email: rows[0].email };
+          let payload = { email: rows[0][0].email };
           JWT.sign(
             payload,
             process.env.TOKEN_SECRET,
