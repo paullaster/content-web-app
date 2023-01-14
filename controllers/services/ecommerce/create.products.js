@@ -42,6 +42,9 @@ const createProduct = (req, res) => {
             status: "success",
             message: "Product  with id " +productid + " inserted successfully"
         });
+      })
+      .catch ( (err) => {
+
       });
     })
     .catch ( (error) => {
