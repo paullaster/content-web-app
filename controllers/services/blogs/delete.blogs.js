@@ -6,7 +6,12 @@ const deleteBlogs = (req, res, next) => {
     db.query (query)
     .then((rows) => {
         if(rows[0].affectedRows < 1 ){
-            
+            res
+            .status (500)
+            .json ( {
+                status: 'error',
+                error: err.message,
+            });
         };
         res
         .status (200)
