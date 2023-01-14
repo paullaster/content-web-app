@@ -50,6 +50,7 @@ const updateProduct = (req, res) => {
               });
               return;
             }
+            const imageUpdate = 
             const sql = `UPDATE images SET imageid =? 
       path =? , product =?' WHERE product =?`;
             db
