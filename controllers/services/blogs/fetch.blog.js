@@ -21,6 +21,7 @@ const fetchBlogs = (req, res) => {
                 data: rows,
             }
         );
-    }); 
+    })
+    .catch( ()); 
 };
 module.exports = fetchBlogs;
