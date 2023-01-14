@@ -17,7 +17,8 @@ const updateBlogs = (req, res) => {
     //   }
       res.status(200).json({
         status: "success",
-        message: "Blog with blog id " + blogid + " updated successfully"
+        message: "Blog with blog id " + blogid + " updated successfully",
+        rows: rows
       });
     })
     .catch(err => {
