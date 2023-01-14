@@ -7,7 +7,7 @@ const deleteBlogs = (req, res, next) => {
     .then((rows) => {
         if(rows[0].affectedRows < 1 ){
             res
-            .status (500)
+            .status (400)
             .json ( {
                 status: 'error',
                 error: err.message,
