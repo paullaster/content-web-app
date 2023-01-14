@@ -58,7 +58,7 @@ const createProduct = (req, res) => {
               res.status(200).json({
                 status: "success",
                 message:
-                  "Product  with id " + productid + " inserted successfully",
+                  "Product  with id '" + productid + "' inserted successfully",
               });
             })
             .catch(err => {
