@@ -23,11 +23,7 @@ const createProduct = (req, res) => {
     quantity: quantity,
     productid: productid
   };
-  let newImage = {
-    imageid: req.file.filename,
-    path: req.file.path,
-    product: productid
-  };
+  
   const queryProd = `INSERT INTO products SET?`;
   db
     .query(queryProd, newProduct)
@@ -71,7 +67,7 @@ const createProduct = (req, res) => {
                 product: productid
               };
             });
-            
+
           });
           const sql = `INSERT INTO images SET?`;
           db
