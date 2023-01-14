@@ -18,7 +18,7 @@ const fetchSingleProduct = (req, res) => {
     if (err) {
         res.status(500).json({
             status: 'error',
-            error: err.message
+            error: "Product with id '" + productid + "' was not found",
         });
         return;
     };
