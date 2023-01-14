@@ -7,7 +7,7 @@ const fetchBlogs = (req, res) => {
       if (err) {
         res.status(500).json({
           status: "error",
-          error: err.message
+          error: "Blogs are currently unavailable!"
         });
         return;
       }
