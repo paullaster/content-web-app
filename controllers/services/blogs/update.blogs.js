@@ -8,7 +8,7 @@ const updateBlogs = (req, res) => {
   db
     .query(query)
     .then((rows) => {
-    //   if (err) {
+    //   if (rows[0].changedRows) {
     //     res.status(500).json({
     //       status: "error",
     //       error: err.message
@@ -18,7 +18,7 @@ const updateBlogs = (req, res) => {
       res.status(200).json({
         status: "success",
         message: "Blog with blog id " + blogid + " updated successfully",
-        rows: rows
+        rows: rows[0].changedRows,
       });
     })
     .catch(err => {
