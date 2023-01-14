@@ -38,16 +38,17 @@ const register = (req, res) =>{
             date: new Date(),
        };
        const query = 'INSERT INTO users SET?';
-       db.query (query, newUser, (error, rows) =>{
-        if (error) {
-            res
-            .status(500)
-            .json ( {
-                status: 'error',
-                error: error.message,
-            });
-            return;
-        };
+       db.query (query, newUser)
+       .then( (rows) =>{
+        // if (error) {
+        //     res
+        //     .status(500)
+        //     .json ( {
+        //         status: 'error',
+        //         error: error.message,
+        //     });
+        //     return;
+        // };
         res
         .status (200)
         .json ( {
