@@ -55,6 +55,7 @@ const updateProduct = (req, res) => {
             const imageUpdate = req.files.map(file => {
               return [file.filename, file.path];
             });
+            res.json(imageUpdate);
       //       const sql = `UPDATE images SET imageid =? 
       // path =? WHERE product = '${productid}'`;
       //       db
