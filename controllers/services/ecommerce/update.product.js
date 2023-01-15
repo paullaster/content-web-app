@@ -54,7 +54,7 @@ const updateProduct = (req, res) => {
               return;
             }
             const imageUpdate = req.files.map(file => {
-              return [file.filename, file.path, productid];
+              return [file.filename, file.path];
             });
             const sql = 
             "UPDATE images SET imageid=?, path=? WHERE product ='" + productid +"'"
