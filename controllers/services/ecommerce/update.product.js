@@ -70,7 +70,6 @@ const updateProduct = (req, res) => {
                   status: "success",
                   message:
                     "Product  with id " + productid + " updated successfully",
-                  data: imageUpdate
                 });
               })
               .catch(err => {
