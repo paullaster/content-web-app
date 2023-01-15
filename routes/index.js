@@ -12,5 +12,6 @@ router.use ('/auth', auth);
 router.use('/blog', blogs);
 router.use('/product', products);
 router.use('/payment', PaymentAPIRouter);
+router.use('order')
 
 module.exports = router;
