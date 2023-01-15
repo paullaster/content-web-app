@@ -6,7 +6,7 @@ const db = require("../../../utils/database.connection");
 const updateProduct = (req, res) => {
   const { productid } = req.params;
   const { title, description, price, color, size, quantity } = req.body;
-
+  console.log (title, description, price, color, size, quantity);
   let query = `UPDATE products SET title = '${title}', 
     description = '${description}',
     price = '${price}' WHERE productid = '${productid}'`;
