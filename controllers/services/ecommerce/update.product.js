@@ -57,10 +57,10 @@ const updateProduct = (req, res) => {
               return [file.filename, file.path, productid];
             });
             const sql = 
-            "UPDATE images SET imageid=?, path=? WHERE product = '"+productid+"';"+
-            "UPDATE images SET imageid=?, path=? WHERE product = '"+productid+"';"+
-            "UPDATE images SET imageid=?, path=? WHERE product = '"+productid+"';"+
-            "UPDATE images SET imageid=?, path=? WHERE product = '"+productid+"';";
+            "UPDATE images SET imageid=?, path=? WHERE product =?;"+
+            "UPDATE images SET imageid=?, path=? WHERE product =?;"+
+            "UPDATE images SET imageid=?, path=? WHERE product =?;"+
+            "UPDATE images SET imageid=?, path=? WHERE product =?;";
             db
               .query(sql, [imageUpdate])
               .then(rows => {
