@@ -1,2 +1,4 @@
-const customerOrders = (req, res, next) => {};
+const customerOrders = (req, res, next) => {
+    
+};
 module.exports = customerOrders;
