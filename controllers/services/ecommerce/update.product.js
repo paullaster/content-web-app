@@ -34,7 +34,6 @@ const updateProduct = (req, res) => {
           res.status(404).json({
             status: "error",
             error: "There was an error updating product",
-            st:3
           });
           return;
         }
