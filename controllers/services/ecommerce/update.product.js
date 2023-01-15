@@ -30,7 +30,7 @@ const updateProduct = (req, res) => {
     db
       .query(query)
       .then(rows => {
-        if (rows[0].changedRows < 1) {
+        if (rows[0].affectedRows < 1) {
           res.status(404).json({
             status: "error",
             error: "There was an error updating product",
