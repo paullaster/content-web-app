@@ -26,34 +26,6 @@ app.use ( '/api', Router);
 app.get ('/', (req, res) => {
     res.json('Welcome to goebaide services');
 });
-// const uploadProductImage = require ( './utils/upload.image');
-// const multer = require('multer');
-// app.post ('/test', (req, res) => {
-//     uploadProductImage( req, res, (error) => {
-//         if (error instanceof multer.MulterError) {
-//             res.status(400).json({
-//                 status: "error",
-//                 error: error.message,
-//             });
-//             return;
-//         }else if (error){
-//             res.status(400).json({
-//                 status: "error",
-//                 error: error.message,
-//             });
-//             return;
-//         };
-//         const fileDetails = req.files.map ( (file) => {
-//             return {
-//                 imageid: file.filename,
-//                 path: file.path,
-//                 product: 1,
-//             }
-//         })
-//         console.log ( fileDetails)
-//         res.json(fileDetails);
-//     } );
-// });
 //Instanciating server
 app.listen (PORT, () => {
     console.log (`App listening on port ${PORT}`);
