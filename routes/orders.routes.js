@@ -5,3 +5,4 @@ const OrdersRoute = express.Router();
 const Orders = require ('../controllers/services/orders/index');
 
 OrdersRoute.route('/orders').post(Orders.newOrders);
+module.exports = OrdersRoute;
