@@ -35,6 +35,7 @@ const lipaNaMpesaOnline = (req, res) => {
         Authorization: auth,
     },
   })
+  .then(response => response.json())
   .then ( (response) => {
     res.status(200).json ( {
         status: "success",
