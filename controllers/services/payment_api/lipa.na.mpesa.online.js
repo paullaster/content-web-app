@@ -33,7 +33,7 @@ const lipaNaMpesaOnline = (req, res) => {
   {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': auth,
+      Authorization: auth,
     },
   })
   .then(response => response.json())
