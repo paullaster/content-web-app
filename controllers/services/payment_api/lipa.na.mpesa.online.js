@@ -43,9 +43,6 @@ const lipaNaMpesaOnline = (req, res) => {
     .then(response => {
       res.status(200).json({
         status: "success",
-        Password: newPassword(),
-        token: token,
-        Timestamp: timeStamp(),
         data: response
       });
     })
