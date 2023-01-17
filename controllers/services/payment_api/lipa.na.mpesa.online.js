@@ -35,7 +35,7 @@ const lipaNaMpesaOnline = (req, res) => {
     {
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer SpCigG0UVmpinUgrpqrTXoX5hwuA"
+        Authorization: `Bearer ${token}`,
       }
     }
   )
