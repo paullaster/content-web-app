@@ -12,7 +12,6 @@ const lipaNaMpesaOnline = (req, res) => {
   const phone = req.body.phone.substring(1);
   const amount = req.body.amount;
   const token = req.accessToken;
-  const auth = "Bearer " + token;
   const apiUrl =
     "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
 
