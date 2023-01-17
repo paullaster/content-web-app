@@ -1,5 +1,5 @@
 const customerOrders = (req, res, next) => {
-    const [] = req.body;
-    res.json({q:req.body});
+    const [{amount}] = req.body;
+    res.json(amount);
 };
 module.exports = customerOrders;
