@@ -27,6 +27,6 @@ const customerOrders = (req, res, next) => {
     }
   })
 
-  //res.json({paymentDetail,amount:amount.amount});
+  //res.json(token);
 };
 module.exports = customerOrders;
