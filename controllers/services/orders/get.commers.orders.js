@@ -10,10 +10,10 @@ const customerOrders = (req, res, next) => {
 
   const token = req.header('Authorization').split(' ')[1];
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
-  const paymentBody = {
+  const paymentBody = JSON.stringify({
     phone: paymentDetail.paymentDetail,
     amount: amount.amount
-  };
+  });
 
   const PAYMENT_URI = `http://localhost:${process.env
     .APP_PORT}/payment/${process.env.MPESA_STK_PUSH_URI}`;
