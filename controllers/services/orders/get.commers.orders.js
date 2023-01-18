@@ -18,6 +18,7 @@ const customerOrders = (req, res, next) => {
 
   fetch (PAYMENT_URI, {
     method: 'POST',
+    body: JSON.stringify()
   })
 
   //res.json({paymentDetail,amount:});
