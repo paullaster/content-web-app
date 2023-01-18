@@ -20,7 +20,7 @@ const customerOrders = (req, res, next) => {
     method: 'POST',
     body: JSON.stringify(paymentBody),
     headers: {
-        
+        'Content-Type': 'application/json',
     }
   })
 
