@@ -45,7 +45,7 @@ const customerOrders = (req, res, next) => {
           });
         return;
       };
-      
+      res.status(500).json({});
     })
     .catch(error => {
       res.status(500).json({
