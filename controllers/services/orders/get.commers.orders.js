@@ -9,9 +9,9 @@ const customerOrders = (req, res, next) => {
     const [ order_details,  amount, address, paymentDetail] = req.body;
     const paymentBody = {
         phone: paymentDetail.paymentDetail,
-        
+        amount: amount.amount
     };
-    res.json({paymentDetail,amount:amount.amount});
+    //res.json({paymentDetail,amount:});
 
 };
 module.exports = customerOrders;
