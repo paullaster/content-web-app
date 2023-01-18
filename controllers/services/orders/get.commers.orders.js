@@ -21,6 +21,7 @@ const customerOrders = (req, res, next) => {
     body: JSON.stringify(paymentBody),
     headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' +token,
     }
   })
 
