@@ -19,9 +19,9 @@ const customerOrders = (req, res, next) => {
   const PAYMENT_URI = `http://localhost:${process.env
     .APP_PORT}/payment/${process.env.MPESA_STK_PUSH_URI}`;
 
-  fetch (PAYMENT_URI, {
+  fetch ("http://localhost:3000/api/payment/makepayments", {
     method: 'POST',
-    //body: paymentBody,
+    body: paymentBody,
     // headers: {
     //     'Content-Type': 'application/json',
     //     'Authorization': 'Bearer ' +token,
