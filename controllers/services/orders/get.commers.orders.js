@@ -26,8 +26,8 @@ const customerOrders = (req, res, next) => {
         'Authorization': 'Bearer ' +token,
     }
   })
-  .then ( ()=> {
-
+  .then ( (response)=> {
+    return response.json();
   })
   .then ( ()=> {})
   .catch ( () => {});
