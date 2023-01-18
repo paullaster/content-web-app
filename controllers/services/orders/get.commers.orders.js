@@ -26,6 +26,9 @@ const customerOrders = (req, res, next) => {
         'Authorization': 'Bearer ' +token,
     }
   })
+  .then ( ()=> {
+    
+  })
 
   res.json(token);
 };
