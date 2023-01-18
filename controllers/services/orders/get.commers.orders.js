@@ -44,7 +44,7 @@ const customerOrders = (req, res, next) => {
     .json({
         status: error,
         error: error.message,
-        paymentBody
+        paymentBody: paymentBody
     });
   });
 };
