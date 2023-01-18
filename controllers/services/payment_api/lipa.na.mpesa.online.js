@@ -16,41 +16,41 @@ const lipaNaMpesaOnline = (req, res) => {
     "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
   console.log (req.body)
   //SEND REQUEST TO API:
-  fetch(
-    apiUrl,
-    {
-      BusinessShortCode: process.env.MPESA_BUSINESS_SHORT_CODE,
-      Password: newPassword(),
-      Timestamp: timeStamp(),
-      TransactionType: "CustomerBuyGoodsOnline",
-      Amount: amount,
-      PartyA: `254${phone}`,
-      PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
-      PhoneNumber: `254${phone}`,
-      CallBackURL: `https://0341-105-163-156-86.in.ngrok.io/api/payment/${process
-        .env.MPESA_CALL_BACK_API_NAME}`,
-      AccountReference: `254${phone}`,
-      TransactionDesc: "Payment for product purchase"
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
-    }
-  )
-    .then(response => response.json())
-    .then(response => {
-      res.status(200).json({
-        status: "success",
-        data: response
-      });
-    })
-    .catch(err => {
-      res.status(500).json({
-        status: "error",
-        error: err.message
-      });
-    });
+  // fetch(
+  //   apiUrl,
+  //   {
+  //     BusinessShortCode: process.env.MPESA_BUSINESS_SHORT_CODE,
+  //     Password: newPassword(),
+  //     Timestamp: timeStamp(),
+  //     TransactionType: "CustomerBuyGoodsOnline",
+  //     Amount: amount,
+  //     PartyA: `254${phone}`,
+  //     PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
+  //     PhoneNumber: `254${phone}`,
+  //     CallBackURL: `https://0341-105-163-156-86.in.ngrok.io/api/payment/${process
+  //       .env.MPESA_CALL_BACK_API_NAME}`,
+  //     AccountReference: `254${phone}`,
+  //     TransactionDesc: "Payment for product purchase"
+  //   },
+  //   {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`
+  //     }
+  //   }
+  // )
+  //   .then(response => response.json())
+  //   .then(response => {
+  //     res.status(200).json({
+  //       status: "success",
+  //       data: response
+  //     });
+  //   })
+  //   .catch(err => {
+  //     res.status(500).json({
+  //       status: "error",
+  //       error: err.message
+  //     });
+  //   });
 };
 module.exports = lipaNaMpesaOnline;
