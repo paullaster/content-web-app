@@ -3,7 +3,8 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 
 const customerOrders = (req, res, next) => {
     const [ order_details,  amount, address, paymentDetail] = req.body;
-
+    const
     res.json({paymentDetail,amount:amount.amount});
+
 };
 module.exports = customerOrders;
