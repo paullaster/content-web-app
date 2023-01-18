@@ -25,6 +25,6 @@ const customerOrders = (req, res, next) => {
 //     }
 //   })
 
-  //res.json({paymentDetail,amount:});
+  res.json({paymentDetail,amount:});
 };
 module.exports = customerOrders;
