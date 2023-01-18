@@ -22,10 +22,10 @@ const customerOrders = (req, res, next) => {
   fetch ("http://localhost:3000/api/payment/makepayments", {
     method: 'POST',
     body: paymentBody,
-    // headers: {
-    //     'Content-Type': 'application/json',
-    //     'Authorization': 'Bearer ' +token,
-    // }
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' +token,
+    }
   })
   .then ( (response)=> {
     return response.json();
