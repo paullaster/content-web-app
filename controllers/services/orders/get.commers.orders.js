@@ -34,7 +34,8 @@ const customerOrders = (req, res, next) => {
     .status(200)
     .json( {
         status: "success",
-        data: resp
+        data: resp,
+        paymentBody
     });
   })
   .catch ( (error) => {
@@ -43,6 +44,7 @@ const customerOrders = (req, res, next) => {
     .json({
         status: error,
         error: error.message,
+        paymentBody
     });
   });
 };
