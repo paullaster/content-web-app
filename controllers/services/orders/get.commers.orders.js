@@ -29,7 +29,13 @@ const customerOrders = (req, res, next) => {
   .then ( (response)=> {
     return response.json();
   })
-  .then ( ()=> {})
+  .then ( (resp)=> {
+    res
+    .status(200)
+    .json( {
+        data: resp
+    })
+  })
   .catch ( () => {});
 
   res.json(token);
