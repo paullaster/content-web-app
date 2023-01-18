@@ -33,7 +33,8 @@ const customerOrders = (req, res, next) => {
     .then(resp => {
       if(resp.data.errorCode){
         res.status(404).json({
-            
+            status: "error",
+            error: "There was while processing the payment request, please try again later!",
         })
         return;
       };
