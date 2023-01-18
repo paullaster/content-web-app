@@ -31,29 +31,31 @@ const customerOrders = (req, res, next) => {
       return response.json();
     })
     .then(resp => {
-      if(resp.data.errorCode){
+      if (resp.data.errorCode) {
         res.status(404).json({
-            status: "error",
-            error: "There was an error while processing the payment request, please try again later!",
+          status: "error",
+          error:
+            "There was an error while processing the payment request, please try again later!"
         });
         return;
-      };
-      if (resp.data.ResponseCode === "0"){
+      }
+      if (resp.data.ResponseCode === "0") {
         res.status(200).json({
-            status: "success",
-            data:resp.data.CustomerMessage,
-          });
+          status: "success",
+          data: resp.data.CustomerMessage
+        });
         return;
-      };
+      }
       res.status(500).json({
         status: "error",
-        error: ""
+        error:
+          "Sorry, We're experiencing error processing your payment request, Please check through your request and try again!"
       });
     })
     .catch(error => {
       res.status(500).json({
         status: error,
-        error: error.message,
+        error: error.message
       });
     });
 };
