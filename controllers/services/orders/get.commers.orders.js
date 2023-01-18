@@ -11,7 +11,7 @@ const customerOrders = (req, res, next) => {
         phone: paymentDetail.paymentDetail,
         amount: amount.amount
     };
-    const PAYMENT_URI = `http://localhost:${process.env.PORT}/payment`
+    const PAYMENT_URI = `http://localhost:${process.env.APP_PORT}/payment`
     //res.json({paymentDetail,amount:});
 
 };
