@@ -8,7 +8,7 @@ const dotenv = require("dotenv").config();
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
 
-  const token = req.header('Authorization').split(' ')[1];
+  const token = req.header("Authorization").split(" ")[1];
 
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
@@ -16,37 +16,33 @@ const customerOrders = (req, res, next) => {
     amount: amount.amount
   });
 
-  const PAYMENT_URI = `http://localhost:${process.env
-    .APP_PORT}/payment/${process.env.MPESA_STK_PUSH_URI}`;
+  const PAYMENT_URI = `http://localhost:3000/api/payment/${process.env
+    .MPESA_STK_PUSH_URI}`;
 
-  fetch ("http://localhost:3000/api/payment/makepayments", {
-    method: 'POST',
+  fetch(PAYMENT_URI, {
+    method: "POST",
     body: paymentBody,
     headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' +token,
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token
     }
   })
-  .then ( (response)=> {
-    return response.json();
-  })
-  .then ( (resp)=> {
-    res
-    .status(200)
-    .json( {
+    .then(response => {
+      return response.json();
+    })
+    .then(resp => {
+      res.status(200).json({
         status: "success",
         data: resp,
         paymentBody
-    });
-  })
-  .catch ( (error) => {
-    res
-    .status(500)
-    .json({
+      });
+    })
+    .catch(error => {
+      res.status(500).json({
         status: error,
         error: error.message,
         paymentBody: paymentBody
+      });
     });
-  });
 };
 module.exports = customerOrders;
