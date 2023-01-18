@@ -11,6 +11,7 @@ const customerOrders = (req, res, next) => {
         phone: paymentDetail.paymentDetail,
         amount: amount.amount
     };
+    const PAYMENT_URI = 
     //res.json({paymentDetail,amount:});
 
 };
