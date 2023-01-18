@@ -20,7 +20,7 @@ const customerOrders = (req, res, next) => {
 
   fetch (PAYMENT_URI, {
     method: 'POST',
-    body: JSON.stringify(paymentBody),
+    body: paymentBody,
     headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' +token,
