@@ -31,7 +31,12 @@ const customerOrders = (req, res, next) => {
       return response.json();
     })
     .then(resp => {
-      if(resp.data.errorCode);
+      if(resp.data.errorCode){
+        res.status(404).json({
+            
+        })
+        return;
+      };
       res.status(200).json({
         status: "success",
         data:resp,
