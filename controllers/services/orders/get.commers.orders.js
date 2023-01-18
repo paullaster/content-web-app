@@ -17,7 +17,7 @@ const customerOrders = (req, res, next) => {
     .APP_PORT}/payment/${process.env.MPESA_STK_PUSH_URI}`;
 
   fetch (PAYMENT_URI, {
-    
+    method: 'POST',
   })
 
   //res.json({paymentDetail,amount:});
