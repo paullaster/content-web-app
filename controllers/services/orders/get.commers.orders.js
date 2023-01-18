@@ -27,8 +27,10 @@ const customerOrders = (req, res, next) => {
     }
   })
   .then ( ()=> {
-    
+
   })
+  .then ( ()=> {})
+  .catch ( () => {});
 
   res.json(token);
 };
