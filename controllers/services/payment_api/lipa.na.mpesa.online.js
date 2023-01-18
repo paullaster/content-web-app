@@ -9,7 +9,7 @@ const newPassword = require("../../../utils/generate.mpesa.password");
 
 //LIPA NA MPESA API:
 const lipaNaMpesaOnline = (req, res) => {
-  const phone = req.body.phone.substring(1);
+  const phone = req.body.phone;
   const amount = req.body.amount;
   const token = req.accessToken;
   const apiUrl =
