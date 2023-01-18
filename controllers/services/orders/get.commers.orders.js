@@ -38,6 +38,9 @@ const customerOrders = (req, res, next) => {
         });
         return;
       };
+      if (){
+        return;
+      };
       res.status(200).json({
         status: "success",
         data:resp,
