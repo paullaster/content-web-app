@@ -37,7 +37,5 @@ const customerOrders = (req, res, next) => {
     });
   })
   .catch ( () => {});
-
-  res.json(token);
 };
 module.exports = customerOrders;
