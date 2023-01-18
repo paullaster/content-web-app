@@ -38,7 +38,8 @@ const customerOrders = (req, res, next) => {
         });
         return;
       };
-      if (){
+      if (resp.data.ResponseCode === "0"){
+
         return;
       };
       res.status(200).json({
