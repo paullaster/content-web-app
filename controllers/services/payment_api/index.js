@@ -5,6 +5,6 @@ const queryLipaNaMpesaOnline = require ("./lipa.na.mpesa.online.query.api");
 const PaymentAPI = {
     stkPush: lipaNaMpesaOnline,
     callback: paymentApiCallBack,
-    
+    queryStatus: queryLipaNaMpesaOnline,
 };
 module.exports = PaymentAPI;
