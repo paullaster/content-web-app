@@ -8,7 +8,7 @@ const dotenv = require("dotenv").config();
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
 
-  const token = req.headers('Authorization');
+  const token = req.header('Authorization');
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = {
     phone: paymentDetail.paymentDetail,
