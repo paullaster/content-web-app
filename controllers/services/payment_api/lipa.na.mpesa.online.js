@@ -33,9 +33,9 @@ const lipaNaMpesaOnline = (req, res) => {
       TransactionDesc: "Payment for product purchase"
     },
     {
-      headers: {
+      "headers": {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        "Authorization": `Bearer ${token}`
       }
     }
   )
