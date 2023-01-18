@@ -9,7 +9,7 @@ const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
 
   const token = req.header('Authorization').split(' ')[1];
-  
+
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
     phone: paymentDetail.paymentDetail,
@@ -24,7 +24,7 @@ const customerOrders = (req, res, next) => {
     body: paymentBody,
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' +token,
+        //'Authorization': 'Bearer ' +token,
     }
   })
   .then ( (response)=> {
