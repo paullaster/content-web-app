@@ -7,7 +7,9 @@ const dotenv = require('dotenv').config();
 
 const customerOrders = (req, res, next) => {
     const [ order_details,  amount, address, paymentDetail] = req.body;
-    const
+    const paymentBody = {
+        
+    }
     res.json({paymentDetail,amount:amount.amount});
 
 };
