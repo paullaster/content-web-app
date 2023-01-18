@@ -1,1 +1,2 @@
-const 
+const queryLipaNaMpesaOnline = () => {};
+module.exports = queryLipaNaMpesaOnline;
