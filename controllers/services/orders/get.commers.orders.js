@@ -8,11 +8,13 @@ const dotenv = require("dotenv").config();
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
 
+  const token = req.headers('Authorization');
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = {
     phone: paymentDetail.paymentDetail,
     amount: amount.amount
   };
+
   const PAYMENT_URI = `http://localhost:${process.env
     .APP_PORT}/payment/${process.env.MPESA_STK_PUSH_URI}`;
 
