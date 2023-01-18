@@ -33,7 +33,7 @@ const customerOrders = (req, res, next) => {
     .then(resp => {
       res.status(200).json({
         status: "success",
-        data: resp,
+        resp,
       });
     })
     .catch(error => {
