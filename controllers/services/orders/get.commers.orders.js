@@ -31,6 +31,7 @@ const customerOrders = (req, res, next) => {
       return response.json();
     })
     .then(resp => {
+      console.log(resp.data);
       res.status(200).json({
         status: "success",
         data:resp,
