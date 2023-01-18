@@ -36,6 +36,13 @@ const customerOrders = (req, res, next) => {
         data: resp
     });
   })
-  .catch ( () => {});
+  .catch ( (error) => {
+    res
+    .status(500)
+    .json({
+        status: error,
+        error: error.message,
+    });
+  });
 };
 module.exports = customerOrders;
