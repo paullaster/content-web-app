@@ -41,7 +41,6 @@ const customerOrders = (req, res, next) => {
       res.status(500).json({
         status: error,
         error: error.message,
-        paymentBody: paymentBody
       });
     });
 };
