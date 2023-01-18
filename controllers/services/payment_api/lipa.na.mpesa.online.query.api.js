@@ -1,5 +1,6 @@
 //DEPENDENCIES:
-
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 //INTERNAL DEPENDENCIES:
 const newPassword = require ("../../../utils/generate.mpesa.password");
