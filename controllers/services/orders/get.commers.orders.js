@@ -27,6 +27,6 @@ const customerOrders = (req, res, next) => {
     }
   })
 
-  //res.json(token);
+  res.json(token);
 };
 module.exports = customerOrders;
