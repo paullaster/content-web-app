@@ -19,6 +19,7 @@ PaymentAPIRouter.route(`/${process.env.MPESA_CALL_BACK_API_NAME}`).post(
 );
 
 PaymentAPIRouter.route(`/${process.env.MPESA_QUERY_ONLINE_PAYMENT_STATUS}`).post(
-  
+  utils.verifyToken,
+  PaymentAPI.queryStatus
 );
 module.exports = PaymentAPIRouter;
