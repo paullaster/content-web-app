@@ -3,7 +3,7 @@ const OrdersRoute = express.Router();
 
 //INTERNAL DEPENDECIES:
 const Orders = require ('../controllers/services/orders/index');
-const utils = require('./util.routes');
+const Utils = require('./util.routes');
 
 OrdersRoute.route('/new-order').post(Orders.newOrders);
 module.exports = OrdersRoute;
