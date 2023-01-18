@@ -34,7 +34,7 @@ const customerOrders = (req, res, next) => {
     .status(200)
     .json( {
         data: resp
-    })
+    });
   })
   .catch ( () => {});
 
