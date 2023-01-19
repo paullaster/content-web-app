@@ -22,8 +22,8 @@ const lipaNaMpesaOnline = (req, res) => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
-      }
-    },
+      },
+    }
   )
     .then(response => response.json())
     .then(response => {
