@@ -54,7 +54,10 @@ const customerOrders = (req, res, next) => {
       item.itemQuantityToBuy
     ];
   });
-  console.log(newOrderItems);
+  
+  /**
+   * @todo: Remove this implementation to successful transitions block:
+   */
 
         res.status(404).json({
           status: "error",
