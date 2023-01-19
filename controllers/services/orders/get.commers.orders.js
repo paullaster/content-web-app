@@ -43,6 +43,7 @@ const customerOrders = (req, res, next) => {
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    */
+  
         const newOrderItems = order_details.order_details.map(item => {
           return [
             itemId(),
@@ -60,6 +61,7 @@ const customerOrders = (req, res, next) => {
    */
         const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
         db.query(sql, [newOrderItems])
+        .then ()
         res.status(404).json({
           status: "error",
           error:
