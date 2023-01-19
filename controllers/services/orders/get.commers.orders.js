@@ -95,7 +95,13 @@ const customerOrders = (req, res, next) => {
                 const sql = `INSERT INTO address (addressid, fullname, phonenumber, delivery_address, customer_id) VALUES?`;
                 db.query (sql, newAddress)
                 .then ( rows => {
-
+                  if (rows[0].affectedRows < 1) {
+                    res.status(500).json({
+                      status: "error",
+                      error: "there was an error processing this order"
+                    });
+                    return;
+                  }
                 })
                 .catch(error => {
                   res.status(500).json({
