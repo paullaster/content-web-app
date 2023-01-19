@@ -1,4 +1,4 @@
-const addressId = () => {
+const orderId = () => {
     const statement = 'addr';
     let randNumber = [];
     for ( let i = 0; randNumber.length < 4; i++ ) {
@@ -8,4 +8,4 @@ const addressId = () => {
     
     return statement + '' + randNumber.join('');
 };
-module.exports = addressId;
+module.exports = orderId;
