@@ -14,7 +14,6 @@ const lipaNaMpesaOnline = (req, res) => {
   const token = req.accessToken;
   const apiUrl =
     "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
-  console.log (req.body)
   //SEND REQUEST TO API:
   fetch(
     apiUrl,
