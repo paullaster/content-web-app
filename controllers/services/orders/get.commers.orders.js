@@ -52,7 +52,9 @@ const customerOrders = (req, res, next) => {
             CheckoutRequestID: resp.data.CheckoutRequestID
           })
         })
-
+        .then ( response => {
+          
+        })
         res.status(200).json({
           status: "success",
           data: resp.data.CustomerMessage
