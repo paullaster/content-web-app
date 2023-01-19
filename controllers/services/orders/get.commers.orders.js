@@ -4,7 +4,7 @@ const fetch = (...args) =>
 require("dotenv").config();
 
 //INTERNAL DEPENDENCIES:
-const db = require ("../../../utils/database.connection");
+const db = require("../../../utils/database.connection");
 const orderId = require("../../../utils/create.orderid");
 const itemId = require("../../../utils/create.itemid");
 const addressId = require("../../../utils/create.addressid");
@@ -12,8 +12,8 @@ const addressId = require("../../../utils/create.addressid");
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
   const user = req.user.email;
-  const orderid  = orderId ();
-  const addressid  = addressId ();
+  const orderid = orderId();
+  const addressid = addressId();
   const token = req.header("Authorization").split(" ")[1];
 
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
@@ -38,27 +38,27 @@ const customerOrders = (req, res, next) => {
     })
     .then(resp => {
       if (resp.data.errorCode) {
-          /**
+        /**
    * @todo
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    */
-  const newOrderItems = order_details.order_details.map ( (item) => {
-    return [
-      itemId(),
-      item.title,
-      orderid,
-      item.id,
-      item.image,
-      item.itemSize,
-      item.itemQuantityToBuy
-    ];
-  });
-  
-  /**
+        const newOrderItems = order_details.order_details.map(item => {
+          return [
+            itemId(),
+            item.title,
+            orderid,
+            item.id,
+            item.image,
+            item.itemSize,
+            item.itemQuantityToBuy
+          ];
+        });
+
+        /**
    * @todo: Remove this implementation to successful transitions block:
    */
-
+        
         res.status(404).json({
           status: "error",
           error:
@@ -80,7 +80,6 @@ const customerOrders = (req, res, next) => {
           .then(response => response.json())
           .then(response => {
             if (response.data.ResultCode === 0) {
-
               res.status(200).json({
                 status: "success",
                 data: response.data.ResultDesc
