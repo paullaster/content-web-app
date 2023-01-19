@@ -45,7 +45,7 @@ const customerOrders = (req, res, next) => {
    */   const newOrder = [user, orderid];
         const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
         db.query(sql, newOrder)
-        .then( () => {
+        .then( (rows) => {
           
         })
         const newOrderItems = order_details.order_details.map(item => {
