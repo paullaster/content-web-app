@@ -20,7 +20,7 @@ const fetchProducts = (req, res) => {
         });
         return;
       }
-      res.status(200).headers({
+      res.status(200).header({
         'Access-Control-Allow-Origin': "*"
       }).json({
         status: "success",
