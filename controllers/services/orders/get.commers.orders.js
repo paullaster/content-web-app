@@ -85,13 +85,13 @@ const customerOrders = (req, res, next) => {
                   return;
                 }
                 //SAVING CUSTOMER's ADDRESS:
-                const newAddress = [
-                  addressId(),
+                const newAddress = {
+                  addressid: addressId(),
                   address.address.firstname + " " + address.address.lastname,
                   address.address.phonenumber,
                   address.address.location_address,
                   user
-                ];
+                };
                 const sql = `INSERT INTO address (addressid, fullname, phonenumber, delivery_address, customer_id) VALUES?`;
                 db.query (sql, newAddress)
                 .then ( rows => {
