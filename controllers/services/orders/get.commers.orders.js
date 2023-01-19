@@ -47,7 +47,8 @@ const customerOrders = (req, res, next) => {
         .MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
 
         fetch (QUERYPAYMENTSTATUSURI, {
-          
+          method: "POST",
+          ""
         })
 
         res.status(200).json({
