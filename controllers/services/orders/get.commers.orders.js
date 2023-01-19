@@ -49,15 +49,17 @@ const customerOrders = (req, res, next) => {
           body: JSON.stringify({
             CheckoutRequestID: resp.data.CheckoutRequestID
           })
-        }).then( response => response.json()).then(response => {
-          if (response.data.ResultCode === 0) {
-            res.status(200).json({
-              status: "success",
-              data: response.data.ResultDesc
-            });
-            return;
-          }
-        });
+        })
+          .then(response => response.json())
+          .then(response => {
+            if (response.data.ResultCode === 0) {
+              res.status(200).json({
+                status: "success",
+                data: response.data.ResultDesc
+              });
+              return;
+            }
+          });
       }
       res.status(500).json({
         status: "error",
