@@ -21,7 +21,9 @@ const queryLipaNaMpesaOnline = (req, res) => {
       return response.json ();
     })
     .then ( response => {
-      
+      res.status(200).json( {
+
+      });
     })
     console.log ("req.body");
 };
