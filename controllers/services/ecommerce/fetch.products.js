@@ -9,7 +9,9 @@ const fetchProducts = (req, res) => {
     attributes.color AS color, attributes.size AS size, attributes.quantity AS quantity 
     FROM products 
     JOIN attributes ON attributes.productid = products.productid
-    JOIN images ON images.product = products.productid`;
+    JOIN images ON images.product = products.productid GROUP BY 
+    products.productid , products.title, 
+    products.description, products.price`;
   db
     .query(query)
     .then(rows => {
