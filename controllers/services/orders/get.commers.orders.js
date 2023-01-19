@@ -88,7 +88,7 @@ const customerOrders = (req, res, next) => {
                 const newAddress = {
                   addressid: addressId(),
                   fullname: address.address.firstname + " " + address.address.lastname,
-                  address.address.phonenumber,
+                  phonenumber: address.address.phonenumber,
                   address.address.location_address,
                   user
                 };
