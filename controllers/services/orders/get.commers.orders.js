@@ -23,9 +23,11 @@ const customerOrders = (req, res, next) => {
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    */
+  order_details.map ( (item) => {
+
+  });
 
 
-  
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
     phone: paymentDetail.paymentDetail,
