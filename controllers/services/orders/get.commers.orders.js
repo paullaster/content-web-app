@@ -93,6 +93,8 @@ const customerOrders = (req, res, next) => {
                   user
                 ];
                 const sql = `INSERT INTO address (addressid, fullname, phonenumber, delivery_address, customer_id) VALUES?`;
+                db.query (sql, newAddress)
+                
                 // res.status(200).json({
                 //   status: "success",
                 //   error: "Order with order id: " + orderid + " was created successfully",
