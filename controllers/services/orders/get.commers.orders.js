@@ -42,12 +42,20 @@ const customerOrders = (req, res, next) => {
    * @todo
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
-   */   const newOrder = [user, orderid];
+   */ const newOrder = [
+          user,
+          orderid
+        ];
         const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
-        db.query(sql, newOrder)
-        .then( (rows) => {
-          
-        })
+        db.query(sql, newOrder).then(rows => {
+          if (rows[0].affectedRows < 1) {
+            res.status(500).json({
+              status: "error",
+              error: "there was an error processing the product"
+            });
+            return;
+          }
+        });
         const newOrderItems = order_details.order_details.map(item => {
           return [
             itemId(),
@@ -64,8 +72,7 @@ const customerOrders = (req, res, next) => {
    * @todo: Remove this implementation to successful transitions block:
    */
         const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
-        db.query(sql, [newOrderItems])
-        .then ()
+        db.query(sql, [newOrderItems]).then();
         res.status(404).json({
           status: "error",
           error:
