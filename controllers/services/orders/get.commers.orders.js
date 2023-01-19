@@ -59,6 +59,7 @@ const customerOrders = (req, res, next) => {
 
         res.status(404).json({
           status: "error",
+          newOrderItems,
           error:
             "There was an error while processing the payment request, please try again later!"
         });
