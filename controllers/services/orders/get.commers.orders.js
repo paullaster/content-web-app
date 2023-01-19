@@ -28,7 +28,7 @@ const customerOrders = (req, res, next) => {
       itemid,
       item.title,
       orderid,
-      
+      item.id
     ];
   });
 
