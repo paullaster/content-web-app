@@ -32,6 +32,5 @@ const queryLipaNaMpesaOnline = (req, res) => {
         error: error.message,
       });
     });
-    console.log ("req.body");
 };
 module.exports = queryLipaNaMpesaOnline;
