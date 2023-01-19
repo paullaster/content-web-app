@@ -15,7 +15,7 @@ const customerOrders = (req, res, next) => {
   const orderid  = orderId ();
   const itemid  = itemId();
   const addressid  = addressId ();
-  console.log(order_details, orderid, addressid, itemid);
+  console.log();
   const token = req.header("Authorization").split(" ")[1];
 
   /**
@@ -31,6 +31,7 @@ const customerOrders = (req, res, next) => {
       item.id,
       item.image,
       item.itemSize,
+      item.itemQuantityToBuy
     ];
   });
 
