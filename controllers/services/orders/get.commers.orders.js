@@ -18,6 +18,11 @@ const customerOrders = (req, res, next) => {
   console.log(order_details, orderid, addressid, itemid);
   const token = req.header("Authorization").split(" ")[1];
 
+  /**
+   * @todo
+   * Take order item processing inside the block
+   * of checking if transcation payment was done successfully
+   */
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
     phone: paymentDetail.paymentDetail,
