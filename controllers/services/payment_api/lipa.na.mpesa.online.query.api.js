@@ -14,6 +14,7 @@ const queryLipaNaMpesaOnline = (req, res) => {
     fetch (statusQueryURI, {
       BusinessShortCode:process.env.MPESA_BUSINESS_SHORT_CODE,
       Password: newPassword(),
+      Timestamp: timeStamp(),
     })
     console.log ("req.body");
 };
