@@ -42,6 +42,7 @@ const customerOrders = (req, res, next) => {
    * @todo
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
+   * SAVING ORDER:
    */ const newOrder = [
           user,
           orderid
