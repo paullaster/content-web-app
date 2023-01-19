@@ -56,7 +56,24 @@ const customerOrders = (req, res, next) => {
                 error: "there was an error processing the product"
               });
               return;
-            };
+            }
+            const newOrderItems = order_details.order_details.map(item => {
+              return [
+                itemId(),
+                item.title,
+                orderid,
+                item.id,
+                item.image,
+                item.itemSize,
+                item.itemQuantityToBuy
+              ];
+            });
+
+            /**
+       * @todo: Remove this implementation to successful transitions block:
+       */
+            const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
+            db.query(sql, [newOrderItems]).then();
           })
           .catch(error => {
             res.status(500).json({
@@ -64,7 +81,7 @@ const customerOrders = (req, res, next) => {
               error: error.message
             });
           });
-        
+
         res.status(404).json({
           status: "error",
           error:
