@@ -45,7 +45,7 @@ const customerOrders = (req, res, next) => {
    */
   const newOrderItems = order_details.order_details.map ( (item) => {
     return [
-      itemid,
+      itemId(),
       item.title,
       orderid,
       item.id,
