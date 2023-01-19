@@ -14,7 +14,7 @@ const customerOrders = (req, res, next) => {
   const user = req.user.email;
   const orderid = orderId();
   const token = req.header("Authorization").split(" ")[1];
-  
+
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
     phone: paymentDetail.paymentDetail,
@@ -86,7 +86,11 @@ const customerOrders = (req, res, next) => {
                 }
                 //SAVING CUSTOMER's ADDRESS:
                 const newAddress = [
-
+                  addressId(),
+                  address.address.firstname + " " + address.address.lastname,
+                  address.address.phonenumber,
+                  address.address.location_address,
+                  user
                 ];
                 const sql = `INSERT INTO address (addressid, fullname, phonenumber, delivery_address, customer_id) VALUES?`;
                 // res.status(200).json({
