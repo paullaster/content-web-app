@@ -49,7 +49,7 @@ const customerOrders = (req, res, next) => {
         fetch (QUERYPAYMENTSTATUSURI, {
           method: "POST",
           body: JSON.stringify( {
-            CheckoutRequestID:
+            CheckoutRequestID: resp.data.CheckoutRequestID
           })
         })
 
