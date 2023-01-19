@@ -18,6 +18,12 @@ const lipaNaMpesaOnline = (req, res) => {
   fetch(
     apiUrl,
     {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    },
+    {
       BusinessShortCode: process.env.MPESA_BUSINESS_SHORT_CODE,
       Password: newPassword(),
       Timestamp: timeStamp(),
@@ -30,12 +36,6 @@ const lipaNaMpesaOnline = (req, res) => {
         .env.MPESA_CALL_BACK_API_NAME}`,
       AccountReference: `254${phone}`,
       TransactionDesc: "Payment for product purchase"
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
     }
   )
     .then(response => response.json())
