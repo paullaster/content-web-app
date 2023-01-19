@@ -44,7 +44,32 @@ const customerOrders = (req, res, next) => {
         const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
           .env.MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
 
-        
+        fetch(QUERYPAYMENTSTATUSURI, {
+          method: "POST",
+          body: JSON.stringify({
+            CheckoutRequestID: resp.data.CheckoutRequestID
+          })
+        })
+          .then(response => response.json())
+          .then(response => {
+            if (response.data.ResultCode === 0) {
+              res.status(200).json({
+                status: "success",
+                data: response.data.ResultDesc
+              });
+              return;
+            }
+            res.status(404).json({
+              status: "error",
+              error: "Your payment was not processed!"
+            });
+          })
+          .catch(error => {
+            res.status(500).json({
+              status: "error",
+              error: error.message
+            });
+          });
       }
       res.status(500).json({
         status: "error",
