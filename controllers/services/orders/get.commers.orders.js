@@ -43,8 +43,8 @@ const customerOrders = (req, res, next) => {
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
     */ const newOrder = [
+          orderid,
           user,
-          orderid
         ];
         const sql = `INSERT INTO orders SET?`;
         db
