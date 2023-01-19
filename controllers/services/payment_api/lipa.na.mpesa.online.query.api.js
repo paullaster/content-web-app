@@ -9,6 +9,8 @@ const queryLipaNaMpesaOnline = (req, res) => {
 
     const statusQueryURI = 
     " https://sandbox.safaricom.co.ke/mpesa/stkpushquery/v1/query";
+
+    //SENDING REQUEST TO SAFARICOM API:
     
     console.log ("req.body");
 };
