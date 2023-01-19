@@ -56,7 +56,7 @@ const customerOrders = (req, res, next) => {
                 error: "there was an error processing the product"
               });
               return;
-            }
+            };
             const newOrderItems = order_details.order_details.map(item => {
               return [
                 itemId(),
@@ -74,7 +74,7 @@ const customerOrders = (req, res, next) => {
        */
             const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
             db.query(sql, [newOrderItems]).then( (rows) => {
-              
+
             });
           })
           .catch(error => {
