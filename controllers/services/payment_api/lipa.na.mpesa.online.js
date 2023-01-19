@@ -18,6 +18,7 @@ const lipaNaMpesaOnline = (req, res) => {
   fetch(
     apiUrl,
     {
+      method: 'POST',
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
