@@ -47,38 +47,24 @@ const customerOrders = (req, res, next) => {
           orderid
         ];
         const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
-        db.query(sql, newOrder).then(rows => {
-          if (rows[0].affectedRows < 1) {
+        db
+          .query(sql, newOrder)
+          .then(rows => {
+            if (rows[0].affectedRows < 1) {
+              res.status(500).json({
+                status: "error",
+                error: "there was an error processing the product"
+              });
+              return;
+            }
+          })
+          .catch(error => {
             res.status(500).json({
               status: "error",
-              error: "there was an error processing the product"
+              error: error.message
             });
-            return;
-          }
-        })
-        .catch ( error => {
-          res.status(500).json({
-            status: "error",
-            error: error.message
           });
-        });
-        const newOrderItems = order_details.order_details.map(item => {
-          return [
-            itemId(),
-            item.title,
-            orderid,
-            item.id,
-            item.image,
-            item.itemSize,
-            item.itemQuantityToBuy
-          ];
-        });
-
-        /**
-   * @todo: Remove this implementation to successful transitions block:
-   */
-        const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
-        db.query(sql, [newOrderItems]).then();
+        
         res.status(404).json({
           status: "error",
           error:
