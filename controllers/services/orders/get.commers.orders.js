@@ -39,7 +39,7 @@ const customerOrders = (req, res, next) => {
         });
         return;
       }
-      if (resp.data.ResponseCode === "0") {
+      if (resp.data.ResponseCode === 0) {
 
         //CHECKING STATUS OF ONLINE TRANSACTION:
         const QUERYPAYMENTSTATUSURI = 
@@ -53,7 +53,7 @@ const customerOrders = (req, res, next) => {
           })
         })
         .then ( response => {
-          if (response.data)
+          if (response.data.ResultCode === 0) {}
         })
         res.status(200).json({
           status: "success",
