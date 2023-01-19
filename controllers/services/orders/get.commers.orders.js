@@ -40,27 +40,24 @@ const customerOrders = (req, res, next) => {
         return;
       }
       if (resp.data.ResponseCode === 0) {
-
         //CHECKING STATUS OF ONLINE TRANSACTION:
-        const QUERYPAYMENTSTATUSURI = 
-        `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process.env
-        .MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
+        const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
+          .env.MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
 
-        fetch (QUERYPAYMENTSTATUSURI, {
+        fetch(QUERYPAYMENTSTATUSURI, {
           method: "POST",
-          body: JSON.stringify( {
+          body: JSON.stringify({
             CheckoutRequestID: resp.data.CheckoutRequestID
           })
-        })
-        .then ( response => {
+        }).then(response => {
           if (response.data.ResultCode === 0) {
             res.status(200).json({
               status: "success",
               data: resp.data.CustomerMessage
             });
             return;
-          };
-        })
+          }
+        });
       }
       res.status(500).json({
         status: "error",
