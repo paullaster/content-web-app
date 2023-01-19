@@ -1,5 +1,5 @@
 const orderId = () => {
-    const statement = 'addr';
+    const statement = 'ordr';
     let randNumber = [];
     for ( let i = 0; randNumber.length < 4; i++ ) {
         let randDigit = Math.floor( Math.random() * 10);
