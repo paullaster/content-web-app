@@ -39,6 +39,25 @@ const customerOrders = (req, res, next) => {
     })
     .then(resp => {
       if (resp.data.errorCode) {
+          /**
+   * @todo
+   * Take order item processing inside the block
+   * of checking if transcation payment was done successfully
+   */
+  const newOrderItems = order_details.map ( (item) => {
+    return [
+      itemid,
+      item.title,
+      orderid,
+      item.id,
+      item.image,
+      item.itemSize,
+      item.itemQuantityToBuy
+    ];
+  });
+
+  console.log(newOrderItems);
+  
         res.status(404).json({
           status: "error",
           error:
