@@ -44,7 +44,7 @@ const customerOrders = (req, res, next) => {
    * SAVING ORDER:
     */ const newOrder = {
       orderid :orderid,
-          user
+      customer_id: user
     };
         const sql = `INSERT INTO orders SET?`;
         db
