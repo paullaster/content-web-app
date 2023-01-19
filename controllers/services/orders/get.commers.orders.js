@@ -55,6 +55,9 @@ const customerOrders = (req, res, next) => {
             });
             return;
           }
+        })
+        .catch ( error => {
+          
         });
         const newOrderItems = order_details.order_details.map(item => {
           return [
