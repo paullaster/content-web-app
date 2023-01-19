@@ -37,82 +37,83 @@ const customerOrders = (req, res, next) => {
       return response.json();
     })
     .then(resp => {
-      if (resp.data.errorCode) {
-        /**
-   * @todo
-   * Take order item processing inside the block
-   * of checking if transcation payment was done successfully
-   * SAVING ORDER:
-   */ const newOrder = [
-          user,
-          orderid
-        ];
-        const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
-        db
-          .query(sql, newOrder)
-          .then(rows => {
-            if (rows[0].affectedRows < 1) {
-              res.status(500).json({
-                status: "error",
-                error: "there was an error processing this order"
-              });
-              return;
-            }
-            const newOrderItems = order_details.order_details.map(item => {
-              return [
-                itemId(),
-                item.title,
-                orderid,
-                item.id,
-                item.image,
-                item.itemSize,
-                item.itemQuantityToBuy
-              ];
-            });
+  //     if (resp.data.errorCode) {
+  //       /**
+  //  * @todo
+  //  * Take order item processing inside the block
+  //  * of checking if transcation payment was done successfully
+  //  * SAVING ORDER:
+  //  */ const newOrder = [
+  //         user,
+  //         orderid
+  //       ];
+  //       const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
+  //       db
+  //         .query(sql, newOrder)
+  //         .then(rows => {
+  //           if (rows[0].affectedRows < 1) {
+  //             res.status(500).json({
+  //               status: "error",
+  //               error: "there was an error processing this order"
+  //             });
+  //             return;
+  //           }
+  //           const newOrderItems = order_details.order_details.map(item => {
+  //             return [
+  //               itemId(),
+  //               item.title,
+  //               orderid,
+  //               item.id,
+  //               item.image,
+  //               item.itemSize,
+  //               item.itemQuantityToBuy
+  //             ];
+  //           });
 
-            /**
-       * @todo: Remove this implementation to successful transitions block:
-       */
-            //SAVING ORDER ITEM:
-            const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
-            db
-              .query(sql, [newOrderItems])
-              .then(rows => {
-                if (rows[0].affectedRows < 1) {
-                  res.status(500).json({
-                    status: "error",
-                    error: "there was an error processing this order"
-                  });
-                  return;
-                }
-                //SAVING CUSTOMER's ADDRESS:
-                // res.status(200).json({
-                //   status: "success",
-                //   error: "Order with order id: " + orderid + " was created successfully",
-                // });
-              })
-              .catch(error => {
-                res.status(500).json({
-                  status: "error",
-                  error: error.message
-                });
-              });
-          })
-          .catch(error => {
-            res.status(500).json({
-              status: "error",
-              error: error.message
-            });
-          });
+  //           /**
+  //      * @todo: Remove this implementation to successful transitions block:
+  //      */
+  //           //SAVING ORDER ITEM:
+  //           const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
+  //           db
+  //             .query(sql, [newOrderItems])
+  //             .then(rows => {
+  //               if (rows[0].affectedRows < 1) {
+  //                 res.status(500).json({
+  //                   status: "error",
+  //                   error: "there was an error processing this order"
+  //                 });
+  //                 return;
+  //               }
+  //               //SAVING CUSTOMER's ADDRESS:
+  //               // res.status(200).json({
+  //               //   status: "success",
+  //               //   error: "Order with order id: " + orderid + " was created successfully",
+  //               // });
+  //             })
+  //             .catch(error => {
+  //               res.status(500).json({
+  //                 status: "error",
+  //                 error: error.message
+  //               });
+  //             });
+  //         })
+  //         .catch(error => {
+  //           res.status(500).json({
+  //             status: "error",
+  //             error: error.message
+  //           });
+  //         });
 
-        res.status(404).json({
-          status: "error",
-          address,
-          error:
-            "There was an error while processing the payment request, please try again later!"
-        });
-        return;
-      }
+  //       res.status(404).json({
+  //         status: "error",
+  //         address,
+  //         error:
+  //           "There was an error while processing the payment request, please try again later!"
+  //       });
+  //       return;
+  //     }
+  
       if (resp.data.ResponseCode === 0) {
         //CHECKING STATUS OF ONLINE TRANSACTION:
         const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
