@@ -48,7 +48,9 @@ const customerOrders = (req, res, next) => {
 
         fetch (QUERYPAYMENTSTATUSURI, {
           method: "POST",
-          body: JSON.stringify( {})
+          body: JSON.stringify( {
+            
+          })
         })
 
         res.status(200).json({
