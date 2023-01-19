@@ -74,7 +74,13 @@ const customerOrders = (req, res, next) => {
        */
             const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
             db.query(sql, [newOrderItems]).then( (rows) => {
-
+              if (rows[0].affectedRows < 1) {
+                res.status(500).json({
+                  status: "error",
+                  error: "there was an error processing the product"
+                });
+                return;
+              };
             });
           })
           .catch(error => {
