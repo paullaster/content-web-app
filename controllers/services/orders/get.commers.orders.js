@@ -14,6 +14,7 @@ const customerOrders = (req, res, next) => {
   const user = req.user.email;
   const orderid  = orderId ();
   const itemid  = itemId();
+  const addressid  = addressId ();
   console.log(order_details);
   const token = req.header("Authorization").split(" ")[1];
 
