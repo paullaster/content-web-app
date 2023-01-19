@@ -34,7 +34,7 @@ const customerOrders = (req, res, next) => {
     ];
   });
 
-
+  console.log(newOrderItems);
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
     phone: paymentDetail.paymentDetail,
