@@ -43,7 +43,7 @@ const customerOrders = (req, res, next) => {
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    */
-  
+        const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
         const newOrderItems = order_details.order_details.map(item => {
           return [
             itemId(),
