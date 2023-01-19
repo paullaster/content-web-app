@@ -15,7 +15,6 @@ const customerOrders = (req, res, next) => {
   const orderid  = orderId ();
   const itemid  = itemId();
   const addressid  = addressId ();
-  console.log();
   const token = req.header("Authorization").split(" ")[1];
 
   /**
