@@ -102,6 +102,10 @@ const customerOrders = (req, res, next) => {
                     });
                     return;
                   }
+                  res.status(200).json({
+                  status: "success",
+                  message: "Order with order id: " + orderid + " was created successfully",
+                });
                 })
                 .catch(error => {
                   res.status(500).json({
