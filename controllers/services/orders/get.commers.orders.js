@@ -90,7 +90,7 @@ const customerOrders = (req, res, next) => {
                   fullname: address.address.firstname + " " + address.address.lastname,
                   phonenumber: address.address.phonenumber,
                   delivery_address: address.address.location_address,
-                  user
+                  customer_id: user
                 };
                 const sql = `INSERT INTO address (addressid, fullname, phonenumber, delivery_address, customer_id) VALUES?`;
                 db.query (sql, newAddress)
