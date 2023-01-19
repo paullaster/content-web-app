@@ -48,7 +48,7 @@ const customerOrders = (req, res, next) => {
     };
         const sql = `INSERT INTO orders SET?`;
         db
-          .query(sql, [orderid, user])
+          .query(sql, newOrder)
           .then(rows => {
             if (rows[0].affectedRows < 1) {
               res.status(500).json({
