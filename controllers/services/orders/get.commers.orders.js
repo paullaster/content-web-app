@@ -30,6 +30,7 @@ const customerOrders = (req, res, next) => {
       orderid,
       item.id,
       item.image,
+      item.itemSize,
     ];
   });
 
