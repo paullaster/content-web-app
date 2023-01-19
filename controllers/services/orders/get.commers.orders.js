@@ -45,6 +45,11 @@ const customerOrders = (req, res, next) => {
         const QUERYPAYMENTSTATUSURI = 
         `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process.env
         .MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
+
+        fetch (QUERYPAYMENTSTATUSURI, {
+          
+        })
+
         res.status(200).json({
           status: "success",
           data: resp.data.CustomerMessage
