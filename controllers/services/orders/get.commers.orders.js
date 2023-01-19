@@ -23,8 +23,8 @@ const customerOrders = (req, res, next) => {
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    */
-  order_details.map ( (item) => {
-
+  const newOrderItems = order_details.map ( (item) => {
+    return [];
   });
 
 
