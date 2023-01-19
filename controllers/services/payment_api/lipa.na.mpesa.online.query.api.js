@@ -26,6 +26,9 @@ const queryLipaNaMpesaOnline = (req, res) => {
         data: response,
       });
     })
+    .catch (error => {
+
+    });
     console.log ("req.body");
 };
 module.exports = queryLipaNaMpesaOnline;
