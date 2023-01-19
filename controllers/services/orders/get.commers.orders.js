@@ -60,7 +60,8 @@ const customerOrders = (req, res, next) => {
               return;
             }
             res.status(4004).json({
-              
+              status: "error",
+              error: "Your payment was not processed successfully!"
             });
           })
           .catch(error => {
