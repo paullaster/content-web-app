@@ -16,6 +16,8 @@ const queryLipaNaMpesaOnline = (req, res) => {
       Password: newPassword(),
       Timestamp: timeStamp(),
       CheckoutRequestID: req.body.CheckoutRequestID
+    },{
+      method: "POST",
     })
     .then( response => {
       return response.json ();
