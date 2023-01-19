@@ -73,7 +73,9 @@ const customerOrders = (req, res, next) => {
        * @todo: Remove this implementation to successful transitions block:
        */
             const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
-            db.query(sql, [newOrderItems]).then();
+            db.query(sql, [newOrderItems]).then( (rows) => {
+              
+            });
           })
           .catch(error => {
             res.status(500).json({
