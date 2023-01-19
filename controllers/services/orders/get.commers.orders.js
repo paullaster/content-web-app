@@ -92,7 +92,7 @@ const customerOrders = (req, res, next) => {
                   delivery_address: address.address.location_address,
                   customer_id: user
                 };
-                const sql = `INSERT INTO address (addressid, fullname, phonenumber, delivery_address, customer_id) VALUES?`;
+                const sql = `INSERT INTO address SET?`;
                 db.query (sql, newAddress)
                 .then ( rows => {
                   if (rows[0].affectedRows < 1) {
