@@ -11,7 +11,7 @@ const addressId = require("../../../utils/create.addressid");
 
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
-
+  const user = req.user;
   const token = req.header("Authorization").split(" ")[1];
 
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
