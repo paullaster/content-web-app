@@ -87,7 +87,7 @@ const customerOrders = (req, res, next) => {
                 //SAVING CUSTOMER's ADDRESS:
                 const newAddress = {
                   addressid: addressId(),
-                  address.address.firstname + " " + address.address.lastname,
+                  fullname: address.address.firstname + " " + address.address.lastname,
                   address.address.phonenumber,
                   address.address.location_address,
                   user
