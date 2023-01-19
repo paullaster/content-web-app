@@ -17,6 +17,7 @@ const customerOrders = (req, res, next) => {
   const token = req.header("Authorization").split(" ")[1];
  const addressArray = [
   address.address.firstname+" "+address.address.lastname,
+  address.address.phonenumber,
   
  ];
  
