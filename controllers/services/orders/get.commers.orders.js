@@ -56,7 +56,7 @@ const customerOrders = (req, res, next) => {
                 error: "there was an error processing the product"
               });
               return;
-            }
+            };
           })
           .catch(error => {
             res.status(500).json({
