@@ -24,7 +24,9 @@ const customerOrders = (req, res, next) => {
    * of checking if transcation payment was done successfully
    */
   const newOrderItems = order_details.map ( (item) => {
-    return [];
+    return [
+      
+    ];
   });
 
 
