@@ -57,7 +57,10 @@ const customerOrders = (req, res, next) => {
           }
         })
         .catch ( error => {
-          
+          res.status(500).json({
+            status: "error",
+            error: error.message
+          });
         });
         const newOrderItems = order_details.order_details.map(item => {
           return [
