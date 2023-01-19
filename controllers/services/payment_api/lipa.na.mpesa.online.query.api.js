@@ -17,6 +17,9 @@ const queryLipaNaMpesaOnline = (req, res) => {
       Timestamp: timeStamp(),
       CheckoutRequestID: req.body.CheckoutRequestID
     })
+    .then( response => {
+      return response.json ();
+    })
     console.log ("req.body");
 };
 module.exports = queryLipaNaMpesaOnline;
