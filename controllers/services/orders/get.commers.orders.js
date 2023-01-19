@@ -42,13 +42,13 @@ const customerOrders = (req, res, next) => {
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
-   */ const newOrder = [
-          user,
-          orderid
-        ];
+  //  */ //const newOrder = [
+  //         user,
+  //         orderid
+  //       ];
         const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
         db
-          .query(sql, newOrder)
+          .query(sql, [user, orderid])
           .then(rows => {
             if (rows[0].affectedRows < 1) {
               res.status(500).json({
