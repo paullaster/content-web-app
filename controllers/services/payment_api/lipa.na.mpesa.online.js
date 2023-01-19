@@ -32,9 +32,9 @@ const lipaNaMpesaOnline = (req, res) => {
       TransactionDesc: "Payment for product purchase"
     },
     {
-      "headers": {
+      headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       }
     }
   )
@@ -42,7 +42,7 @@ const lipaNaMpesaOnline = (req, res) => {
     .then(response => {
       res.status(200).json({
         status: "success",
-        data:response
+        data: response
       });
     })
     .catch(err => {
