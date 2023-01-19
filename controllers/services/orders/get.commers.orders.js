@@ -59,6 +59,7 @@ const customerOrders = (req, res, next) => {
               });
               return;
             }
+            res.status(4004).json({});
           })
           .catch(error => {
             res.status(500).json({
