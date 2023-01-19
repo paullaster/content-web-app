@@ -44,6 +44,7 @@ const customerOrders = (req, res, next) => {
    * of checking if transcation payment was done successfully
    */   const newOrder = [user, orderid];
         const sql = `INSERT INTO orders (orderid, customer_id) VALUES?`;
+        db.query(sql, newOrder)
         const newOrderItems = order_details.order_details.map(item => {
           return [
             itemId(),
