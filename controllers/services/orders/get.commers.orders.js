@@ -53,10 +53,10 @@ const customerOrders = (req, res, next) => {
             if (rows[0].affectedRows < 1) {
               res.status(500).json({
                 status: "error",
-                error: "there was an error processing the product"
+                error: "there was an error processing this order"
               });
               return;
-            };
+            }
             const newOrderItems = order_details.order_details.map(item => {
               return [
                 itemId(),
@@ -73,21 +73,23 @@ const customerOrders = (req, res, next) => {
        * @todo: Remove this implementation to successful transitions block:
        */
             const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
-            db.query(sql, [newOrderItems]).then( (rows) => {
-              if (rows[0].affectedRows < 1) {
+            db
+              .query(sql, [newOrderItems])
+              .then(rows => {
+                if (rows[0].affectedRows < 1) {
+                  res.status(500).json({
+                    status: "error",
+                    error: "there was an error processing this order"
+                  });
+                  return;
+                }
+              })
+              .catch(error => {
                 res.status(500).json({
                   status: "error",
-                  error: "there was an error processing the product"
+                  error: error.message
                 });
-                return;
-              };
-            })
-            .catch(error => {
-              res.status(500).json({
-                status: "error",
-                error: error.message
               });
-            });
           })
           .catch(error => {
             res.status(500).json({
