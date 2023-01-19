@@ -15,7 +15,7 @@ const customerOrders = (req, res, next) => {
   const orderid  = orderId ();
   const itemid  = itemId();
   const addressid  = addressId ();
-  console.log(order_details);
+  console.log(order_details, orderid, addressid, itemid);
   const token = req.header("Authorization").split(" ")[1];
 
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
