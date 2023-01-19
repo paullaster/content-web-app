@@ -18,7 +18,8 @@ const customerOrders = (req, res, next) => {
  const addressArray = [
   address.address.firstname+" "+address.address.lastname,
   address.address.phonenumber,
-  
+  address.address.location_address,
+  user
  ];
  
   console.log (addressArray)
