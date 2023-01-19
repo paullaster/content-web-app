@@ -15,6 +15,7 @@ const queryLipaNaMpesaOnline = (req, res) => {
       BusinessShortCode:process.env.MPESA_BUSINESS_SHORT_CODE,
       Password: newPassword(),
       Timestamp: timeStamp(),
+      CheckoutRequestID:
     })
     console.log ("req.body");
 };
