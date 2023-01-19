@@ -13,9 +13,9 @@ const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
   const user = req.user.email;
   const orderid = orderId();
-  const addressid = addressId();
   const token = req.header("Authorization").split(" ")[1];
  const addressArray = [
+  addressId(),
   address.address.firstname+" "+address.address.lastname,
   address.address.phonenumber,
   address.address.location_address,
