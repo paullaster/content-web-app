@@ -42,10 +42,10 @@ const customerOrders = (req, res, next) => {
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
-    */ const newOrder = [
-          orderid,
-          user,
-        ];
+    */ const newOrder = {
+      orderid :orderid,
+          user
+    };
         const sql = `INSERT INTO orders SET?`;
         db
           .query(sql, [orderid, user])
