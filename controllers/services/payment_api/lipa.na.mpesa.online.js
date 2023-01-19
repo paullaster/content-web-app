@@ -24,20 +24,6 @@ const lipaNaMpesaOnline = (req, res) => {
         Authorization: `Bearer ${token}`
       }
     },
-    {
-      BusinessShortCode: process.env.MPESA_BUSINESS_SHORT_CODE,
-      Password: newPassword(),
-      Timestamp: timeStamp(),
-      TransactionType: "CustomerBuyGoodsOnline",
-      Amount: amount,
-      PartyA: `254${phone}`,
-      PartyB: process.env.MPESA_BUSINESS_SHORT_CODE,
-      PhoneNumber: `254${phone}`,
-      CallBackURL: `https://0341-105-163-156-86.in.ngrok.io/api/payment/${process
-        .env.MPESA_CALL_BACK_API_NAME}`,
-      AccountReference: `254${phone}`,
-      TransactionDesc: "Payment for product purchase"
-    }
   )
     .then(response => response.json())
     .then(response => {
