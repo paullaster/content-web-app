@@ -86,6 +86,9 @@ const customerOrders = (req, res, next) => {
                   return;
                 }
                 //SAVING CUSTOMER's ADDRESS:
+                const newAddress = [
+                  
+                ];
                 const sql = `INSERT INTO address (addressid, fullname, phonenumber, delivery_address, customer_id) VALUES?`;
                 // res.status(200).json({
                 //   status: "success",
