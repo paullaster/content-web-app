@@ -87,7 +87,8 @@ const customerOrders = (req, res, next) => {
                 }
                 //SAVING CUSTOMER's ADDRESS:
                 res.status(200).json({
-                  
+                  status: "success",
+                  error: "Order with order id: " + orderid + " was created successfully",
                 });
               })
               .catch(error => {
