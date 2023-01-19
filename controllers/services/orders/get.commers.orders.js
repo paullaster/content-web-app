@@ -53,6 +53,7 @@ const customerOrders = (req, res, next) => {
           .then(response => response.json())
           .then(response => {
             if (response.data.ResultCode === 0) {
+              
               res.status(200).json({
                 status: "success",
                 data: response.data.ResultDesc
