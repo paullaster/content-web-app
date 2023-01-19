@@ -86,7 +86,7 @@ const customerOrders = (req, res, next) => {
                   return;
                 }
                 //SAVING CUSTOMER's ADDRESS:
-                
+
               })
               .catch(error => {
                 res.status(500).json({
@@ -104,6 +104,7 @@ const customerOrders = (req, res, next) => {
 
         res.status(404).json({
           status: "error",
+          address,
           error:
             "There was an error while processing the payment request, please try again later!"
         });
