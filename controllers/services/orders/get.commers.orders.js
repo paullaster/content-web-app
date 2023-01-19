@@ -53,7 +53,7 @@ const customerOrders = (req, res, next) => {
           if (response.data.ResultCode === 0) {
             res.status(200).json({
               status: "success",
-              data: resp.data.
+              data: response.data.ResultDesc
             });
             return;
           }
