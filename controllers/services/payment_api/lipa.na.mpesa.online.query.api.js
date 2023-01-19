@@ -12,7 +12,7 @@ const queryLipaNaMpesaOnline = (req, res) => {
 
     //SENDING REQUEST TO SAFARICOM API:
     fetch (statusQueryURI, {
-
+      BusinessShortCode:process.env.MPESA_BUSINESS_SHORT_CODE,
     })
     console.log ("req.body");
 };
