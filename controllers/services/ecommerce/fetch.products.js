@@ -5,7 +5,7 @@ const db = require("../../../utils/database.connection");
 const fetchProducts = (req, res) => {
   let query = `SELECT products.productid AS id , products.title AS title, 
     products.description AS description, products.price AS price, 
-    images.path AS image, attributes.variationid AS variation_id, 
+    GROUP_CONCAT(images.path SEPARATOR ',') AS image, attributes.variationid AS variation_id, 
     attributes.color AS color, attributes.size AS size, attributes.quantity AS quantity 
     FROM products 
     JOIN attributes ON attributes.productid = products.productid
