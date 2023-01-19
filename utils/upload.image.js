@@ -17,7 +17,8 @@ const filterExtention = (req, file, cb) => {
         file.mimetype.split('/')[1] === 'jpg'  ||
         file.mimetype.split('/')[1] === 'png'  ||
         file.mimetype.split('/')[1] === 'svg'  ||
-        file.mimetype.split('/')[1] === 'gif'  ) {
+        file.mimetype.split('/')[1] === 'gif'  ||
+        file.mimetype.split('/')[1] === 'webp' ) {
             cb(null, true);
             return;
     }
