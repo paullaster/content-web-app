@@ -55,7 +55,7 @@ const customerOrders = (req, res, next) => {
       item.itemQuantityToBuy
     ];
   });
-  console.log(order_details.order_details);
+  console.log(newOrderItems);
 
         res.status(404).json({
           status: "error",
