@@ -41,7 +41,7 @@ const customerOrders = (req, res, next) => {
       }
       if (resp.data.ResponseCode === "0") {
 
-        
+        //CHECKING STATUS OF ONLINE TRANSACTION:
         res.status(200).json({
           status: "success",
           data: resp.data.CustomerMessage
