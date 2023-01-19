@@ -4,7 +4,7 @@ const fetch = (...args) =>
 require("dotenv").config();
 
 //INTERNAL DEPENDENCIES:
-
+const db = require ("../../../utils/database.connection");
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
 
@@ -53,7 +53,7 @@ const customerOrders = (req, res, next) => {
           .then(response => response.json())
           .then(response => {
             if (response.data.ResultCode === 0) {
-              
+
               res.status(200).json({
                 status: "success",
                 data: response.data.ResultDesc
