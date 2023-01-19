@@ -14,15 +14,7 @@ const customerOrders = (req, res, next) => {
   const user = req.user.email;
   const orderid = orderId();
   const token = req.header("Authorization").split(" ")[1];
- const addressArray = [
-  addressId(),
-  address.address.firstname+" "+address.address.lastname,
-  address.address.phonenumber,
-  address.address.location_address,
-  user
- ];
- 
-  console.log (addressArray)
+  
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
     phone: paymentDetail.paymentDetail,
