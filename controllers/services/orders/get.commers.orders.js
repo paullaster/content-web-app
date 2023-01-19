@@ -12,6 +12,8 @@ const addressId = require("../../../utils/create.addressid");
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
   const user = req.user.email;
+  const orderid  = orderId ();
+  const itemid  = itemId();
   console.log(order_details);
   const token = req.header("Authorization").split(" ")[1];
 
