@@ -20,6 +20,9 @@ const queryLipaNaMpesaOnline = (req, res) => {
     .then( response => {
       return response.json ();
     })
+    .then ( response => {
+      
+    })
     console.log ("req.body");
 };
 module.exports = queryLipaNaMpesaOnline;
