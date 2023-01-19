@@ -85,7 +85,8 @@ const customerOrders = (req, res, next) => {
                   });
                   return;
                 }
-
+                //SAVING CUSTOMER's ADDRESS:
+                
               })
               .catch(error => {
                 res.status(500).json({
