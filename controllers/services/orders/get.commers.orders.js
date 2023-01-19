@@ -6,7 +6,7 @@ require("dotenv").config();
 //INTERNAL DEPENDENCIES:
 const db = require ("../../../utils/database.connection");
 const orderId = require("../../../utils/create.orderid");
-const itemId = require("../../../utils/
+const itemId = require("../../../utils/create.itemid");
 
 const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
