@@ -113,7 +113,7 @@ const customerOrders = (req, res, next) => {
   //       });
   //       return;
   //     }
-  
+      console.log (resp);
       if (resp.data.ResponseCode === 0) {
         //CHECKING STATUS OF ONLINE TRANSACTION:
         const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
