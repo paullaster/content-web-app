@@ -94,7 +94,7 @@ const customerOrders = (req, res, next) => {
                   );
 
                   /**
-       * @todo: Remove this implementation to successful transitions block:
+       * @done: Remove this implementation to successful transitions block:
        */
                   //SAVING ORDER ITEM:
                   const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
