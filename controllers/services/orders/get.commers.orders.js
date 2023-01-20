@@ -37,96 +37,6 @@ const customerOrders = (req, res, next) => {
     })
     .then(resp => {
       if (resp.data.errorCode) {
-        /**
-   * @todo
-   * Take order item processing inside the block
-   * of checking if transcation payment was done successfully
-   * SAVING ORDER:
-    */ const newOrder = {
-      orderid :orderid,
-      customer_id: user
-    };
-        const sql = `INSERT INTO orders SET?`;
-        db
-          .query(sql, newOrder)
-          .then(rows => {
-            if (rows[0].affectedRows < 1) {
-              res.status(500).json({
-                status: "error",
-                error: "there was an error processing this order"
-              });
-              return;
-            }
-            const newOrderItems = order_details.order_details.map(item => {
-              return [
-                itemId(),
-                item.title,
-                orderid,
-                item.id,
-                item.image,
-                item.itemSize,
-                item.itemQuantityToBuy
-              ];
-            });
-
-            /**
-       * @todo: Remove this implementation to successful transitions block:
-       */
-            //SAVING ORDER ITEM:
-            const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
-            db
-              .query(sql, [newOrderItems])
-              .then(rows => {
-                if (rows[0].affectedRows < 1) {
-                  res.status(500).json({
-                    status: "error",
-                    error: "there was an error processing this order"
-                  });
-                  return;
-                }
-                //SAVING CUSTOMER's ADDRESS:
-                const newAddress = {
-                  addressid: addressId(),
-                  fullname: address.address.firstname + " " + address.address.lastname,
-                  phonenumber: address.address.phonenumber,
-                  delivery_address: address.address.location_address,
-                  customer_id: user
-                };
-                const sql = `INSERT INTO address SET?`;
-                db.query (sql, newAddress)
-                .then ( rows => {
-                  if (rows[0].affectedRows < 1) {
-                    res.status(500).json({
-                      status: "error",
-                      error: "there was an error processing this order"
-                    });
-                    return;
-                  }
-                  res.status(200).json({
-                  status: "success",
-                  message: "Order with order id: " + orderid + " was created successfully",
-                });
-                })
-                .catch(error => {
-                  res.status(500).json({
-                    status: "error",
-                    error: error.message
-                  });
-                });
-              })
-              .catch(error => {
-                res.status(500).json({
-                  status: "error",
-                  error: error.message
-                });
-              });
-          })
-          .catch(error => {
-            res.status(500).json({
-              status: "error",
-              error: error.message
-            });
-          });
 
         // res.status(404).json({
         //   status: "error",
@@ -137,6 +47,7 @@ const customerOrders = (req, res, next) => {
         return;
       }
       if (resp.data.ResponseCode === 0) {
+
         //CHECKING STATUS OF ONLINE TRANSACTION:
         const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
           .env.MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
