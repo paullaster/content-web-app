@@ -60,7 +60,7 @@ const customerOrders = (req, res, next) => {
           .then(response => {
             if (response.data.ResultCode === 0) {
               /**
-   * @todo
+   * @done
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
