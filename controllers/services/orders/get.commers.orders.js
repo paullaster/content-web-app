@@ -56,7 +56,7 @@ const customerOrders = (req, res, next) => {
         //   })
         // })
           // .then(response => response.json())
-          .then(response => {
+          // .then(response => {
             if (response.data.ResultCode === 0) {
               /**
    * @done
@@ -163,7 +163,7 @@ const customerOrders = (req, res, next) => {
             //   status: "error",
             //   error: "Your payment was not processed!"
             // });
-          })
+          // })
           // .catch(error => {
           //   res.status(500).json({
           //     status: "error",
