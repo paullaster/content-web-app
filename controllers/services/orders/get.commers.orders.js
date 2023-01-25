@@ -44,7 +44,7 @@ const customerOrders = (req, res, next) => {
       //   });
       //   return;
       // }
-      if (resp.data.ResponseCode === 0) {
+      // if (resp.data.ResponseCode === 0) {
         //CHECKING STATUS OF ONLINE TRANSACTION:
         // const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
         //   .env.MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
@@ -170,7 +170,7 @@ const customerOrders = (req, res, next) => {
           //     error: error.message
           //   });
           // });
-      }
+      // }
       // res.status(500).json({
       //   status: "error",
       //   error:
