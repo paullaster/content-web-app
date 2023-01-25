@@ -21,8 +21,8 @@ const customerOrders = (req, res, next) => {
     amount: amount.amount
   });
 
-  const PAYMENT_URI = `http://localhost:3000/api/payment/${process.env
-    .MPESA_STK_PUSH_URI}`;
+  // const PAYMENT_URI = `http://localhost:3000/api/payment/${process.env
+  //   .MPESA_STK_PUSH_URI}`;
 
   // fetch(PAYMENT_URI, {
   //   method: "POST",
