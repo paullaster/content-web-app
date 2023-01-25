@@ -36,25 +36,25 @@ const customerOrders = (req, res, next) => {
     //   return response.json();
     // })
     .then(resp => {
-      if (resp.data.errorCode) {
-        res.status(404).json({
-          status: "error",
-          error:
-            "There was an error while processing the payment request, please try again later!"
-        });
-        return;
-      }
+      // if (resp.data.errorCode) {
+      //   res.status(404).json({
+      //     status: "error",
+      //     error:
+      //       "There was an error while processing the payment request, please try again later!"
+      //   });
+      //   return;
+      // }
       if (resp.data.ResponseCode === 0) {
         //CHECKING STATUS OF ONLINE TRANSACTION:
-        const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
-          .env.MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
+        // const QUERYPAYMENTSTATUSURI = `https://2fb9-105-163-2-18.in.ngrok.io/api/payment/${process
+        //   .env.MPESA_QUERY_ONLINE_PAYMENT_STATUS}`;
 
-        fetch(QUERYPAYMENTSTATUSURI, {
-          method: "POST",
-          body: JSON.stringify({
-            CheckoutRequestID: resp.data.CheckoutRequestID
-          })
-        })
+        // fetch(QUERYPAYMENTSTATUSURI, {
+        //   method: "POST",
+        //   body: JSON.stringify({
+        //     CheckoutRequestID: resp.data.CheckoutRequestID
+        //   })
+        // })
           .then(response => response.json())
           .then(response => {
             if (response.data.ResultCode === 0) {
