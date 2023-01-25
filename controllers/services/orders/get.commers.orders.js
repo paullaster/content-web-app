@@ -24,17 +24,17 @@ const customerOrders = (req, res, next) => {
   const PAYMENT_URI = `http://localhost:3000/api/payment/${process.env
     .MPESA_STK_PUSH_URI}`;
 
-  fetch(PAYMENT_URI, {
-    method: "POST",
-    body: paymentBody,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + token
-    }
-  })
-    .then(response => {
-      return response.json();
-    })
+  // fetch(PAYMENT_URI, {
+  //   method: "POST",
+  //   body: paymentBody,
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Authorization: "Bearer " + token
+  //   }
+  // })
+    // .then(response => {
+    //   return response.json();
+    // })
     .then(resp => {
       if (resp.data.errorCode) {
         res.status(404).json({
