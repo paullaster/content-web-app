@@ -57,7 +57,7 @@ const customerOrders = (req, res, next) => {
         // })
           // .then(response => response.json())
           // .then(response => {
-            if (response.data.ResultCode === 0) {
+            // if (response.data.ResultCode === 0) {
               /**
    * @done
    * Take order item processing inside the block
