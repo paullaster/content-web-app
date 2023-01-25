@@ -13,7 +13,7 @@ const customerOrders = (req, res, next) => {
   const [order_details, amount, address, paymentDetail] = req.body;
   const user = req.user.email;
   const orderid = orderId();
-  const token = req.header("Authorization").split(" ")[1];
+  // const token = req.header("Authorization").split(" ")[1];
 
   //SENDING DATA TO MPESA EXPRESS API TO MAKE PAYMENTS:
   const paymentBody = JSON.stringify({
