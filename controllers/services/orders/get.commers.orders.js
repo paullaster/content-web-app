@@ -35,7 +35,7 @@ const customerOrders = (req, res, next) => {
     // .then(response => {
     //   return response.json();
     // })
-    .then(resp => {
+    // .then(resp => {
       // if (resp.data.errorCode) {
       //   res.status(404).json({
       //     status: "error",
@@ -55,7 +55,7 @@ const customerOrders = (req, res, next) => {
         //     CheckoutRequestID: resp.data.CheckoutRequestID
         //   })
         // })
-          .then(response => response.json())
+          // .then(response => response.json())
           .then(response => {
             if (response.data.ResultCode === 0) {
               /**
@@ -159,29 +159,29 @@ const customerOrders = (req, res, next) => {
                 });
               return;
             }
-            res.status(404).json({
-              status: "error",
-              error: "Your payment was not processed!"
-            });
+            // res.status(404).json({
+            //   status: "error",
+            //   error: "Your payment was not processed!"
+            // });
           })
-          .catch(error => {
-            res.status(500).json({
-              status: "error",
-              error: error.message
-            });
-          });
+          // .catch(error => {
+          //   res.status(500).json({
+          //     status: "error",
+          //     error: error.message
+          //   });
+          // });
       }
-      res.status(500).json({
-        status: "error",
-        error:
-          "Sorry, We're experiencing error processing your payment request, Please check through your request and try again!"
-      });
-    })
-    .catch(error => {
-      res.status(500).json({
-        status: error,
-        error: error.message
-      });
-    });
+      // res.status(500).json({
+      //   status: "error",
+      //   error:
+      //     "Sorry, We're experiencing error processing your payment request, Please check through your request and try again!"
+      // });
+    // })
+    // .catch(error => {
+    //   res.status(500).json({
+    //     status: error,
+    //     error: error.message
+    //   });
+    // });
 };
 module.exports = customerOrders;
