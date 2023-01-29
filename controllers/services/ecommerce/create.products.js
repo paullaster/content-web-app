@@ -64,9 +64,9 @@ const createProduct = (req, res) => {
             const newImages = req.files.map(file => {
               return [
                 imgId(),
-                file.filename,
                 file.path,
-                productid
+                productid,
+                file.filename,
               ];
             });
               const sql = `INSERT INTO images (imageid, path, product) VALUES?`;
