@@ -63,39 +63,8 @@ const customerOrders = (req, res, next) => {
    * Take order item processing inside the block
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
-    */ const newOrder = {
-                orderid: orderid,
-                customer_id: user
-              };
-              const sql = `INSERT INTO orders SET?`;
-              db
-                .query(sql, newOrder)
-                .then(rows => {
-                  if (rows[0].affectedRows < 1) {
-                    res.status(500).json({
-                      status: "error",
-                      error: "there was an error processing this order"
-                    });
-                    return;
-                  }
-                  const newOrderItems = order_details.order_details.map(
-                    item => {
-                      return [
-                        itemId(),
-                        item.title,
-                        orderid,
-                        item.id,
-                        item.image,
-                        item.itemSize,
-                        item.itemQuantityToBuy
-                      ];
-                    }
-                  );
-
-                  /**
-       * @done: Remove this implementation to successful transitions block:
-       */
-                  //SAVING ORDER ITEM:
+    */ 
+          //SAVING ORDER ITEM:
                   const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
                   db
                     .query(sql, [newOrderItems])
@@ -107,6 +76,36 @@ const customerOrders = (req, res, next) => {
                         });
                         return;
                       }
+                      //SAVING ORDER:
+                      const newOrder = {
+                        orderid: orderid,
+                        customer_id: user
+                      };
+                      const sql = `INSERT INTO orders SET?`;
+                      db
+                        .query(sql, newOrder)
+                        .then(rows => {
+                          if (rows[0].affectedRows < 1) {
+                            res.status(500).json({
+                              status: "error",
+                              error: "there was an error processing this order"
+                            });
+                            return;
+                          }
+                          const newOrderItems = order_details.order_details.map(
+                            item => {
+                              return [
+                                itemId(),
+                                item.title,
+                                orderid,
+                                item.id,
+                                item.image,
+                                item.itemSize,
+                                item.itemQuantityToBuy
+                              ];
+                            }
+                          );
+               
                       //SAVING CUSTOMER's ADDRESS:
                       const newAddress = {
                         addressid: addressId(),
