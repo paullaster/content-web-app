@@ -64,24 +64,13 @@ const customerOrders = (req, res, next) => {
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
     */
-
-  
-  const newOrderItems = order_details.order_details.map(item => {
-    return [
-      itemId(),
-      item.title,
-      orderid,
-      item.id,
-      item.img,
-      item.itemSize,
-      item.itemQuantityToBuy
-    ];
-  });
-  console.log(newOrderItems);
-  //SAVING ORDER ITEM:
-  const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
+  const newOrder = {
+    orderid: orderid,
+    customer_id: user
+  };
+  const sql = `INSERT INTO orders SET?`;
   db
-    .query(sql, [newOrderItems])
+    .query(sql, newOrder)
     .then(rows => {
       if (rows[0].affectedRows < 1) {
         res.status(500).json({
@@ -90,17 +79,23 @@ const customerOrders = (req, res, next) => {
         });
         return;
       }
-      //SAVING CUSTOMER's ADDRESS:
-      const newAddress = {
-        addressid: addressId(),
-        fullname: address.address.firstname + " " + address.address.lastname,
-        phonenumber: address.address.phonenumber,
-        delivery_address: address.address.location_address,
-        customer_id: user
-      };
-      const sql = `INSERT INTO address SET?`;
+
+      const newOrderItems = order_details.order_details.map(item => {
+        return [
+          itemId(),
+          item.title,
+          orderid,
+          item.id,
+          item.img,
+          item.itemSize,
+          item.itemQuantityToBuy
+        ];
+      });
+      console.log(newOrderItems);
+      //SAVING ORDER ITEM:
+      const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
       db
-        .query(sql, newAddress)
+        .query(sql, [newOrderItems])
         .then(rows => {
           if (rows[0].affectedRows < 1) {
             res.status(500).json({
@@ -109,13 +104,18 @@ const customerOrders = (req, res, next) => {
             });
             return;
           }
-          const newOrder = {
-            orderid: orderid,
+          //SAVING CUSTOMER's ADDRESS:
+          const newAddress = {
+            addressid: addressId(),
+            fullname:
+              address.address.firstname + " " + address.address.lastname,
+            phonenumber: address.address.phonenumber,
+            delivery_address: address.address.location_address,
             customer_id: user
           };
-          const sql = `INSERT INTO orders SET?`;
+          const sql = `INSERT INTO address SET?`;
           db
-            .query(sql, newOrder)
+            .query(sql, newAddress)
             .then(rows => {
               if (rows[0].affectedRows < 1) {
                 res.status(500).json({
