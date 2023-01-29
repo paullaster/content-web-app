@@ -69,7 +69,7 @@ const createProduct = (req, res) => {
                 file.filename,
               ];
             });
-              const sql = `INSERT INTO images (imageid, path, product) VALUES?`;
+              const sql = `INSERT INTO images (imageid, path, product, name) VALUES?`;
               db
                 .query(sql, [newImages])
                 .then(rows => {
