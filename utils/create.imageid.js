@@ -1,4 +1,4 @@
-const blogId = () => {
+const imageId = () => {
     const statement = 'imgs';
     let randNumber = [];
     for ( let i = 0; randNumber.length < 4; i++ ) {
@@ -8,4 +8,4 @@ const blogId = () => {
     
     return statement + '' + randNumber.join('');
 };
-module.exports = blogId;
+module.exports = imageId;
