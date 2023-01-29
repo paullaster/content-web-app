@@ -65,7 +65,7 @@ const customerOrders = (req, res, next) => {
    * SAVING ORDER:
     */
 
-  console.log(order_details)
+  console.log(order_details);
   const newOrderItems = order_details.order_details.map(item => {
     return [
       itemId(),
