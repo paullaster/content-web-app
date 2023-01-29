@@ -3,15 +3,15 @@ const db = require("../../../utils/database.connection");
 
 //Find all products
 const fetchProducts = (req, res) => {
-  let query = "SELECT products.productid AS id , products.title AS title,"+ 
-    "products.description AS description, products.price AS price, "+
-    "GROUP_CONCAT( DISTINCT images.path SEPARATOR ',') AS image, attributes.variationid AS variation_id,"+ 
-    "attributes.color AS color, attributes.size AS size, attributes.quantity AS quantity"+ 
-   " FROM products" +
-    "JOIN attributes ON attributes.productid = products.productid"+
-    "JOIN images ON images.product = products.productid GROUP BY" +
-    "products.productid , products.title, "+
-    "products.description, products.price";
+  let query = `SELECT products.productid AS id , products.title AS title, 
+    products.description AS description, products.price AS price, 
+    GROUP_CONCAT( DISTINCT images.path SEPARATOR ',') AS image, attributes.variationid AS variation_id, 
+    attributes.color AS color, attributes.size AS size, attributes.quantity AS quantity 
+    FROM products 
+    JOIN attributes ON attributes.productid = products.productid
+    JOIN images ON images.product = products.productid GROUP BY 
+    products.productid , products.title, 
+    products.description, products.price`;
   db
     .query(query)
     .then(rows => {
