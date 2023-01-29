@@ -105,43 +105,6 @@ const customerOrders = (req, res, next) => {
                               ];
                             }
                           );
-               
-                      //SAVING CUSTOMER's ADDRESS:
-                      const newAddress = {
-                        addressid: addressId(),
-                        fullname:
-                          address.address.firstname +
-                          " " +
-                          address.address.lastname,
-                        phonenumber: address.address.phonenumber,
-                        delivery_address: address.address.location_address,
-                        customer_id: user
-                      };
-                      const sql = `INSERT INTO address SET?`;
-                      db
-                        .query(sql, newAddress)
-                        .then(rows => {
-                          if (rows[0].affectedRows < 1) {
-                            res.status(500).json({
-                              status: "error",
-                              error: "there was an error processing this order"
-                            });
-                            return;
-                          }
-                          res.status(200).json({
-                            status: "success",
-                            message:
-                              "Order with order id: " +
-                              orderid +
-                              " was created successfully"
-                          });
-                        })
-                        .catch(error => {
-                          res.status(500).json({
-                            status: "error",
-                            error: error.message
-                          });
-                        });
                     })
                     .catch(error => {
                       res.status(500).json({
