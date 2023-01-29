@@ -22,12 +22,15 @@ const fetchProducts = (req, res) => {
         });
         return;
       }
-      res.status(200).header({
-        'Access-Control-Allow-Origin': "*"
-      }).json({
-        status: "success",
-        data: rows[0]
-      });
+      res
+        .status(200)
+        .header({
+          "Access-Control-Allow-Origin": "*"
+        })
+        .json({
+          status: "success",
+          data: rows[0]
+        });
     })
     .catch(err => {
       res.status(500).json({
