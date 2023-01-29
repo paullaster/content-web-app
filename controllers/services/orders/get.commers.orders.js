@@ -64,22 +64,6 @@ const customerOrders = (req, res, next) => {
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
     */
-  const newOrder = {
-    orderid: orderid,
-    customer_id: user
-  };
-  const sql = `INSERT INTO orders SET?`;
-  db
-    .query(sql, newOrder)
-    .then(rows => {
-      if (rows[0].affectedRows < 1) {
-        res.status(500).json({
-          status: "error",
-          error: "there was an error processing this order"
-        });
-        return;
-      }
-
       const newOrderItems = order_details.order_details.map(item => {
         return [
           itemId(),
@@ -124,6 +108,22 @@ const customerOrders = (req, res, next) => {
                 });
                 return;
               }
+              const newOrder = {
+                orderid: orderid,
+                customer_id: user
+              };
+              const sql = `INSERT INTO orders SET?`;
+              db
+                .query(sql, newOrder)
+                .then(rows => {
+                  if (rows[0].affectedRows < 1) {
+                    res.status(500).json({
+                      status: "error",
+                      error: "there was an error processing this order"
+                    });
+                    return;
+                  }
+            
               res.status(200).json({
                 status: "success",
                 message:
