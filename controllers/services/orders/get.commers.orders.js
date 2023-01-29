@@ -64,6 +64,23 @@ const customerOrders = (req, res, next) => {
    * of checking if transcation payment was done successfully
    * SAVING ORDER:
     */ 
+                  const newOrderItems = order_details.order_details.map(
+                    item => {
+                      return [
+                        itemId(),
+                        item.title,
+                        orderid,
+                        item.id,
+                        item.image,
+                        item.itemSize,
+                        item.itemQuantityToBuy
+                      ];
+                    }
+                  );
+
+                  /**
+       * @done: Remove this implementation to successful transitions block:
+       */
                   //SAVING ORDER ITEM:
                   const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
                   db
@@ -113,23 +130,6 @@ const customerOrders = (req, res, next) => {
                                 });
                                 return;
                               }
-                              const newOrderItems = order_details.order_details.map(
-                                item => {
-                                  return [
-                                    itemId(),
-                                    item.title,
-                                    orderid,
-                                    item.id,
-                                    item.image,
-                                    item.itemSize,
-                                    item.itemQuantityToBuy
-                                  ];
-                                }
-                              );
-            
-                              /**
-                   * @done: Remove this implementation to successful transitions block:
-                   */
                           res.status(200).json({
                             status: "success",
                             message:
