@@ -77,6 +77,7 @@ const customerOrders = (req, res, next) => {
       item.itemQuantityToBuy
     ];
   });
+  console.log(newOrderItems);
   //SAVING ORDER ITEM:
   const sql = `INSERT INTO order_item (itemid, name, orderid, productid, image, size, quantity) VALUES?`;
   db
