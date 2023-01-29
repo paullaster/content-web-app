@@ -63,6 +63,7 @@ const createProduct = (req, res) => {
             };
             const newImages = req.files.map(file => {
               return [
+                imgId(),
                 file.filename,
                 file.path,
                 productid
