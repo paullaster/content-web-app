@@ -76,14 +76,20 @@ const customerOrders = (req, res, next) => {
                         });
                         return;
                       }
-                      //SAVING ORDER:
-                      const newOrder = {
-                        orderid: orderid,
+                      //SAVING CUSTOMER's ADDRESS:
+                      const newAddress = {
+                        addressid: addressId(),
+                        fullname:
+                          address.address.firstname +
+                          " " +
+                          address.address.lastname,
+                        phonenumber: address.address.phonenumber,
+                        delivery_address: address.address.location_address,
                         customer_id: user
                       };
-                      const sql = `INSERT INTO orders SET?`;
+                      const sql = `INSERT INTO address SET?`;
                       db
-                        .query(sql, newOrder)
+                        .query(sql, newAddress)
                         .then(rows => {
                           if (rows[0].affectedRows < 1) {
                             res.status(500).json({
@@ -92,19 +98,20 @@ const customerOrders = (req, res, next) => {
                             });
                             return;
                           }
-                          const newOrderItems = order_details.order_details.map(
-                            item => {
-                              return [
-                                itemId(),
-                                item.title,
-                                orderid,
-                                item.id,
-                                item.image,
-                                item.itemSize,
-                                item.itemQuantityToBuy
-                              ];
-                            }
-                          );
+                          res.status(200).json({
+                            status: "success",
+                            message:
+                              "Order with order id: " +
+                              orderid +
+                              " was created successfully"
+                          });
+                        })
+                        .catch(error => {
+                          res.status(500).json({
+                            status: "error",
+                            error: error.message
+                          });
+                        });
                     })
                     .catch(error => {
                       res.status(500).json({
