@@ -85,8 +85,7 @@ const customerOrders = (req, res, next) => {
           itemId(),
           item.title,
           orderid,
-          // item.id,
-          "prod1095",
+          item.id,
           item.img,
           item.itemSize,
           item.itemQuantityToBuy
